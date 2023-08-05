@@ -3,9 +3,8 @@
 Familiarize-se com o código anexo, que simula uma pequena CPU, que será usada durante o desenvolvimento da disciplina.
 
 Para auxiliar na familiarização com o código, implemente um novo dispositivo, que fornece um número aleatório a cada leitura.
-Altere o programa de adivinhação para usar esse dispositivo. **Esse é o E1**.
-
-Para auxiliar na familiarização com a CPU, implemente um programa que lê 10 valores desse aleatórios e imprime os 10 valores no terminal. Pode aumentar o grau de dificuldade imprimindo eles em ordem crescente.
+Altere o programa de adivinhação para usar esse dispositivo.
+Para auxiliar na familiarização com a CPU, implemente um programa que lê 10 valores desse novo dispositivo e imprime os 10 valores no terminal. Pode aumentar o grau de dificuldade imprimindo eles em ordem crescente.
 
 
 ### Descrição sucinta
@@ -18,7 +17,7 @@ A CPU tem 3 registradores, que podem conter um valor `int`:
 Além desses, tem um registrador de erro, para quando a CPU detecta algum problema, e um registrador complementar, para quando o registrador de erro não é suficiente para codificar o problema.
 Todos os registradores são inicializados em 0.
 
-A memória é organizada em vetor de `int`, endereçados a partir de 0.
+A memória é organizada como um vetor de `int`, endereçados a partir de 0.
 
 A E/S é realizada com o uso de instruções dedicadas.
 Estão implementados dois dispositivos de E/S: uma console, com suporte a alguns terminais (de 2 linhas cada) e um relógio, que conta o número de intruções executadas.
