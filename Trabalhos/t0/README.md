@@ -25,7 +25,7 @@ Estão implementados dois dispositivos de E/S: uma console, com suporte a alguns
 As instruções que o processador reconhece (por enquanto) estão na tabela abaixo.
 
 Uma intrução pode ocupar uma ou duas posições de memória.
-A primeira é o código da instrução (campo `código` na tabela, o valor em `mem[PC]`), a segunda é o argumento da instrução (o valor em mem[PC+1], chamado A1 na tabela).
+A primeira é o código da instrução (campo `código` na tabela, o valor em `mem[PC]`), a segunda é o argumento da instrução (o valor em `mem[PC+1]`, chamado `A1` na tabela).
 O campo `#arg` da tabela contém 0 para instruções sem argumento e 1 para as que ocupam duas posições.
 
 Ao final da execução bem sucedida de uma instrução, caso não seja uma instrução de desvio que causou a alteração do PC, o PC é incrementado para apontar para a instrução seguinte (levando em consideração o número de argumentos da instrução).
