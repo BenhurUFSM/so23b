@@ -73,7 +73,7 @@ Os módulos são:
 - **err**, define um tipo para codificar os erros
 - **instrucao**, com nomes e códigos das instruções
 - **programa**, carrega programas executáveis (.maq)
-- **teste.c**, um programa para testar os módulos acima, inicializa o hardware, carrega um programa na memória e dispara a execução do laço principal do controlador. Tem que ser alterado para trocar o programa a executar
+- **teste.c**, um programa para testar os módulos acima, inicializa o hardware, carrega um programa na memória e dispara a execução do laço principal do controlador. Tem que ser alterado para trocar o programa a executar. A função `main` está nesse arquivo
 - **montador.c**, um montador para transformar programas .asm em .maq (em linguagem de máquina)
 - **ex\*.asm**, programinhas de teste em linguagem de montagem
 - **Makefile**, para facilitar a compilação da tralha toda (coloque todos esses arquivos em um diretório e execute o programa 'make' nesse diretório, se tudo der certo, um executável 'teste' será gerado, além de 'montador' e um .maq para cada .asm)
