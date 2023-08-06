@@ -33,30 +33,30 @@ Ao final da execução bem sucedida de uma instrução, caso não seja uma instr
 | código |   nome | #arg | operação  | descrição |
 | -----: | :----- | :--: | :-------- | :-------- |
 |      0 | NOP    | 0    | -         | não faz nada |
-|      1 | PARA   | 0    | err=ERR_CPU_PARADA | para a CPU |
-|      2 | CARGI  | 1    | A=A1      | carrega imediato |
-|      3 | CARGM  | 1    | A=mem[A1] | carrega da memória |
-|      4 | CARGX  | 1    | A=mem[A1+X] | carrega indexado |
-|      5 | ARMM   | 1    | mem[A1]=A | armazena na memória |
-|      6 | ARMX   | 1    | mem[A1+X]=A | armazena indexado |
-|      7 | TRAX   | 0    | X<->A       | troca A com X |
-|      8 | CPXA   | 0    | A=X       | copia X para A |
+|      1 | PARA   | 0    | err = ERR_CPU_PARADA | para a CPU |
+|      2 | CARGI  | 1    | A = A1      | carrega imediato |
+|      3 | CARGM  | 1    | A = mem[A1] | carrega da memória |
+|      4 | CARGX  | 1    | A = mem[A1+X] | carrega indexado |
+|      5 | ARMM   | 1    | mem[A1] = A | armazena na memória |
+|      6 | ARMX   | 1    | mem[A1+X] = A | armazena indexado |
+|      7 | TRAX   | 0    | X ⇄ A       | troca A com X |
+|      8 | CPXA   | 0    | A = X       | copia X para A |
 |      9 | INCX   | 0    | X++       | incrementa X |
-|     10 | SOMA   | 1    | A+=mem[A1] | soma |
-|     11 | SUB    | 1    | A-=mem[A1] | subtração |
-|     12 | MULT   | 1    | A\*=mem[A1] | multiplicação |
-|     13 | DIV    | 1    | A/=mem[A1] | quociente da divisão |
-|     14 | RESTO  | 1    | A%=mem[A1] | resto da divisão |
-|     15 | NEG    | 0    | A=-A       | negação |
-|     16 | DESV   | 1    | PC=A1      | desvio |
-|     17 | DESVZ  | 1    | se A for 0, PC=A1 | desvio condicional |
-|     18 | DESVNZ | 1    | se A não for 0, PC=A1 | desvio condicional |
-|     19 | DESVN  | 1    | se A < 0, PC=A1 | desvio condicional |
-|     20 | DESVP  | 1    | se A > 0, PC=A1 | desvio condicional |
-|     21 | CHAMA  | 1    | mem[A1]=PC+2; PC=A1+1 | chama subrotina |
-|     22 | RET    | 1    | PC=mem[A1] | retorna de subrotina |
-|     23 | LE     | 1    | A=es[A1]   | leitura do dispositivo A1 |
-|     24 | ESCR   | 1    | es[A1]=A   | escrita no dispositivo A1 |
+|     10 | SOMA   | 1    | A += mem[A1] | soma |
+|     11 | SUB    | 1    | A -= mem[A1] | subtração |
+|     12 | MULT   | 1    | A \*= mem[A1] | multiplicação |
+|     13 | DIV    | 1    | A /= mem[A1] | quociente da divisão |
+|     14 | RESTO  | 1    | A %= mem[A1] | resto da divisão |
+|     15 | NEG    | 0    | A = -A       | negação |
+|     16 | DESV   | 1    | PC = A1      | desvio |
+|     17 | DESVZ  | 1    | se A for 0, PC = A1 | desvio condicional |
+|     18 | DESVNZ | 1    | se A não for 0, PC = A1 | desvio condicional |
+|     19 | DESVN  | 1    | se A < 0, PC = A1 | desvio condicional |
+|     20 | DESVP  | 1    | se A > 0, PC = A1 | desvio condicional |
+|     21 | CHAMA  | 1    | mem[A1] = PC+2; PC = A1+1 | chama subrotina |
+|     22 | RET    | 1    | PC = mem[A1] | retorna de subrotina |
+|     23 | LE     | 1    | A = es[A1]   | leitura do dispositivo A1 |
+|     24 | ESCR   | 1    | es[A1] = A   | escrita no dispositivo A1 |
 
 A CPU só executa uma instrução se o registrador de erro indicar que a CPU não está em erro (valor ERR_OK).
 A execução de uma instrução pode colocar a CPU em erro, por tentativa de execução de instrução ilegal, acesso a posição inválida de memória, acesso a dispositivo de E/S inexistente, etc. 
@@ -158,28 +158,29 @@ Essas funções têm acesso aos registradores e à memória para realizar essa s
 As instruções que têm argumento (A1 na tabela de instruções) podem obtê-lo na posição PC+1 da memória.
 Cada função é também responsável por atualizar o valor do PC caso a execução da instrução tenha transcorrido sem erro.
 
-As instruções de E/S (LE e ESCR) acessam os dispositivos através do módulo `es`.
-Para serem acessíveis os dispositivos devem antes ser registrados no módulo `es`. 
+As instruções de E/S (LE e ESCR) acessam os dispositivos através do módulo controlador de E/S `es`.
+Para serem acessíveis, os dispositivos devem antes ser registrados nesse módulo. 
 Isso é feito na inicialização do controlador, em `controle.c`, com chamadas a `es_registra_dispositivo`, contendo como argumentos o número com que esse dispositivo vai ser identificado nas instruções de E/S, o controlador desse dispositivo, o número com que esse dispositivo é identificado pelo controlador, e as funções que devem ser usadas para ler ou escrever nesse dispositivo.
 Tem dois controladores implementados, um para ler e escrever números no terminal (em `console`) e um para ler o valor do relógio (`relogio`). Esse último controla dois dispositivos, um relógio que conta as instruções executadas e outro que conta milisegundos.
 
-O controlador de terminais tem suporte a vários terminais (está definido com 4).
+O controlador de terminais (em console.c) tem suporte a vários terminais (está definido com 4).
 Cada terminal tem 4 dispositivos:
 - leitura do próximo caractere do teclado - fornece o próximo caractere que já foi digitado; caso não tenha caractere disponível, a CPU será colocada em erro
 - leitura da disponibilidade de caracteres do teclado - fornece o valor 1 caso exista algum caractere digitado e ainda não lido, 0 caso contrário
 - escrita de um caractere na tela - escreve um caractere na tela, se ela estiver disponível (ela fica indisponível enquanto está rolando), ou coloca a CPU em erro
 - leitura de disponibilidade da tela - fornece o valor 1 caso a tela aceite um novo caractere, 0 caso contrário
 
-Esses dispositivos são identificados como 0, 1, 2 e 3 para o primeiro terminal, 4, 5, 6 e 7 para o segundo etc.
+Esses dispositivos são identificados respectivamente como 0, 1, 2 e 3 para o primeiro terminal, 4, 5, 6 e 7 para o segundo etc.
+Essa é a identificação dos dispositivos no controlador de terminais (console.c). A identificação deles para a CPU depende de como eles forem registrados no controlador de E/S.
 
 #### Console
 
-A console mostra a E/S dos terminais, o estado interno da CPU, mensagens do restante do programa, além de permitir o controle da execução.
+Além de realizar a E/S dos terminais, a console mostra o estado interno da CPU, mensagens do restante do simulador, além de permitir o controle da execução.
 O controle da execução é realizado pelo operador com a entrada textual de comandos na console.
 Cada comando é digitado em uma linha, terminada por `enter`. A linha pode ser editada antes do `enter` com `backspace`.
 Existem 2 comandos para controle dos terminais e 4 para controle da execução:
 - **E**, entrada de uma linha em um terminal (exemplo: `eaxis` coloca uma linha com o valor `xis\n` na entrada do terminal `a`, o primeiro)
-- **Z**, limpa a tela de um terminal (exemplo: `zb` limpa a saída (uma linha na tela) do segundo terminal)
+- **Z**, limpa a tela de um terminal (exemplo: `zb` limpa a saída (uma linha na tela) do segundo terminal, `b`)
 - **P**, para a execução, o controlador não vai mais mandar a CPU executar instruções em seu laço (a execução inicia nesse modo)
 - **1**, o controlador vai executar uma instrução e depois parar
 - **C**, o controlador vai continuar a execução das instruções uma após a outra
