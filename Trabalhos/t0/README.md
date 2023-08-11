@@ -1,5 +1,9 @@
 ## t0 - simulador de uma CPU
 
+    Alterações:
+    - 11ago: refatoração da inicialização do hardware
+      os módulos de hardware estavam sendo criados pela unidade de controle, o que não faz muito sentido, já que ela é parte do hardware também. Isso passou para `main.c` (novo nome do `teste.c`).
+
 Familiarize-se com o código anexo, que simula uma pequena CPU, que será usada durante o desenvolvimento da disciplina.
 
 Para auxiliar na familiarização com o código, implemente um novo dispositivo, que fornece um número aleatório a cada leitura.
@@ -64,7 +68,7 @@ A execução de uma instrução pode colocar a CPU em erro, por tentativa de exe
 
 A implementação está dividida em vários módulos, cada um implementado em um arquivo `.h` que contém a declaração de um tipo opaco e de funções para operar sobre dados desse tipo, e em um arquivo `.c` de mesmo nome, que define o tipo e implementa as funções do `.h`.
 Os módulos são:
-- **controle**, o controlador da execução do hardware, contém a inicialização dos demais módulos e o laço de execução das instruções
+- **controle**, o controlador da execução do hardware, contém o laço de execução das instruções
 - **cpu**, o executor de instruções, a função principal desse módulo é a que executa uma instrução, que é chamada frequentemente pelo controlador
 - **memoria**, a memória principal do processador
 - **es**, o controlador de E/S, faz o meio campo entre a CPU e os dispositivos de E/S; para que a CPU possa acessar um dispositivo, ele deve antes ser registrado neste módulo
@@ -73,16 +77,16 @@ Os módulos são:
 - **err**, define um tipo para codificar os erros
 - **instrucao**, com nomes e códigos das instruções
 - **programa**, carrega programas executáveis (.maq)
-- **teste.c**, um programa para testar os módulos acima, inicializa o hardware, carrega um programa na memória e dispara a execução do laço principal do controlador. Tem que ser alterado para trocar o programa a executar. A função `main` está nesse arquivo
+- **main.c**, um programa para testar os módulos acima, inicializa o hardware, carrega um programa na memória e dispara a execução do laço principal do controlador. Tem que ser alterado para trocar o programa a executar. A função `main` está nesse arquivo
 - **montador.c**, um montador para transformar programas .asm em .maq (em linguagem de máquina)
 - **ex\*.asm**, programinhas de teste em linguagem de montagem
-- **Makefile**, para facilitar a compilação da tralha toda (coloque todos esses arquivos em um diretório e execute o programa 'make' nesse diretório, se tudo der certo, um executável 'teste' será gerado, além de 'montador' e um .maq para cada .asm)
+- **Makefile**, para facilitar a compilação da tralha toda (coloque todos esses arquivos em um diretório e execute o programa 'make' nesse diretório, se tudo der certo, um executável 'main' será gerado, além de 'montador' e um .maq para cada .asm)
 
 O make é meio exigente com o formato do Makefile, as linhas que não iniciam na coluna 1 tem que iniciar com um caractere tab.
 Se tiver tendo problemas pra compilar, aqui tá o que o make faz:
 ```
 [benhur@nababinho t0]$ make
-gcc -Wall -Werror   -c -o teste.o teste.c
+gcc -Wall -Werror   -c -o main.o main.c
 gcc -Wall -Werror   -c -o cpu.o cpu.c
 gcc -Wall -Werror   -c -o es.o es.c
 gcc -Wall -Werror   -c -o memoria.o memoria.c
@@ -92,7 +96,7 @@ gcc -Wall -Werror   -c -o instrucao.o instrucao.c
 gcc -Wall -Werror   -c -o err.o err.c
 gcc -Wall -Werror   -c -o programa.o programa.c
 gcc -Wall -Werror   -c -o controle.o controle.c
-gcc   teste.o cpu.o es.o memoria.o relogio.o console.o instrucao.o err.o programa.o controle.o  -lcurses -o teste
+gcc   main.o cpu.o es.o memoria.o relogio.o console.o instrucao.o err.o programa.o controle.o  -lcurses -o main
 gcc -Wall -Werror   -c -o montador.o montador.c
 gcc   montador.o instrucao.o err.o  -lcurses -o montador
 ./montador ex1.asm > ex1.maq

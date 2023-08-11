@@ -7,23 +7,17 @@
 // concentra os dispositivos de hardware
 
 
-#define MEM_TAM 2000        // tamanho da memória principal
-
 typedef struct controle_t controle_t;
 
 #include "memoria.h"
 #include "cpu.h"
-#include "es.h"
+#include "console.h"
+#include "relogio.h"
 
-controle_t *controle_cria(void);
+controle_t *controle_cria(cpu_t *cpu, console_t *console, relogio_t *relogio);
 void controle_destroi(controle_t *self);
 
 // o laço principal da simulação
 void controle_laco(controle_t *self);
-
-// funções de acesso aos componentes do hardware
-mem_t *controle_mem(controle_t *self);
-cpu_t *controle_cpu(controle_t *self);
-es_t *controle_es(controle_t *self);
 
 #endif // CONTROLE_H

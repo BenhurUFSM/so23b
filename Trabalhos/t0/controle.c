@@ -1,23 +1,13 @@
 #include "controle.h"
-#include "memoria.h"
-#include "cpu.h"
-#include "relogio.h"
-#include "console.h"
-#include "es.h"
-#include "instrucao.h"
 
 #include <stdlib.h>
 #include <string.h>
 #include <stdio.h>
 
-
-
 struct controle_t {
-  mem_t *mem;
   cpu_t *cpu;
   relogio_t *relogio;
   console_t *console;
-  es_t *es;
   enum { executando, passo, parado, fim } estado;
 };
 
@@ -26,37 +16,14 @@ static void controle_processa_teclado(controle_t *self);
 static void controle_atualiza_console(controle_t *self);
 
 
-controle_t *controle_cria(void)
+controle_t *controle_cria(cpu_t *cpu, console_t *console, relogio_t *relogio)
 {
   controle_t *self = malloc(sizeof(*self));
   if (self == NULL) return NULL;
 
-  // cria a memória
-  self->mem = mem_cria(MEM_TAM);
-
-  // cria dispositivos de E/S
-  self->console = console_cria();
-  self->relogio = rel_cria();
-
-  // cria o controlador de E/S e registra os dispositivos
-  self->es = es_cria();
-  // lê teclado, testa teclado, escreve tela, testa tela do terminal A
-  es_registra_dispositivo(self->es, 0, self->console, 0, term_le, NULL);
-  es_registra_dispositivo(self->es, 1, self->console, 1, term_le, NULL);
-  es_registra_dispositivo(self->es, 2, self->console, 2, NULL, term_escr);
-  es_registra_dispositivo(self->es, 3, self->console, 3, term_le, NULL);
-  // lê teclado, testa teclado, escreve tela, testa tela do terminal B
-  es_registra_dispositivo(self->es, 4, self->console, 4, term_le, NULL);
-  es_registra_dispositivo(self->es, 5, self->console, 5, term_le, NULL);
-  es_registra_dispositivo(self->es, 6, self->console, 6, NULL, term_escr);
-  es_registra_dispositivo(self->es, 7, self->console, 7, term_le, NULL);
-  // lê relógio virtual, relógio real
-  es_registra_dispositivo(self->es, 8, self->relogio, 0, rel_le, NULL);
-  es_registra_dispositivo(self->es, 9, self->relogio, 1, rel_le, NULL);
-
-  // cria a unidade de execução e inicializa com a memória e E/S
-  self->cpu = cpu_cria(self->mem, self->es);
-
+  self->cpu = cpu;
+  self->console = console;
+  self->relogio = relogio;
   self->estado = parado;
 
   return self;
@@ -64,28 +31,7 @@ controle_t *controle_cria(void)
 
 void controle_destroi(controle_t *self)
 {
-  // destroi todo mundo!
-  cpu_destroi(self->cpu);
-  es_destroi(self->es);
-  console_destroi(self->console);
-  rel_destroi(self->relogio);
-  mem_destroi(self->mem);
   free(self);
-}
-
-mem_t *controle_mem(controle_t *self)
-{
-  return self->mem;
-}
-
-cpu_t *controle_cpu(controle_t *self)
-{
-  return self->cpu;
-}
-
-es_t *controle_es(controle_t *self)
-{
-  return self->es;
 }
 
 void controle_laco(controle_t *self)
@@ -131,7 +77,7 @@ static void controle_processa_teclado(controle_t *self)
 
 static void controle_atualiza_console(controle_t *self)
 {
-  char *s = cpu_descricao(self->cpu);
-  console_print_status(self->console, s);
+  char *status = cpu_descricao(self->cpu);
+  console_print_status(self->console, status);
   console_atualiza(self->console);
 }
