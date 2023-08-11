@@ -1,8 +1,8 @@
 ## t0 - simulador de uma CPU
 
-    Alterações:
-    - 11ago: refatoração da inicialização do hardware
-      os módulos de hardware estavam sendo criados pela unidade de controle, o que não faz muito sentido, já que ela é parte do hardware também. Isso passou para `main.c` (novo nome do `teste.c`).
+>    Alterações:
+>    - 11ago: refatoração da inicialização do hardware
+>      os módulos de hardware estavam sendo criados pela unidade de controle, o que não faz muito sentido, já que ela é parte do hardware também. Isso passou para `main.c` (novo nome de `teste.c`).
 
 Familiarize-se com o código anexo, que simula uma pequena CPU, que será usada durante o desenvolvimento da disciplina.
 
@@ -14,9 +14,9 @@ Para auxiliar na familiarização com a CPU, implemente um programa que lê 10 v
 ### Descrição sucinta
 
 A CPU tem 3 registradores, que podem conter um valor `int`:
-- PC, o contador de programa, tem o endereço da próxima instrução
-- A, acumulador, é usado nas instruções aritméticas, e meio que pra todo o resto
-- X, registrador auxiliar, usado para acessos indexados à memória
+- **PC**, o contador de programa, tem o endereço da próxima instrução
+- **A**, acumulador, é usado nas instruções aritméticas, e meio que pra todo o resto
+- **X**, registrador auxiliar, usado para acessos indexados à memória
 
 Além desses, tem um registrador de erro, para quando a CPU detecta algum problema, e um registrador complementar, para quando o registrador de erro não é suficiente para codificar o problema.
 Todos os registradores são inicializados em 0.
