@@ -35,7 +35,8 @@ Ver [aqui](https://www.ufsm.br/ementario/disciplinas/ELC1080/).
 
 |    N |   data | assunto
 | ---: | :----: | :--------
-|    1 |  8ago  | introdução
+|    1 |  8ago  | introdução (até seção 1.1 do livro)
+|    2 | 10ago  | introdução (até seção 1.2 do livro)
 
 ## Trabalhos, provas, exercícios
 
