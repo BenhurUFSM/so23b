@@ -274,7 +274,7 @@ static int term(char c)
 
 static void insere_str_no_term(console_t *self, char c, char *str)
 {
-  // insere caracteres no terminal (e \n no final)
+  // insere caracteres no terminal (e espaço no final)
   int t = term(c);
   if (t == -1) {
     console_printf(self, "Terminal '%c' inválido\n", c);
@@ -285,7 +285,7 @@ static void insere_str_no_term(console_t *self, char c, char *str)
     insere_char_no_term(self, t, *p);
     p++;
   }
-  insere_char_no_term(self, t, '\n');
+  insere_char_no_term(self, t, ' ');
 }
 
 static void limpa_saida_do_term(console_t *self, char c)
