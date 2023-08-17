@@ -37,6 +37,8 @@ Ver [aqui](https://www.ufsm.br/ementario/disciplinas/ELC1080/).
 | ---: | :----: | :--------
 |    1 |  8ago  | introdução (até seção 1.1 do livro)
 |    2 | 10ago  | introdução (até seção 1.2 do livro)
+|    3 | 15ago  | introdução (até seção 1.3 do livro)
+|    4 | 17ago  | código do t0
 
 ## Trabalhos, provas, exercícios
 
