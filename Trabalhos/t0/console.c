@@ -22,7 +22,7 @@
 #define N_LIN_CONSOLE (N_LIN - N_LIN_TERM - N_LIN_STATUS - N_LIN_ENTRADA)
 
 // linha onde começa cada componente
-#define LINHA_TERM    1
+#define LINHA_TERM    0
 #define LINHA_STATUS  (LINHA_TERM + N_LIN_TERM)
 #define LINHA_CONSOLE (LINHA_STATUS + N_LIN_STATUS)
 #define LINHA_ENTRADA (LINHA_CONSOLE + N_LIN_CONSOLE)
