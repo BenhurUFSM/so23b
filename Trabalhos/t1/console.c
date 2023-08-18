@@ -22,7 +22,7 @@
 #define N_LIN_CONSOLE (N_LIN - N_LIN_TERM - N_LIN_STATUS - N_LIN_ENTRADA)
 
 // linha onde começa cada componente
-#define LINHA_TERM    1
+#define LINHA_TERM    0
 #define LINHA_STATUS  (LINHA_TERM + N_LIN_TERM)
 #define LINHA_CONSOLE (LINHA_STATUS + N_LIN_STATUS)
 #define LINHA_ENTRADA (LINHA_CONSOLE + N_LIN_CONSOLE)
@@ -274,7 +274,7 @@ static int term(char c)
 
 static void insere_str_no_term(console_t *self, char c, char *str)
 {
-  // insere caracteres no terminal (e \n no final)
+  // insere caracteres no terminal (e espaço no final)
   int t = term(c);
   if (t == -1) {
     console_printf(self, "Terminal '%c' inválido\n", c);
@@ -285,7 +285,7 @@ static void insere_str_no_term(console_t *self, char c, char *str)
     insere_char_no_term(self, t, *p);
     p++;
   }
-  insere_char_no_term(self, t, '\n');
+  insere_char_no_term(self, t, ' ');
 }
 
 static void limpa_saida_do_term(console_t *self, char c)

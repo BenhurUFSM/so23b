@@ -72,7 +72,7 @@ int main()
   // cria o hardware
   cria_hardware();
   // coloca um programa na memória
-  init_mem(hardware.mem, "ex6.maq");
+  init_mem(hardware.mem, "ex1.maq");
   
   controle_laco(hardware.controle);
       
