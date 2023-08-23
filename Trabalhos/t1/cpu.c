@@ -343,6 +343,18 @@ static void op_ESCR(cpu_t *self) // escrita de E/S
   }
 }
 
+// declara uma função auxiliar (só para a interrupção e o retorno ficarem perto)
+static void cpu_desinterrompe(cpu_t *self);
+
+static void op_RETI(cpu_t *self) // retorno de interrupção
+{
+  if (self->modo == usuario) {
+    self->erro = ERR_INSTR_PRIV;
+    return;
+  }
+  cpu_desinterrompe(self);
+}
+
 
 err_t cpu_executa_1(cpu_t *self)
 {
@@ -378,6 +390,7 @@ err_t cpu_executa_1(cpu_t *self)
     case RET:    op_RET(self);    break;
     case LE:     op_LE(self);     break;
     case ESCR:   op_ESCR(self);   break;
+    case RETI:   op_RETI(self);   break;
     default:     self->erro = ERR_INSTR_INV;
   }
 
@@ -398,4 +411,17 @@ void cpu_interrompe(cpu_t *self, irq_t irq)
   self->erro = ERR_OK;
   self->modo = supervisor;
   self->PC = 10;
+}
+
+static void cpu_desinterrompe(cpu_t *self)
+{
+  int dado;
+  mem_le(self->mem, 0, &self->PC);
+  mem_le(self->mem, 1, &self->A);
+  mem_le(self->mem, 2, &self->X);
+  mem_le(self->mem, 3, &dado);
+  self->erro = dado;
+  mem_le(self->mem, 4, &self->complemento);
+  mem_le(self->mem, 5, &dado);
+  self->modo = dado;
 }

@@ -33,6 +33,7 @@ struct {
   { "RET",    1,  RET    },
   { "LE",     1,  LE     },
   { "ESCR",   1,  ESCR   },
+  { "RETI",   0,  RETI   },
   // pseudo-instrucoes
   { "VALOR",  1,  VALOR  },
   { "STRING", 1,  STRING },

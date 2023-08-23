@@ -13,3 +13,4 @@
       - altera o registrador de erro para ERR_OK
       - altera o modo para supervisor
       - altera o PC para 10 (o tratador de interrupção deve ser colocado aí)
+- implementação de nova instrução, RETI, retorna de interrupção
