@@ -383,3 +383,19 @@ err_t cpu_executa_1(cpu_t *self)
 
   return self->erro;
 }
+
+void cpu_interrompe(cpu_t *self, irq_t irq)
+{
+  // esta é uma CPU boazinha, salva todo o estado interno da CPU
+  mem_escreve(self->mem, 0, self->PC);
+  mem_escreve(self->mem, 1, self->A);
+  mem_escreve(self->mem, 2, self->X);
+  mem_escreve(self->mem, 3, self->erro);
+  mem_escreve(self->mem, 4, self->complemento);
+  mem_escreve(self->mem, 5, self->modo);
+
+  self->A = irq;
+  self->erro = ERR_OK;
+  self->modo = supervisor;
+  self->PC = 10;
+}
