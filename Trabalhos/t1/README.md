@@ -14,3 +14,4 @@
       - altera o modo para supervisor
       - altera o PC para 10 (o tratador de interrupção deve ser colocado aí)
 - implementação de nova instrução, RETI, retorna de interrupção
+- a CPU gera uma interrupção interna caso detecte um erro em modo usuário, em vez de repassar para o controlador

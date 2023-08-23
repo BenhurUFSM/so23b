@@ -394,6 +394,9 @@ err_t cpu_executa_1(cpu_t *self)
     default:     self->erro = ERR_INSTR_INV;
   }
 
+  if (self->erro != ERR_OK && self->modo == usuario) {
+    cpu_interrompe(self, IRQ_ERR_CPU);
+  }
   return self->erro;
 }
 
