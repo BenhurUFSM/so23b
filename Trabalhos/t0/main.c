@@ -4,6 +4,7 @@
 #include "cpu.h"
 #include "relogio.h"
 #include "console.h"
+#include "aleatorio.h"
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -22,17 +23,18 @@ static struct {
   console_t *console;
   es_t *es;
   controle_t *controle;
+  aleatorio_t *aleatorio;
 } hardware;
 
 void cria_hardware()
 {
-
   // cria a memória
   hardware.mem = mem_cria(MEM_TAM);
 
   // cria dispositivos de E/S
   hardware.console = console_cria();
   hardware.relogio = rel_cria();
+  hardware.aleatorio = aleatorio_cria();
 
   // cria o controlador de E/S e registra os dispositivos
   hardware.es = es_cria();
@@ -49,7 +51,8 @@ void cria_hardware()
   // lê relógio virtual, relógio real
   es_registra_dispositivo(hardware.es, 8, hardware.relogio, 0, rel_le, NULL);
   es_registra_dispositivo(hardware.es, 9, hardware.relogio, 1, rel_le, NULL);
-
+  //lê gerador de números aleatórios
+  es_registra_dispositivo(hardware.es, 15, hardware.aleatorio, 1, aleatorio_le, NULL);
   // cria a unidade de execução e inicializa com a memória e E/S
   hardware.cpu = cpu_cria(hardware.mem, hardware.es);
 
@@ -72,7 +75,7 @@ int main()
   // cria o hardware
   cria_hardware();
   // coloca um programa na memória
-  init_mem(hardware.mem, "ex1.maq");
+  init_mem(hardware.mem, "ex5.maq");
   
   controle_laco(hardware.controle);
       
