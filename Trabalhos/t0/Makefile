@@ -2,7 +2,7 @@ CC = gcc
 CFLAGS = -Wall -Werror
 LDLIBS = -lcurses
 
-OBJS = cpu.o es.o memoria.o relogio.o console.o instrucao.o err.o \
+OBJS = cpu.o es.o memoria.o relogio.o aleatorio.o console.o instrucao.o err.o \
 			 main.o programa.o controle.o
 OBJS_MONT = instrucao.o err.o montador.o
 MAQS = ex1.maq ex2.maq ex3.maq ex4.maq ex5.maq ex6.maq
