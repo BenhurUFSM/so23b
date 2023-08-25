@@ -24,7 +24,7 @@ void aleatorio_destroi(aleatorio_t *self)
 
 void aleatorio_gerar(aleatorio_t *self)
 {
-  self->numero = rand() % 100;
+  self->numero = (rand() % 100)+1;
 }
 
 int aleatorio_numero(aleatorio_t *self)
