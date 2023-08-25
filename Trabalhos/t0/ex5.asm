@@ -6,11 +6,15 @@ TECL    DEFINE 4
 TECLOK  DEFINE 5
 TELA    DEFINE 6
 TELAOK  DEFINE 7
+ALEATORIO DEFINE 15
 
 LIMPA   DEFINE 10 ; \n, limpa a linha
 
          cargi str1
          chama escstr
+         le ALEATORIO
+         armm segredo
+         
 laco     chama lechute
          chama vechute
          desvz laco
