@@ -40,6 +40,8 @@ int mem_pos = 0;        // próxima posição livre da memória
 int mem_min = -1;       // menor endereço preenchido
 int mem_max = -1;       // maior endereço preenchido
 
+char *nome_fonte;   // nome do arquivo fonte a montar
+
 // coloca um valor no final da memória
 void mem_insere(int val)
 {
@@ -365,13 +367,36 @@ void monta_arquivo(char *nome)
   ref_resolve();
 }
 
+void verifica_args(int argc, char *argv[argc])
+{
+  for (int argi = 1; argi < argc; argi++) {
+    if (strcmp(argv[argi], "-e") == 0) {
+      argi++;
+      if (argi >= argc) {
+        fprintf(stderr, "ERRO: falta endereço após '-e'\n");
+        exit(1);
+      }
+      char *fim = argv[argi];
+      mem_pos = strtol(fim, &fim, 0);
+      if (*fim != '\0') {
+        fprintf(stderr, "ERRO: endereço inválido: '%s'\n", argv[argi]);
+        exit(1);
+      }
+    } else {
+      nome_fonte = argv[argi];
+    }
+  }
+  if (nome_fonte == NULL) {
+    fprintf(stderr, "ERRO: chame como '%s [-e end.inicial] nome_do_arquivo'\n",
+            argv[0]);
+    exit(1);
+  }
+}
+
 int main(int argc, char *argv[argc])
 {
-  if (argc != 2) {
-    fprintf(stderr, "ERRO: chame como '%s nome_do_arquivo'\n", argv[0]);
-    return 1;
-  }
-  monta_arquivo(argv[1]);
+  verifica_args(argc, argv);
+  monta_arquivo(nome_fonte);
   mem_imprime();
   return 0;
 }
