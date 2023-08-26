@@ -3,6 +3,7 @@
 
 // os motivos para uma requisição de interrupção (irq) ser gerada
 typedef enum {
+  IRQ_RESET,         // inicialização da CPU
   IRQ_ERR_CPU,       // erro interno na CPU (ver registrador de erro)
   IRQ_SISTEMA,       // chamada de sistema
   IRQ_RELOGIO,       // interrupção causada pelo relógio

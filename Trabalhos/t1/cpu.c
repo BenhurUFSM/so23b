@@ -26,14 +26,17 @@ cpu_t *cpu_cria(mem_t *mem, es_t *es)
   cpu_t *self;
   self = malloc(sizeof(*self));
   if (self != NULL) {
+    self->mem = mem;
+    self->es = es;
+    // inicializa registradores
     self->PC = 0;
     self->A = 0;
     self->X = 0;
     self->erro = ERR_OK;
     self->complemento = 0;
     self->modo = supervisor;
-    self->mem = mem;
-    self->es = es;
+    // gera uma interrupção de reset
+    cpu_interrompe(self, IRQ_RESET);
   }
   return self;
 }
