@@ -34,6 +34,7 @@ struct {
   { "LE",     1,  LE     },
   { "ESCR",   1,  ESCR   },
   { "RETI",   0,  RETI   },
+  { "CHAMAC", 0,  CHAMAC },
   // pseudo-instrucoes
   { "VALOR",  1,  VALOR  },
   { "STRING", 1,  STRING },

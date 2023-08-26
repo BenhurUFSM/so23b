@@ -16,4 +16,4 @@
 - a CPU gera uma interrupção interna caso detecte um erro em modo usuário, em vez de repassar para o controlador
 - a CPU inicia gerando uma interrupção IRQ_RESET
 - o montador tem a opção '-e endereço', para definir o endereço de carga do programa
-
+- implementação de nova instrução, CHAMAC, que permite ao programa em assembly chamar código compilado; gambiarra para poder implementar o SO em C, simulando que ele está sendo executado pelo processadorzinho (instrução privilegiada). Colocada uma operação na API da CPU para informar a função a ser chamada.

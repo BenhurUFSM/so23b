@@ -19,6 +19,9 @@ struct cpu_t {
   // acesso a dispositivos externos
   mem_t *mem;
   es_t *es;
+  // função e argumento para implementar instrução CHAMAC
+  func_chamaC_t funcaoC;
+  void *argC;
 };
 
 cpu_t *cpu_cria(mem_t *mem, es_t *es)
@@ -35,6 +38,7 @@ cpu_t *cpu_cria(mem_t *mem, es_t *es)
     self->erro = ERR_OK;
     self->complemento = 0;
     self->modo = supervisor;
+    self->funcaoC = NULL;
     // gera uma interrupção de reset
     cpu_interrompe(self, IRQ_RESET);
   }
@@ -358,6 +362,19 @@ static void op_RETI(cpu_t *self) // retorno de interrupção
   cpu_desinterrompe(self);
 }
 
+static void op_CHAMAC(cpu_t *self) // chama função em C
+{
+  if (self->modo == usuario) {
+    self->erro = ERR_INSTR_PRIV;
+    return;
+  }
+  if (self->funcaoC == NULL) {
+    self->erro = ERR_OP_INV;
+    return;
+  }
+  self->A = self->funcaoC(self->argC, self->A);
+}
+
 
 err_t cpu_executa_1(cpu_t *self)
 {
@@ -394,6 +411,7 @@ err_t cpu_executa_1(cpu_t *self)
     case LE:     op_LE(self);     break;
     case ESCR:   op_ESCR(self);   break;
     case RETI:   op_RETI(self);   break;
+    case CHAMAC: op_CHAMAC(self); break;
     default:     self->erro = ERR_INSTR_INV;
   }
 
@@ -431,3 +449,10 @@ static void cpu_desinterrompe(cpu_t *self)
   mem_le(self->mem, 5, &dado);
   self->modo = dado;
 }
+
+void cpu_define_chamaC(cpu_t *self, func_chamaC_t funcaoC, void *argC)
+{
+  self->funcaoC = funcaoC;
+  self->argC = argC;
+}
+

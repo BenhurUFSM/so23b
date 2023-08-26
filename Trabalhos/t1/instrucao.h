@@ -42,6 +42,7 @@ typedef enum {
   LE     = 23, // 2   leitura de E/S         A=es[A1]
   ESCR   = 24, // 2   escrita de E/S         es[A1]=A
   RETI   = 25, // 1   retorno de interrupção restaura estado da CPU
+  CHAMAC = 26, // 1   chama função C         simula código compilado
   // pseudo-instruções
   VALOR,
   STRING,
