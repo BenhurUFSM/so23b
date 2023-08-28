@@ -82,7 +82,7 @@ static err_t so_trata_interrupcao(void *argC, int reg_A)
 static err_t so_trata_irq_reset(so_t *self)
 {
   // coloca um programa na memória
-  so_carrega_programa(self, "ex1.maq");
+  so_carrega_programa(self, "ex3.maq");
   // altera o PC para o endereço de carga (deve ter sido 100)
   mem_escreve(self->mem, IRQ_END_PC, 100);
   // passa o processador para modo usuário
@@ -100,7 +100,7 @@ static err_t so_trata_irq_err_cpu(so_t *self)
   mem_le(self->mem, IRQ_END_erro, &err_int);
   err_t err = err_int;
   console_printf(self->console,
-      "SO: erro não tratado na CPU: %s", err_nome(err));
+      "SO: IRQ não tratada -- erro na CPU: %s", err_nome(err));
   return ERR_CPU_PARADA;
 }
 
@@ -147,6 +147,11 @@ static void so_chamada_le(so_t *self)
     int estado;
     term_le(self->console, 1, &estado);
     if (estado != 0) break;
+    // como não está saindo do SO, o laço do processador não tá rodando
+    // esta gambiarra faz o console andar, mas se algum comando para o 
+    // controlador for digitado, vai ser ignorado
+    console_processa_entrada(self->console);
+    console_atualiza(self->console);
   }
   int dado;
   term_le(self->console, 0, &dado);
@@ -163,6 +168,11 @@ static void so_chamada_escr(so_t *self)
     int estado;
     term_le(self->console, 3, &estado);
     if (estado != 0) break;
+    // como não está saindo do SO, o laço do processador não tá rodando
+    // esta gambiarra faz o console andar, mas se algum comando para o 
+    // controlador for digitado, vai ser ignorado
+    console_processa_entrada(self->console);
+    console_atualiza(self->console);
   }
   int dado;
   mem_le(self->mem, IRQ_END_X, &dado);
