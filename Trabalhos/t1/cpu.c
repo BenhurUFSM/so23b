@@ -372,10 +372,17 @@ static void op_CHAMAC(cpu_t *self) // chama função em C
     self->erro = ERR_OP_INV;
     return;
   }
-  self->A = self->funcaoC(self->argC, self->A);
+  self->erro = self->funcaoC(self->argC, self->A);
   self->PC += 1;
 }
 
+static void op_CHAMAS(cpu_t *self) // chamada de sistema
+{
+  self->PC += 1;
+  // causa uma interrupção, para forçar a execução do SO
+  cpu_interrompe(self, IRQ_SISTEMA);
+
+}
 
 err_t cpu_executa_1(cpu_t *self)
 {
@@ -413,6 +420,7 @@ err_t cpu_executa_1(cpu_t *self)
     case ESCR:   op_ESCR(self);   break;
     case RETI:   op_RETI(self);   break;
     case CHAMAC: op_CHAMAC(self); break;
+    case CHAMAS: op_CHAMAS(self); break;
     default:     self->erro = ERR_INSTR_INV;
   }
 
