@@ -15,68 +15,70 @@
 // funções auxiliares
 static void init_mem(mem_t *mem, char *nome_do_executavel);
 
-static struct {
+typedef struct {
   mem_t *mem;
   cpu_t *cpu;
   relogio_t *relogio;
   console_t *console;
   es_t *es;
   controle_t *controle;
-} hardware;
+} hardware_t;
 
-void cria_hardware()
+void cria_hardware(hardware_t *hw)
 {
 
   // cria a memória
-  hardware.mem = mem_cria(MEM_TAM);
+  hw->mem = mem_cria(MEM_TAM);
 
   // cria dispositivos de E/S
-  hardware.console = console_cria();
-  hardware.relogio = rel_cria();
+  hw->console = console_cria();
+  hw->relogio = rel_cria();
 
   // cria o controlador de E/S e registra os dispositivos
-  hardware.es = es_cria();
+  hw->es = es_cria();
   // lê teclado, testa teclado, escreve tela, testa tela do terminal A
-  es_registra_dispositivo(hardware.es, 0, hardware.console, 0, term_le, NULL);
-  es_registra_dispositivo(hardware.es, 1, hardware.console, 1, term_le, NULL);
-  es_registra_dispositivo(hardware.es, 2, hardware.console, 2, NULL, term_escr);
-  es_registra_dispositivo(hardware.es, 3, hardware.console, 3, term_le, NULL);
+  es_registra_dispositivo(hw->es, 0, hw->console, 0, term_le, NULL);
+  es_registra_dispositivo(hw->es, 1, hw->console, 1, term_le, NULL);
+  es_registra_dispositivo(hw->es, 2, hw->console, 2, NULL, term_escr);
+  es_registra_dispositivo(hw->es, 3, hw->console, 3, term_le, NULL);
   // lê teclado, testa teclado, escreve tela, testa tela do terminal B
-  es_registra_dispositivo(hardware.es, 4, hardware.console, 4, term_le, NULL);
-  es_registra_dispositivo(hardware.es, 5, hardware.console, 5, term_le, NULL);
-  es_registra_dispositivo(hardware.es, 6, hardware.console, 6, NULL, term_escr);
-  es_registra_dispositivo(hardware.es, 7, hardware.console, 7, term_le, NULL);
+  es_registra_dispositivo(hw->es, 4, hw->console, 4, term_le, NULL);
+  es_registra_dispositivo(hw->es, 5, hw->console, 5, term_le, NULL);
+  es_registra_dispositivo(hw->es, 6, hw->console, 6, NULL, term_escr);
+  es_registra_dispositivo(hw->es, 7, hw->console, 7, term_le, NULL);
   // lê relógio virtual, relógio real
-  es_registra_dispositivo(hardware.es, 8, hardware.relogio, 0, rel_le, NULL);
-  es_registra_dispositivo(hardware.es, 9, hardware.relogio, 1, rel_le, NULL);
+  es_registra_dispositivo(hw->es, 8, hw->relogio, 0, rel_le, NULL);
+  es_registra_dispositivo(hw->es, 9, hw->relogio, 1, rel_le, NULL);
 
   // cria a unidade de execução e inicializa com a memória e E/S
-  hardware.cpu = cpu_cria(hardware.mem, hardware.es);
+  hw->cpu = cpu_cria(hw->mem, hw->es);
 
   // cria o controlador e inicializa com a CPU
-  hardware.controle = controle_cria(hardware.cpu, hardware.console, hardware.relogio);
+  hw->controle = controle_cria(hw->cpu, hw->console, hw->relogio);
 }
 
-void destroi_hardware()
+void destroi_hardware(hardware_t *hw)
 {
-  controle_destroi(hardware.controle);
-  cpu_destroi(hardware.cpu);
-  es_destroi(hardware.es);
-  rel_destroi(hardware.relogio);
-  console_destroi(hardware.console);
-  mem_destroi(hardware.mem);
+  controle_destroi(hw->controle);
+  cpu_destroi(hw->cpu);
+  es_destroi(hw->es);
+  rel_destroi(hw->relogio);
+  console_destroi(hw->console);
+  mem_destroi(hw->mem);
 }
 
 int main()
 {
+  hardware_t hw;
+
   // cria o hardware
-  cria_hardware();
+  cria_hardware(&hw);
   // coloca um programa na memória
   init_mem(hardware.mem, "ex1.maq");
   
-  controle_laco(hardware.controle);
+  controle_laco(hw.controle);
       
-  destroi_hardware();
+  destroi_hardware(&hw);
   return 0;
 }
 
