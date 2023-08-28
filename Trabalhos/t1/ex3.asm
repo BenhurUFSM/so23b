@@ -24,16 +24,18 @@ impstr1
          DESV impstr1
 impstrf  RET impstr
 
-; imprime o caractere em A (não altera X)
+; função que chama o SO para imprimir o caractere em A
+; retorna em A o código de erro do SO
+; não altera o valor de X
+SO_ESCR  define 2  ; ver so.h
 impch    espaco 1
-         ; salva o caractere
-         ARMM impcht
-         ; espera o terminal ficar livre
-impch1   LE telaOK
-         DESVZ impch1
-         ; imprime o caractere salvo
-         CARGM impcht
-         ESCR tela
-         RET impch
-impcht   espaco 1
-         
+         trax
+         armm impch_X
+         cargi SO_ESCR
+         chamas
+         trax
+         cargm impch_X
+         trax
+         ret impch
+impch_X  espaco 1 ; para salvar o valor de X
+
