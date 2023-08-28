@@ -111,14 +111,63 @@ static err_t so_trata_irq_desconhecida(so_t *self, int irq)
   return ERR_CPU_PARADA;
 }
 
+// Chamadas de sistema
+
+static void so_chamada_le(so_t *self);
+static void so_chamada_escr(so_t *self);
+
 static err_t so_trata_chamada_sistema(so_t *self)
 {
   int id_chamada;
   mem_le(self->mem, IRQ_END_A, &id_chamada);
   console_printf(self->console,
       "SO: chamada de sistema %d", id_chamada);
-  return ERR_CPU_PARADA;
+  switch (id_chamada) {
+    case SO_LE:
+      so_chamada_le(self);
+      break;
+    case SO_ESCR:
+      so_chamada_escr(self);
+      break;
+    default:
+      console_printf(self->console,
+          "SO: chamada de sistema desconhecida (%d)", id_chamada);
+      return ERR_CPU_PARADA;
+  }
   return ERR_OK;
+}
+
+static void so_chamada_le(so_t *self)
+{
+  // implementação com espera ocupada
+  //   deveria bloquear o processo se leitura não disponível
+  // implementação lendo direto do terminal A
+  //   deveria usar dispositivo corrente de entrada do processo
+  for (;;) {
+    int estado;
+    term_le(self->console, 1, &estado);
+    if (estado != 0) break;
+  }
+  int dado;
+  term_le(self->console, 0, &dado);
+  mem_escreve(self->mem, IRQ_END_A, dado);
+}
+
+static void so_chamada_escr(so_t *self)
+{
+  // implementação com espera ocupada
+  //   deveria bloquear o processo se dispositivo ocupado
+  // implementação escrevendo direto do terminal A
+  //   deveria usar dispositivo corrente de saída do processo
+  for (;;) {
+    int estado;
+    term_le(self->console, 3, &estado);
+    if (estado != 0) break;
+  }
+  int dado;
+  mem_le(self->mem, IRQ_END_X, &dado);
+  term_escr(self->console, 2, dado);
+  mem_escreve(self->mem, IRQ_END_A, 0);
 }
 
 
