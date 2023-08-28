@@ -373,6 +373,7 @@ static void op_CHAMAC(cpu_t *self) // chama função em C
     return;
   }
   self->A = self->funcaoC(self->argC, self->A);
+  self->PC += 1;
 }
 
 
@@ -424,12 +425,12 @@ err_t cpu_executa_1(cpu_t *self)
 void cpu_interrompe(cpu_t *self, irq_t irq)
 {
   // esta é uma CPU boazinha, salva todo o estado interno da CPU
-  mem_escreve(self->mem, 0, self->PC);
-  mem_escreve(self->mem, 1, self->A);
-  mem_escreve(self->mem, 2, self->X);
-  mem_escreve(self->mem, 3, self->erro);
-  mem_escreve(self->mem, 4, self->complemento);
-  mem_escreve(self->mem, 5, self->modo);
+  mem_escreve(self->mem, IRQ_END_PC,          self->PC);
+  mem_escreve(self->mem, IRQ_END_A,           self->A);
+  mem_escreve(self->mem, IRQ_END_X,           self->X);
+  mem_escreve(self->mem, IRQ_END_erro,        self->erro);
+  mem_escreve(self->mem, IRQ_END_complemento, self->complemento);
+  mem_escreve(self->mem, IRQ_END_modo,        self->modo);
 
   self->A = irq;
   self->erro = ERR_OK;
@@ -440,13 +441,13 @@ void cpu_interrompe(cpu_t *self, irq_t irq)
 static void cpu_desinterrompe(cpu_t *self)
 {
   int dado;
-  mem_le(self->mem, 0, &self->PC);
-  mem_le(self->mem, 1, &self->A);
-  mem_le(self->mem, 2, &self->X);
-  mem_le(self->mem, 3, &dado);
+  mem_le(self->mem, IRQ_END_PC,          &self->PC);
+  mem_le(self->mem, IRQ_END_A,           &self->A);
+  mem_le(self->mem, IRQ_END_X,           &self->X);
+  mem_le(self->mem, IRQ_END_erro,        &dado);
   self->erro = dado;
-  mem_le(self->mem, 4, &self->complemento);
-  mem_le(self->mem, 5, &dado);
+  mem_le(self->mem, IRQ_END_complemento, &self->complemento);
+  mem_le(self->mem, IRQ_END_modo,        &dado);
   self->modo = dado;
 }
 
