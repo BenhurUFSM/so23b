@@ -14,6 +14,8 @@ typedef enum {
   N_IRQ              // número de interrupções
 } irq_t;
 
+char *irq_nome(irq_t irq);
+
 #define IRQ_END_PC          0
 #define IRQ_END_A           1
 #define IRQ_END_X           2
