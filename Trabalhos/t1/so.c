@@ -14,31 +14,9 @@ struct so_t {
 
 // funções auxiliares
 static bool so_carrega_programa(so_t *self, char *nome_do_executavel);
+static err_t so_trata_interrupcao(void *argC, int reg_A);
 
 
-
-// função a ser chamada pela CPU quando executa a instrução CHAMAC
-// essa instrução só deve ser executada quando for tratar uma interrupção
-// o primeiro argumento é um ponteiro para o SO, o segundo é a identificação
-//   da interrupção
-// na inicialização do SO é colocada no endereço 10 uma rotina que executa
-//   CHAMAC; quando recebe uma interrupção, a CPU salva os registradores
-//   no endereço 0, e desvia para o endereço 10
-static int so_trata_interrupcao(void *argC, int reg_A)
-{
-  so_t *self = argC;
-  irq_t irq = reg_A;
-  console_printf(self->console, "SO: recebi IRQ %d", irq);
-  if (irq == IRQ_RESET) {
-    // coloca um programa na memória
-    so_carrega_programa(self, "ex1.maq");
-    // altera o PC para o endereço de carga (deve ter sido 100)
-    mem_escreve(self->mem, IRQ_END_PC, 100);
-    // passa o processador para modo usuário
-    mem_escreve(self->mem, IRQ_END_modo, usuario);
-  }
-  return 0;
-}
 
 so_t *so_cria(cpu_t *cpu, mem_t *mem, console_t *console)
 {
@@ -63,6 +41,87 @@ void so_destroi(so_t *self)
   free(self);
 }
 
+
+// Tratamento de interrupção
+
+// funções auxiliares para tratar cada tipo de interrupção
+static err_t so_trata_irq_reset(so_t *self);
+static err_t so_trata_irq_err_cpu(so_t *self);
+static err_t so_trata_irq_desconhecida(so_t *self, int irq);
+static err_t so_trata_chamada_sistema(so_t *self);
+
+// função a ser chamada pela CPU quando executa a instrução CHAMAC
+// essa instrução só deve ser executada quando for tratar uma interrupção
+// o primeiro argumento é um ponteiro para o SO, o segundo é a identificação
+//   da interrupção
+// na inicialização do SO é colocada no endereço 10 uma rotina que executa
+//   CHAMAC; quando recebe uma interrupção, a CPU salva os registradores
+//   no endereço 0, e desvia para o endereço 10
+static err_t so_trata_interrupcao(void *argC, int reg_A)
+{
+  so_t *self = argC;
+  irq_t irq = reg_A;
+  err_t err;
+  console_printf(self->console, "SO: recebi IRQ %d (%s)", irq, irq_nome(irq));
+  switch (irq) {
+    case IRQ_RESET:
+      err = so_trata_irq_reset(self);
+      break;
+    case IRQ_ERR_CPU:
+      err = so_trata_irq_err_cpu(self);
+      break;
+    case IRQ_SISTEMA:
+      err = so_trata_chamada_sistema(self);
+      break;
+    default:
+      err = so_trata_irq_desconhecida(self, irq);
+  }
+  return err;
+}
+
+static err_t so_trata_irq_reset(so_t *self)
+{
+  // coloca um programa na memória
+  so_carrega_programa(self, "ex1.maq");
+  // altera o PC para o endereço de carga (deve ter sido 100)
+  mem_escreve(self->mem, IRQ_END_PC, 100);
+  // passa o processador para modo usuário
+  mem_escreve(self->mem, IRQ_END_modo, usuario);
+  return ERR_OK;
+}
+
+static err_t so_trata_irq_err_cpu(so_t *self)
+{
+  // Ocorreu um erro interno na CPU
+  // O erro está codificado em IRQ_END_erro
+  // Em geral, causa a morte do processo que causou o erro
+  // Ainda não temos processos, causa a parada da CPU
+  int err_int;
+  mem_le(self->mem, IRQ_END_erro, &err_int);
+  err_t err = err_int;
+  console_printf(self->console,
+      "SO: erro não tratado na CPU: %s", err_nome(err));
+  return ERR_CPU_PARADA;
+}
+
+static err_t so_trata_irq_desconhecida(so_t *self, int irq)
+{
+  console_printf(self->console,
+      "SO: não sei tratar IRQ %d (%s)", irq, irq_nome(irq));
+  return ERR_CPU_PARADA;
+}
+
+static err_t so_trata_chamada_sistema(so_t *self)
+{
+  int id_chamada;
+  mem_le(self->mem, IRQ_END_A, &id_chamada);
+  console_printf(self->console,
+      "SO: chamada de sistema %d", id_chamada);
+  return ERR_CPU_PARADA;
+  return ERR_OK;
+}
+
+
 // carrega o programa na memória
 static bool so_carrega_programa(so_t *self, char *nome_do_executavel)
 {
@@ -85,5 +144,7 @@ static bool so_carrega_programa(so_t *self, char *nome_do_executavel)
     }
   }
   prog_destroi(prog);
+  console_printf(self->console,
+      "SO: carga de '%s' em %d-%d", nome_do_executavel, end_ini, end_fim);
   return true;
 }
