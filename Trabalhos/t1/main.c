@@ -4,6 +4,7 @@
 #include "cpu.h"
 #include "relogio.h"
 #include "console.h"
+#include "so.h"
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -11,9 +12,6 @@
 // constantes
 #define MEM_TAM 2000        // tamanho da memória principal
 
-
-// funções auxiliares
-static void init_mem(mem_t *mem, char *nome_do_executavel);
 
 typedef struct {
   mem_t *mem;
@@ -26,7 +24,6 @@ typedef struct {
 
 void cria_hardware(hardware_t *hw)
 {
-
   // cria a memória
   hw->mem = mem_cria(MEM_TAM);
 
@@ -70,37 +67,19 @@ void destroi_hardware(hardware_t *hw)
 int main()
 {
   hardware_t hw;
+  so_t *so;
 
   // cria o hardware
   cria_hardware(&hw);
-  // coloca um programa na memória
-  init_mem(hardware.mem, "ex1.maq");
+  // cria o sistema operacional
+  so = so_cria(hw.cpu, hw.mem, hw.console);
   
+  // executa o laço de execução da CPU
   controle_laco(hw.controle);
-      
+
+  // destroi tudo
+  so_destroi(so);
   destroi_hardware(&hw);
   return 0;
 }
 
-
-// cria memória e inicializa com o conteúdo do programa
-static void init_mem(mem_t *mem, char *nome_do_executavel)
-{
-  // programa para executar na nossa CPU
-  programa_t *prog = prog_cria(nome_do_executavel);
-  if (prog == NULL) {
-    fprintf(stderr, "Erro na leitura do programa '%s'\n", nome_do_executavel);
-    exit(1);
-  }
-
-  int end_ini = prog_end_carga(prog);
-  int end_fim = end_ini + prog_tamanho(prog);
-
-  for (int end = end_ini; end < end_fim; end++) {
-    if (mem_escreve(mem, end, prog_dado(prog, end)) != ERR_OK) {
-      printf("Erro na carga da memória, endereco %d\n", end);
-      exit(1);
-    }
-  }
-  prog_destroi(prog);
-}

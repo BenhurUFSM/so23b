@@ -3,9 +3,9 @@ CFLAGS = -Wall -Werror
 LDLIBS = -lcurses
 
 OBJS = cpu.o es.o memoria.o relogio.o console.o instrucao.o err.o \
-			 main.o programa.o controle.o
+			 main.o programa.o controle.o so.o
 OBJS_MONT = instrucao.o err.o montador.o
-MAQS = ex1.maq ex2.maq ex3.maq ex4.maq ex5.maq ex6.maq
+MAQS = trata_irq.maq ex1.maq ex2.maq ex3.maq ex4.maq ex5.maq ex6.maq
 TARGETS = main montador ${MAQS}
 
 all: ${TARGETS}
@@ -17,8 +17,14 @@ montador: ${OBJS_MONT}
 main: ${OBJS}
 
 # para transformar um .asm em .maq, precisamos do montador
+# monta os programas de usuário no endereço 100
 %.maq: %.asm montador
-	./montador $*.asm > $*.maq
+	./montador -e 100 $*.asm > $*.maq
+
+# o módulo trata_irq tem que ser montado no endereço 10, que é para onde
+#   a CPU desvia quando recebe uma interrupção
+trata_irq.maq: trata_irq.asm montador
+	./montador -e 10 trata_irq.asm > trata_irq.maq
 
 # apaga os arquivos gerados
 clean:
