@@ -39,9 +39,13 @@ Ver [aqui](https://www.ufsm.br/ementario/disciplinas/ELC1080/).
 |    2 | 10ago  | introdução (até seção 1.2 do livro)
 |    3 | 15ago  | introdução (até seção 1.3 do livro)
 |    4 | 17ago  | código do t0
+|    5 | 17ago  | introdução
+|    6 | 17ago  | processos
+|    7 | 31ago  | código do t1
 
 ## Trabalhos, provas, exercícios
 
 |    id |      prazo | assunto
 | ----: | ---------: | :-----------
 |    T0 |            | [simulador de CPU](Trabalhos/t0)
+|    T1 |            | [processos](Trabalhos/t1)
