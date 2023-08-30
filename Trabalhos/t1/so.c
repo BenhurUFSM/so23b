@@ -17,6 +17,7 @@ static err_t so_trata_interrupcao(void *argC, int reg_A);
 
 // funções auxiliares
 static int so_carrega_programa(so_t *self, char *nome_do_executavel);
+static bool copia_str_da_mem(int tam, char str[tam], mem_t *mem, int ender);
 
 
 
@@ -125,6 +126,8 @@ static err_t so_trata_irq_desconhecida(so_t *self, int irq)
 
 static void so_chamada_le(so_t *self);
 static void so_chamada_escr(so_t *self);
+static void so_chamada_cria_proc(so_t *self);
+static void so_chamada_mata_proc(so_t *self);
 
 static err_t so_trata_chamada_sistema(so_t *self)
 {
@@ -138,6 +141,12 @@ static err_t so_trata_chamada_sistema(so_t *self)
       break;
     case SO_ESCR:
       so_chamada_escr(self);
+      break;
+    case SO_CRIA_PROC:
+      so_chamada_cria_proc(self);
+      break;
+    case SO_MATA_PROC:
+      so_chamada_mata_proc(self);
       break;
     default:
       console_printf(self->console,
@@ -190,6 +199,34 @@ static void so_chamada_escr(so_t *self)
   mem_escreve(self->mem, IRQ_END_A, 0);
 }
 
+static void so_chamada_cria_proc(so_t *self)
+{
+  // ainda sem suporte a processos, carrega programa e passa a executar ele
+  // quem chamou o sistema não vai mais ser executado, coitado!
+
+  // em X está o endereço onde está o nome do arquivo
+  int ender_proc;
+  if (mem_le(self->mem, IRQ_END_X, &ender_proc) == ERR_OK) {
+    char nome[100];
+    if (copia_str_da_mem(100, nome, self->mem, ender_proc)) {
+      int ender_carga = so_carrega_programa(self, nome);
+      if (ender_carga > 0) {
+        mem_escreve(self->mem, IRQ_END_PC, ender_carga);
+        return;
+      }
+    }
+
+  }
+  mem_escreve(self->mem, IRQ_END_A, -1);
+}
+
+static void so_chamada_mata_proc(so_t *self)
+{
+  // ainda sem suporte a processos, retorna erro -1
+  console_printf(self->console, "SO: SO_MATA_PROC não implementada");
+  mem_escreve(self->mem, IRQ_END_A, -1);
+}
+
 
 // carrega o programa na memória
 // retorna o endereço de carga ou -1
@@ -217,4 +254,26 @@ static int so_carrega_programa(so_t *self, char *nome_do_executavel)
   console_printf(self->console,
       "SO: carga de '%s' em %d-%d", nome_do_executavel, end_ini, end_fim);
   return end_ini;
+}
+
+// copia uma string da memória do simulador para o vetor str.
+// retorna false se erro (string maior que vetor, valor não ascii na memória,
+//   erro de acesso à memória)
+static bool copia_str_da_mem(int tam, char str[tam], mem_t *mem, int ender)
+{
+  for (int indice_str = 0; indice_str < tam; indice_str++) {
+    int caractere;
+    if (mem_le(mem, ender + indice_str, &caractere) != ERR_OK) {
+      return false;
+    }
+    if (caractere < 0 || caractere > 255) {
+      return false;
+    }
+    str[indice_str] = caractere;
+    if (caractere == 0) {
+      return true;
+    }
+  }
+  // estourou o tamanho de str
+  return false;
 }
