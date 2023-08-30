@@ -12,9 +12,11 @@ struct so_t {
 };
 
 
-// funções auxiliares
-static bool so_carrega_programa(so_t *self, char *nome_do_executavel);
+// função de tratamento de interrupção (entrada no SO)
 static err_t so_trata_interrupcao(void *argC, int reg_A);
+
+// funções auxiliares
+static int so_carrega_programa(so_t *self, char *nome_do_executavel);
 
 
 
@@ -30,7 +32,11 @@ so_t *so_cria(cpu_t *cpu, mem_t *mem, console_t *console)
   // quando a CPU executar uma instrução CHAMAC, deve chamar essa função
   cpu_define_chamaC(self->cpu, so_trata_interrupcao, self);
   // coloca o tratador de interrupção na memória
-  so_carrega_programa(self, "trata_irq.maq");
+  if (so_carrega_programa(self, "trata_irq.maq") != 10) {
+    console_printf(console, "SO: problema na carga do tratador de interrupções");
+    free(self);
+    self = NULL;
+  }
 
   return self;
 }
@@ -82,9 +88,13 @@ static err_t so_trata_interrupcao(void *argC, int reg_A)
 static err_t so_trata_irq_reset(so_t *self)
 {
   // coloca um programa na memória
-  so_carrega_programa(self, "ex3.maq");
+  int ender = so_carrega_programa(self, "init.maq");
+  if (ender != 100) {
+    console_printf(self->console, "SO: problema na carga do programa inicial");
+    return ERR_CPU_PARADA;
+  }
   // altera o PC para o endereço de carga (deve ter sido 100)
-  mem_escreve(self->mem, IRQ_END_PC, 100);
+  mem_escreve(self->mem, IRQ_END_PC, ender);
   // passa o processador para modo usuário
   mem_escreve(self->mem, IRQ_END_modo, usuario);
   return ERR_OK;
@@ -182,14 +192,15 @@ static void so_chamada_escr(so_t *self)
 
 
 // carrega o programa na memória
-static bool so_carrega_programa(so_t *self, char *nome_do_executavel)
+// retorna o endereço de carga ou -1
+static int so_carrega_programa(so_t *self, char *nome_do_executavel)
 {
   // programa para executar na nossa CPU
   programa_t *prog = prog_cria(nome_do_executavel);
   if (prog == NULL) {
     console_printf(self->console,
         "Erro na leitura do programa '%s'\n", nome_do_executavel);
-    return false;
+    return -1;
   }
 
   int end_ini = prog_end_carga(prog);
@@ -199,11 +210,11 @@ static bool so_carrega_programa(so_t *self, char *nome_do_executavel)
     if (mem_escreve(self->mem, end, prog_dado(prog, end)) != ERR_OK) {
       console_printf(self->console,
           "Erro na carga da memória, endereco %d\n", end);
-      return false;
+      return -1;
     }
   }
   prog_destroi(prog);
   console_printf(self->console,
       "SO: carga de '%s' em %d-%d", nome_do_executavel, end_ini, end_fim);
-  return true;
+  return end_ini;
 }
