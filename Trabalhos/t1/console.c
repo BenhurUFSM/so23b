@@ -36,6 +36,9 @@
 #define COR_ENTRADA      6
 #define COR_OCUPADO      7
 
+// números de comandos para o controlador que podem ser guardados na console
+#define N_CMD_EXT 10
+
 // dados para cada terminal
 typedef struct {
   // texto já digitado no terminal, esperando para ser lido
@@ -62,6 +65,7 @@ struct console_t {
   char txt_status[N_COL+1];
   char txt_console[N_LIN_CONSOLE][N_COL+1];
   char digitando[N_COL+1];
+  char fila_de_comandos_externos[N_CMD_EXT];
 };
 
 // funções auxiliares
@@ -88,6 +92,7 @@ console_t *console_cria(void)
     self->txt_console[l][0] = '\0';
   }
   self->digitando[0] = '\0';
+  self->fila_de_comandos_externos[0] = '\0';
 
   init_curses();
 
@@ -299,7 +304,26 @@ static void limpa_saida_do_term(console_t *self, char c)
   self->term[t].estado_saida = normal;
 }
 
-static char interpreta_entrada(console_t *self, char *comando)
+static void insere_comando_externo(console_t *self, char c)
+{
+  int n_cmd = strlen(self->fila_de_comandos_externos);
+  if (n_cmd < N_CMD_EXT - 2) {
+    self->fila_de_comandos_externos[n_cmd] = c;
+    self->fila_de_comandos_externos[n_cmd+1] = '\0';
+  }
+}
+
+static char remove_comando_externo(console_t *self)
+{
+  char *p = self->fila_de_comandos_externos;
+  char cmd = *p;
+  if (cmd != '\0') {
+    memmove(p, p+1, strlen(p));
+  }
+  return cmd;
+}
+
+static void interpreta_entrada(console_t *self)
 {
   // interpreta uma linha digitada pelo operador
   // Comandos aceitos:
@@ -311,46 +335,44 @@ static char interpreta_entrada(console_t *self, char *comando)
   // F     fim da simulação
   // retorna o caractere correspondente ao comando se não tratar localmente
   //   (comandos de controle da execução), ou '\0'
-  console_printf(self, "%s", comando);
-  char ret = '\0';
-  char cmd = toupper(comando[0]);
+  char *linha = self->digitando;
+  console_printf(self, "%s", linha);
+  char cmd = toupper(linha[0]);
   switch (cmd) {
     case 'E':
-      insere_str_no_term(self, comando[1], &comando[2]);
+      insere_str_no_term(self, linha[1], &linha[2]);
       break;
     case 'Z':
-      limpa_saida_do_term(self, comando[1]);
+      limpa_saida_do_term(self, linha[1]);
       break;
     case 'P':
     case '1':
     case 'C':
     case 'F':
-      ret = cmd;
+      insere_comando_externo(self, cmd);
       break;
     default:
       console_printf(self, "Comando '%c' não reconhecido", cmd);
   }
   self->digitando[0] = '\0';
-  return ret;
 }
 
-// lê e guarda um caractere do teclado; retorna true se for 'enter'
-static bool verifica_entrada(console_t *self)
+// lê e guarda um caractere do teclado; interpreta linha se for 'enter'
+static void verifica_entrada(console_t *self)
 {
   int ch = getch();
-  if (ch == ERR) return false;
+  if (ch == ERR) return;
   int l = strlen(self->digitando);
   if (ch == '\b' || ch == 127) {   // backspace ou del
     if (l > 0) {
       self->digitando[l-1] = '\0';
     }
   } else if (ch == '\n') {
-    return true;
+    interpreta_entrada(self);
   } else if (ch >= ' ' && ch < 127 && l < N_COL) {
     self->digitando[l] = ch;
     self->digitando[l+1] = '\0';
   } // senão, ignora o caractere digitado
-  return false;
 }
 
 
@@ -413,16 +435,18 @@ static void desenha_entrada(console_t *self)
 
 char console_processa_entrada(console_t *self)
 {
-  if (verifica_entrada(self)) {
-    return interpreta_entrada(self, self->digitando);
-  }
-  return '\0';
+  verifica_entrada(self);
+  return remove_comando_externo(self);
+}
+
+void console_tictac(console_t *self)
+{
+  verifica_entrada(self);
+  rola_saidas(self);
 }
 
 void console_atualiza(console_t *self)
 {
-  rola_saidas(self);
-
   desenha_terminais(self);
   desenha_status(self);
   desenha_console(self);

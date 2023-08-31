@@ -45,6 +45,7 @@ void controle_laco(controle_t *self)
         self->estado = parado;
       }
       rel_tictac(self->relogio);
+      console_tictac(self->console);
     }
     controle_processa_teclado(self);
     controle_atualiza_console(self);

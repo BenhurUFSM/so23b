@@ -28,13 +28,16 @@ int console_printf(console_t *self, char *fmt, ...);
 // imprime na linha de status
 void console_print_status(console_t *self, char *txt);
 
-// função chamada periodicamente para processar o teclado
+// função chamada para receber comandos externos da console
 // retorna um char que representa um comando do usuário que deve ser
 //   tratado fora da console (atualmente 'P', '1' ou 'C' - para, executa 1 instrução
 //   ou continua a execução)
 char console_processa_entrada(console_t *self);
 
 // esta função deve ser chamada periodicamente para que tela funcione
+void console_tictac(console_t *self);
+
+// esta função deve ser chamada para desenhar a tela da console
 void console_atualiza(console_t *self);
 
 // Funções para implementar o protocolo de acesso a um dispositivo pelo

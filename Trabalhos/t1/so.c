@@ -169,9 +169,8 @@ static void so_chamada_le(so_t *self)
     term_le(self->console, 1, &estado);
     if (estado != 0) break;
     // como não está saindo do SO, o laço do processador não tá rodando
-    // esta gambiarra faz o console andar, mas se algum comando para o 
-    // controlador for digitado, vai ser ignorado
-    console_processa_entrada(self->console);
+    // esta gambiarra faz o console andar
+    console_tictac(self->console);
     console_atualiza(self->console);
   }
   int dado;
@@ -190,9 +189,8 @@ static void so_chamada_escr(so_t *self)
     term_le(self->console, 3, &estado);
     if (estado != 0) break;
     // como não está saindo do SO, o laço do processador não tá rodando
-    // esta gambiarra faz o console andar, mas se algum comando para o 
-    // controlador for digitado, vai ser ignorado
-    console_processa_entrada(self->console);
+    // esta gambiarra faz o console andar
+    console_tictac(self->console);
     console_atualiza(self->console);
   }
   int dado;
