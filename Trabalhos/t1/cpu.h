@@ -29,7 +29,7 @@ cpu_t *cpu_cria(mem_t *mem, es_t *es);
 void cpu_destroi(cpu_t *self);
 
 // executa uma instrução
-err_t cpu_executa_1(cpu_t *self);
+void cpu_executa_1(cpu_t *self);
 
 // implementa uma interrupção
 // salva o estado da CPU no início da memória, passa para modo supervisor,

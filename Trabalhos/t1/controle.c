@@ -39,11 +39,7 @@ void controle_laco(controle_t *self)
   // executa uma instrução por vez até a console dizer que chega
   do {
     if (self->estado == passo || self->estado == executando) {
-      err_t err;
-      err = cpu_executa_1(self->cpu);
-      if (err != ERR_OK) {
-        self->estado = parado;
-      }
+      cpu_executa_1(self->cpu);
       rel_tictac(self->relogio);
       console_tictac(self->console);
     }
