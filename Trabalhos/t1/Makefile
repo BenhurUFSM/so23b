@@ -24,7 +24,7 @@ main: ${OBJS}
 	end=100 ; \
 	for arq in ${MAQS}; do \
 		./montador -e $$end `basename $$arq .maq`.asm > $$arq ;\
-		end=$$[end+1000] ;\
+		end=`expr $$end + 1000` ;\
 	done
 
 # o módulo trata_irq tem que ser montado no endereço 10, que é para onde
