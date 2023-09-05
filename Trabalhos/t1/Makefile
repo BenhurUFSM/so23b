@@ -5,8 +5,9 @@ LDLIBS = -lcurses
 OBJS = cpu.o es.o memoria.o relogio.o console.o instrucao.o err.o \
 			 main.o programa.o controle.o so.o irq.o
 OBJS_MONT = instrucao.o err.o montador.o
-MAQS = trata_irq.maq init.maq ex1.maq ex2.maq ex3.maq ex4.maq ex5.maq ex6.maq
-TARGETS = main montador ${MAQS}
+#MAQS = trata_irq.maq init.maq ex1.maq ex2.maq ex3.maq ex4.maq ex5.maq ex6.maq
+MAQS = init.maq ex1.maq ex2.maq ex3.maq ex4.maq ex5.maq ex6.maq
+TARGETS = main montador ${MAQS} trata_irq.maq
 
 all: ${TARGETS}
 
@@ -19,7 +20,12 @@ main: ${OBJS}
 # para transformar um .asm em .maq, precisamos do montador
 # monta os programas de usuário no endereço 100
 %.maq: %.asm montador
-	./montador -e 100 $*.asm > $*.maq
+	#./montador -e 100 $*.asm > $*.maq
+	end=100 ; \
+	for arq in ${MAQS}; do \
+		./montador -e $$end `basename $$arq .maq`.asm > $$arq ;\
+		end=$$[end+1000] ;\
+	done
 
 # o módulo trata_irq tem que ser montado no endereço 10, que é para onde
 #   a CPU desvia quando recebe uma interrupção
