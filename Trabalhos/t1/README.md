@@ -29,6 +29,17 @@
    - tratador de interrupção que executa uma função específica dependendo do tipo da interrupção
    - implementação parcial das 4 chamadas de sistema, as de E/S são sempre com o terminal A e com espera ocupada; a de criação de processo carrega o novo programa e desvia para ele, mas não tem implementação de processo
 
+Alterações após ser apresentado em aula
+- 13set
+   - relogio.[ch]
+      - inclusão de um timer configurável, que pode ser usado para gerar interrupção
+      - tem 2 novos dispositivos: 
+         - "2", que pode ser escrito com o valor do timer, que é decrementado a cada tictac
+         - "3", que lê o valor 1 se o timer chegar a 0
+      - quando o timer chega em 0, não é automaticamente reinicializado, deve ser colocado um novo valor a cada interrupção para gerar interrupções periódicas
+      - o indicador de interrupção não é zerado automaticamente, deve ser zerado pelo tratador de interrupção.
+
+
 ### Parte I
 
 Faça uma implementação inicial de processos:

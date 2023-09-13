@@ -24,8 +24,12 @@ void rel_tictac(relogio_t *self);
 int rel_agora(relogio_t *self);
 
 // Funções para acessar o relógio como um dispositivo de E/S
-//   só tem leitura, e dois dispositivos, '0' para ler o relógio local
-//   (contador de instruções) e '1' para ler o relógio de tempo de CPU
-//   consumido pelo simulador (em ms)
+//   tem quatro dispositivos:
+//   '0' para ler o relógio local (contador de instruções)
+//   '1' para ler o relógio de tempo de CPU consumido pelo simulador (em ms)
+//   '2' para ler ou escrever em quanto tempo uma interrupção será gerada
+//   '3' para ler ou escrever se uma interrupção está sendo pedida
 err_t rel_le(void *disp, int id, int *pvalor);
+err_t rel_escr(void *disp, int id, int pvalor);
+
 #endif // RELOGIO_H
