@@ -43,6 +43,9 @@ Alterações após ser apresentado em aula
       - alteração da API, para cpu_interrompe retornar um bool para dizer se a interrupção foi aceita
    - controle.c
       - verifica o relógio a cada instrução e gera uma interrupção se o timer expirar
+   - so.c
+      - programa o timer do relógio para interromper a cada 50 instruções
+      - implementa um tratador para a interrupção do relógio, que só reinicializa o timer
 
 
 ### Parte I

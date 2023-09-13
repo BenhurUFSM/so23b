@@ -5,6 +5,9 @@
 #include <stdlib.h>
 #include <stdbool.h>
 
+// intervalo entre interrupções do relógio
+#define INTERVALO_INTERRUPCAO 50   // em instruções executadas
+
 struct so_t {
   cpu_t *cpu;
   mem_t *mem;
@@ -40,6 +43,8 @@ so_t *so_cria(cpu_t *cpu, mem_t *mem, console_t *console, relogio_t *relogio)
     free(self);
     self = NULL;
   }
+  // programa a interrupção do relógio
+  rel_escr(self->relogio, 2, INTERVALO_INTERRUPCAO);
 
   return self;
 }
@@ -56,6 +61,7 @@ void so_destroi(so_t *self)
 // funções auxiliares para tratar cada tipo de interrupção
 static err_t so_trata_irq_reset(so_t *self);
 static err_t so_trata_irq_err_cpu(so_t *self);
+static err_t so_trata_irq_relogio(so_t *self);
 static err_t so_trata_irq_desconhecida(so_t *self, int irq);
 static err_t so_trata_chamada_sistema(so_t *self);
 
@@ -81,6 +87,9 @@ static err_t so_trata_interrupcao(void *argC, int reg_A)
       break;
     case IRQ_SISTEMA:
       err = so_trata_chamada_sistema(self);
+      break;
+    case IRQ_RELOGIO:
+      err = so_trata_irq_relogio(self);
       break;
     default:
       err = so_trata_irq_desconhecida(self, irq);
@@ -115,6 +124,18 @@ static err_t so_trata_irq_err_cpu(so_t *self)
   console_printf(self->console,
       "SO: IRQ não tratada -- erro na CPU: %s", err_nome(err));
   return ERR_CPU_PARADA;
+}
+
+static err_t so_trata_irq_relogio(so_t *self)
+{
+  // ocorreu uma interrupção do relógio
+  // rearma o interruptor do relógio e reinicializa o timer para a próxima interrupção
+  rel_escr(self->relogio, 3, 0); // desliga o sinalizador de interrupção
+  rel_escr(self->relogio, 2, INTERVALO_INTERRUPCAO);
+  // trata a interrupção
+  // ...
+  console_printf(self->console, "SO: interrupção do relógio (não tratada)");
+  return ERR_OK;
 }
 
 static err_t so_trata_irq_desconhecida(so_t *self, int irq)
