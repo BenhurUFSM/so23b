@@ -429,8 +429,10 @@ void cpu_executa_1(cpu_t *self)
   }
 }
 
-void cpu_interrompe(cpu_t *self, irq_t irq)
+bool cpu_interrompe(cpu_t *self, irq_t irq)
 {
+  // só aceita interrupção em modo usuário
+  if (self->modo != usuario) return false;
   // esta é uma CPU boazinha, salva todo o estado interno da CPU
   mem_escreve(self->mem, IRQ_END_PC,          self->PC);
   mem_escreve(self->mem, IRQ_END_A,           self->A);
@@ -443,6 +445,8 @@ void cpu_interrompe(cpu_t *self, irq_t irq)
   self->erro = ERR_OK;
   self->modo = supervisor;
   self->PC = 10;
+
+  return true;
 }
 
 static void cpu_desinterrompe(cpu_t *self)

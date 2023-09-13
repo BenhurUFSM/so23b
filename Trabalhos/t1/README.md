@@ -38,6 +38,9 @@ Alterações após ser apresentado em aula
          - "3", que lê o valor 1 se o timer chegar a 0
       - quando o timer chega em 0, não é automaticamente reinicializado, deve ser colocado um novo valor a cada interrupção para gerar interrupções periódicas
       - o indicador de interrupção não é zerado automaticamente, deve ser zerado pelo tratador de interrupção.
+   - cpu.[ch]
+      - só aceita interrupções em modo supervisor (CPUs reais têm instruções para habilitar e desabilitar interrupções, e é comum desabilitar automaticamente quando aceita uma interrupção)
+      - alteração da API, para cpu_interrompe retornar um bool para dizer se a interrupção foi aceita
 
 
 ### Parte I
