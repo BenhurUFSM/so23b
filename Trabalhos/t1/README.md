@@ -49,6 +49,10 @@ Alterações após ser apresentado em aula
    - so.h README
       - renomeia SO_ESPERA para SO_ESPERA_PROC
       - coloca a definição de SO_ESPERA_PROC no .h
+   - Makefile init.asm p[123].asm main.c
+      - aumento da memória do sistema para +-10k
+      - novos programas, com diferentes relações entre uso de CPU e E/S
+      - criação de 3 processos no init, para executar os 3 novos programas
 
 
 ### Parte I
@@ -80,3 +84,5 @@ Nesta parte, vamos implementar o bloqueio de processos e eliminar a espera ocupa
 ### Parte III
 
 Escalonador preemptivo, vamos precisar de interrupções do relógio para isso.
+
+Obs.: se quiser mudar a velocidade da simulação, dá para alterar o timeout em console.c.

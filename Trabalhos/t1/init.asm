@@ -3,31 +3,50 @@
 ; cria outros processos, para testar
 ;
 
-; chamadas de sistema
-SO_ESCR  define 2
-SO_CRIA_PROC define 7
-SO_MATA_PROC define 8
+; chamadas de sistema (ver so.h)
+SO_LE          define 1
+SO_ESCR        define 2
+SO_CRIA_PROC   define 7
+SO_MATA_PROC   define 8
+SO_ESPERA_PROC define 9
 
 limpa    define 10
 
-         cargi str1
+         cargi msg_ini
          chama impstr
          cargi limpa
          chama impch
-         cargi str2
-         chama impstr
-         cargi prog
-         chama impstr
-         cargi prog
+         ; cria os processos
+         cargi prog1
          trax
          cargi SO_CRIA_PROC
          chamas
-         cargi limpa
-         chama impch
-         cargi voltou
-         chama impstr
+         armm pid1
+         cargi prog2
+         trax
+         cargi SO_CRIA_PROC
+         chamas
+         armm pid2
+         cargi prog3
+         trax
+         cargi SO_CRIA_PROC
+         chamas
+         armm pid3
+         ; espera os processos terminarem
+         cargm pid1
+         trax
+         cargi SO_ESPERA_PROC
+         chamas
+         cargm pid2
+         trax
+         cargi SO_ESPERA_PROC
+         chamas
+         cargm pid3
+         trax
+         cargi SO_ESPERA_PROC
+         chamas
 morre
-         cargi matar
+         cargi msg_fim
          chama impstr
          cargi 0
          trax
@@ -37,11 +56,14 @@ morre
          chama impstr
          desv morre
 
-str1     string 'init inicializando...'
-str2     string 'vou executar '
-prog     string 'ex3.maq'
-voltou   string 'voltou para o init!! '
-matar    string 'vou pedir para morrer '
+msg_ini  string 'init inicializando...'
+prog1    string 'p1.maq'
+prog2    string 'p2.maq'
+prog3    string 'p3.maq'
+pid1     espaco 1
+pid2     espaco 1
+pid3     espaco 1
+msg_fim  string 'init terminando...'
 nao_morri string 'nao morri! '
 
 ; imprime a string que inicia em A (destroi X)

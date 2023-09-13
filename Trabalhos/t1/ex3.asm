@@ -7,6 +7,7 @@ SO_LE          define 1
 SO_ESCR        define 2
 SO_CRIA_PROC   define 7
 SO_MATA_PROC   define 8
+SO_ESPERA_PROC define 9
 
          CARGI str1
          CHAMA impstr
