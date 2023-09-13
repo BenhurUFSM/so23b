@@ -42,6 +42,12 @@ void controle_laco(controle_t *self)
       cpu_executa_1(self->cpu);
       rel_tictac(self->relogio);
       console_tictac(self->console);
+      // enquanto não tem controlador de interrupção, fala direto com o relógio
+      int tem_int;
+      rel_le(self->relogio, 3, &tem_int);
+      if (tem_int != 0) {
+        cpu_interrompe(self->cpu, IRQ_RELOGIO);
+      }
     }
     controle_processa_teclado(self);
     controle_atualiza_console(self);

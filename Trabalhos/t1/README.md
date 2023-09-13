@@ -41,6 +41,8 @@ Alterações após ser apresentado em aula
    - cpu.[ch]
       - só aceita interrupções em modo supervisor (CPUs reais têm instruções para habilitar e desabilitar interrupções, e é comum desabilitar automaticamente quando aceita uma interrupção)
       - alteração da API, para cpu_interrompe retornar um bool para dizer se a interrupção foi aceita
+   - controle.c
+      - verifica o relógio a cada instrução e gera uma interrupção se o timer expirar
 
 
 ### Parte I
