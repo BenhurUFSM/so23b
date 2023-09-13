@@ -46,6 +46,9 @@ Alterações após ser apresentado em aula
    - so.c
       - programa o timer do relógio para interromper a cada 50 instruções
       - implementa um tratador para a interrupção do relógio, que só reinicializa o timer
+   - so.h README
+      - renomeia SO_ESPERA para SO_ESPERA_PROC
+      - coloca a definição de SO_ESPERA_PROC no .h
 
 
 ### Parte I

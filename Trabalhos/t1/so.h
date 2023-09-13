@@ -67,4 +67,11 @@ void so_destroi(so_t *self);
 // retorna em A: 0 se OK ou um código de erro negativo
 #define SO_MATA_PROC   8
 
+// espera um processo terminar
+// recebe em X o pid do processo a esperar
+// retorna em A: 0 se OK ou um código de erro negativo
+// bloqueia o processo chamador até que o processo com o pid informado termine
+// retorna sem bloquear, com erro, se não existir processo com esse pid
+#define SO_ESPERA_PROC 9
+
 #endif // SO_H
