@@ -53,6 +53,8 @@ Alterações após ser apresentado em aula
       - aumento da memória do sistema para +-10k
       - novos programas, com diferentes relações entre uso de CPU e E/S
       - criação de 3 processos no init, para executar os 3 novos programas
+- 14set
+   - descrição da parte III
 
 
 ### Parte I
@@ -79,10 +81,36 @@ Na parte I, um processo não bloqueia, se ele não está morto, ele pode executa
 Nesta parte, vamos implementar o bloqueio de processos e eliminar a espera ocupada na E/S.
 - nas chamadas de E/S, se o dispositivo não estiver pronto, o SO deve bloquear o processo
 - na função que trata de pendências, o SO deve verificar o estado dos dispositivos que causaram bloqueio e desbloquear processos se for o caso
-- implemente uma nova chamada de sistema, SO_ESPERA, que bloqueia o processo chamador até que o processo que ele identifica na chamada tenha terminado
+- implemente uma nova chamada de sistema, SO_ESPERA_PROC, que bloqueia o processo chamador até que o processo que ele identifica na chamada tenha terminado
 
 ### Parte III
 
-Escalonador preemptivo, vamos precisar de interrupções do relógio para isso.
+Implemente um escalonador preemptivo *round-robin* (circular):
+- os processos prontos são colocados em uma fila
+- o escalonador sempre escolhe o primeiro da fila
+- quando um processo fica pronto (é criado ou desbloqueia), vai para o final da fila
+- se terminar o *quantum* de um processo, ele é colocado no final da fila (preempção)
+
+O *quantum* é definido como um múltiplo do intervalo de interrupção do relógio (em outras palavras, o *quantum* equivale a tantas interrupções). Quando um processo é selecionado para executar, tem o direito de executar durante o tempo de um quantum. Uma forma simples de implementar isso é ter uma variável do SO, controlada pelo escalonador, que é inicializada com o valor do quantum (em interrupções) quando um processo diferente do que foi interrompido é selecionado. Cada vez que recebe uma interrupção do relógio, decrementa essa variável. Quando essa variável chega a zero, o processo corrente é movido para o final da fila.
+
+Implemente um segundo escalonador, semelhante ao circular: os processos têm um quantum, e sofrem preempção quando esse quantum é excedido. Os processos têm também uma prioridade, e o escalonador escolhe o processo com maior prioridade entre os prontos.
+A prioridade de um processo é calculada da seguinte forma:
+- quando um processo é criado, recebe prioridade 0,5
+- quando um processo perde o processador (porque bloqueou ou porque foi preemptado), a prioridade é calculada como `prio = (prio + t_exec/t_quantum)`, onde t_exec é o tempo desde que ele foi escolhido para executar e t_quantum é o tempo do quantum.
+
+
+O SO deve manter algumas métricas, que devem ser apresentadas no final da execução (quando o init morrer):
+- número de processos criados
+- tempo total de execução
+- tempo total em que o sistema ficou ocioso (todos os processos bloqueados)
+- número de interrupções recebidas de cada tipo
+- número de preempções
+- tempo de retorno de cada processo (diferença entre data do término e da criação)
+- número de preempções de cada processo
+- número de vezes que cada processo entrou em cada estado (pronto, bloqueado, executando)
+- tempo total de cada processo em cada estado (pronto, bloqueado, executando)
+- tempo médio de resposta de cada processo (tempo médio em estado pronto)
+
+Gere um relatório de execuções do sistema em diferentes configurações.
 
 Obs.: se quiser mudar a velocidade da simulação, dá para alterar o timeout em console.c.
