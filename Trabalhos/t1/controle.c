@@ -43,6 +43,7 @@ void controle_laco(controle_t *self)
       rel_tictac(self->relogio);
       console_tictac(self->console);
       // enquanto não tem controlador de interrupção, fala direto com o relógio
+      // o dispositivo 3 do relógio contém 1 se o timer expirou
       int tem_int;
       rel_le(self->relogio, 3, &tem_int);
       if (tem_int != 0) {
