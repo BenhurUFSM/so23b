@@ -39,9 +39,15 @@ Ver [aqui](https://www.ufsm.br/ementario/disciplinas/ELC1080/).
 |    2 | 10ago  | introdução (até seção 1.2 do livro)
 |    3 | 15ago  | introdução (até seção 1.3 do livro)
 |    4 | 17ago  | código do t0
-|    5 | 17ago  | introdução
-|    6 | 17ago  | processos
-|    7 | 31ago  | código do t1
+|    5 | 22ago  | introdução
+|    6 | 24ago  | introdução
+|    7 | 29ago  | processos
+|    8 |  31ago | código do t1
+|    9 |   5set | threads
+|   10 |  12set | escalonamento (processos em lote e interativos)
+|   11 |  14set | escalonamento (processos de tempo real)
+|   12 |  19set | comunicação entre processos
+|   13 |  21set | comunicação entre processos
 
 ## Trabalhos, provas, exercícios
 
