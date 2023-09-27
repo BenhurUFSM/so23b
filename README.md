@@ -48,10 +48,15 @@ Ver [aqui](https://www.ufsm.br/ementario/disciplinas/ELC1080/).
 |   11 |  14set | escalonamento (processos de tempo real)
 |   12 |  19set | comunicação entre processos
 |   13 |  21set | comunicação entre processos
+|   14 |  26set | comunicação entre processos
 
 ## Trabalhos, provas, exercícios
 
-|    id |      prazo | assunto
-| ----: | ---------: | :-----------
-|    T0 |            | [simulador de CPU](Trabalhos/t0)
-|    T1 |            | [processos](Trabalhos/t1)
+|    id | assunto
+| ----: | :-----------
+|    T0 | [simulador de CPU](Trabalhos/t0)
+|    T1 | [processos](Trabalhos/t1)
+
+| prazo | entrega
+| ----: | :--------
+|  1out | embrulhe o estado atual do seu t1 (em um zip ou tgz ou rar ...) e anexe em um mail com assunto "so-t1-p1"
