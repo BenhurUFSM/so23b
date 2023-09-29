@@ -158,4 +158,4 @@ Sobre usar um terminal diferente para cada processo:
   | d | 12 | 13 | 14 | 15 |
   
   Atualmente só o terminal `a` está sendo usado, nas funções `so_chamada_le` (usando os dispositivos 0 e 1 da console) e `so_chamada_escr` (dispositivos 2 e 3).
-- Na console, para escrever `42` no terminal `b`, use o comando `eb42`.
+- Com o programa em execução, para escrever `42` no terminal `b`, use o comando `eb42` na console.
