@@ -156,5 +156,6 @@ Sobre usar um terminal diferente para cada processo:
   | b |  4 |  5 |  6 |  7 |
   | c |  8 |  9 | 10 | 11 |
   | d | 12 | 13 | 14 | 15 |
+  
   Atualmente só o terminal `a` está sendo usado, nas funções so_chamada_le e so_chamada_escr.
   Na console, para escrever `42` no terminal `b`, use o comando `eb42`.
