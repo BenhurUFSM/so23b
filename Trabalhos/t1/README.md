@@ -114,3 +114,47 @@ O SO deve manter algumas métricas, que devem ser apresentadas no final da execu
 Gere um relatório de execuções do sistema em diferentes configurações.
 
 Obs.: se quiser mudar a velocidade da simulação, dá para alterar o timeout em console.c.
+
+### RAP
+
+Respostas a perguntas feitas sobre o trabalho.
+
+O SO como foi entregue não tem nem sombra de suporte a processos, por isso a implementação está bem incompleta e diferente do que se espera.
+Dicas:
+- faça uma variável do SO que identifica o processo corrente (o processo em execução).
+- faça uma função que é o escalonador. Ela escolhe um dos processos prontos e inicializa a variável do processo corrente.
+- faça uma função que salva o estado interno do processador na tabela de processos, na entrada do process corrente.
+- faça uma função que recupera o estado interno do processador a partir da tabela de processos, da entrada do processo corrente.
+
+A função principal do SO pode então ser algo assim:
+```c
+static err_t so_trata_interrupcao(void *argC, int reg_A)
+{
+  so_t *self = argC;
+  irq_t irq = reg_A;
+
+  salva_estado_do_processador(self);
+  atende_interrupção(self, irq);
+  verifica_pendencias(self);
+  escalonador(self);
+  recupera_estado_do_processador(self);
+
+  return self->erro;
+}
+```
+- A função atende_interrupção é o que estava nessa função.
+- A função verifica_pendencias faz o que tiver que ser feito pelo SO que não é diretamente relacionado com a interrupção sendo tratada. Tipicamente ver se algum processo bloqueado pode ser desbloqueado.
+- O estado do processador está na memória, a partir do endereço 0 (os endereços usados estão em irq.h).
+- As funções internas do SO não precisam mais (nem devem) acessar diretamente o estado do processador, devem acessar o estado dos processos. Por exemplo, `so_chamada_le` coloca o valor lido no registrador A com `mem_escreve(self->mem, IRQ_END_A, dado);`, e deveria alterar o registrador no estado do processo que está realizando a leitura. Aliás, quando for implementado bloqueio por E/S, a leitura poderá nem ser feita aqui, mas no `verifica_pendencias`, e para um processo que não é o corrente.
+
+Sobre usar um terminal diferente para cada processo:
+- a console tem 4 dispositivos para cada processo, uma para ler um caractere (DL na tabela abaixo), um para saber se tem dado a ser lido (EL), um para escrever o dado (DE) e um para saber se pode escrever (EE).
+   Esses dispositivos são:
+  | terminal | DL | EL | DE | EE |
+  | :------: | :---: | :---: | :---: | :---: |
+  | a |  0 |  1 |  2 |  3 |
+  | b |  4 |  5 |  6 |  7 |
+  | c |  8 |  9 | 10 | 11 |
+  | d | 12 | 13 | 14 | 15 |
+  Atualmente só o terminal `a` está sendo usado, nas funções so_chamada_le e so_chamada_escr.
+  Na console, para escrever `42` no terminal `b`, use o comando `eb42`.
