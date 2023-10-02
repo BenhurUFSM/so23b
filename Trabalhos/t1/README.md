@@ -159,3 +159,4 @@ Sobre usar um terminal diferente para cada processo:
   
   Atualmente só o terminal `a` está sendo usado, nas funções `so_chamada_le` (usando os dispositivos 0 e 1 da console) e `so_chamada_escr` (dispositivos 2 e 3).
 - Com o programa em execução, para escrever `42` no terminal `b`, use o comando `eb42` na console.
+- O pid de um processo não é a mesma coisa que sua entrada na tabela de processos. As entradas da tabela são reutilizadas conforme os processos morrem e nascem, os pids são únicos.
