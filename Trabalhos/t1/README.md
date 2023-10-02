@@ -117,7 +117,7 @@ Obs.: se quiser mudar a velocidade da simulação, dá para alterar o timeout em
 
 ### RAP
 
-Respostas a perguntas feitas sobre o trabalho.
+Respostas a perguntas feitas sobre o trabalho e observações feitas analisando o código entregue.
 
 O SO como foi entregue não tem nem sombra de suporte a processos, por isso a implementação está bem incompleta e diferente do que se espera.
 Dicas:
@@ -160,3 +160,4 @@ Sobre usar um terminal diferente para cada processo:
   Atualmente só o terminal `a` está sendo usado, nas funções `so_chamada_le` (usando os dispositivos 0 e 1 da console) e `so_chamada_escr` (dispositivos 2 e 3).
 - Com o programa em execução, para escrever `42` no terminal `b`, use o comando `eb42` na console.
 - O pid de um processo não é a mesma coisa que sua entrada na tabela de processos. As entradas da tabela são reutilizadas conforme os processos morrem e nascem, os pids são únicos.
+- Quando vem uma interrupção, a CPU coloca o seu estado na memória, a partir do endereço 0 (em irq.h tem o endereço onde cada registrador é colocado). É daí que o SO deve retirar o estado da CPU para atualizar a estrutura de um processo, e vice-versa.
