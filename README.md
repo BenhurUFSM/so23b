@@ -60,3 +60,5 @@ Ver [aqui](https://www.ufsm.br/ementario/disciplinas/ELC1080/).
 | prazo | entrega
 | ----: | :--------
 |  1out | embrulhe o estado atual do seu t1 (em um zip ou tgz ou rar ...) e anexe em um mail com assunto "so-t1-p1"
+
+As avaliações devem aparecer na [planilha](https://docs.google.com/spreadsheets/d/1NF9Z5qEr9Ezh9QG5iI3G8JvQOhSwQiBn_Li6fCpsRgc/edit?usp=sharing).
