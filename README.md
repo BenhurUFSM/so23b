@@ -49,6 +49,8 @@ Ver [aqui](https://www.ufsm.br/ementario/disciplinas/ELC1080/).
 |   12 |  19set | comunicação entre processos
 |   13 |  21set | comunicação entre processos
 |   14 |  26set | comunicação entre processos
+|   15 |  28set | gerência de memória
+|   16 |   3out | gerência de memória
 
 ## Trabalhos, provas, exercícios
 
