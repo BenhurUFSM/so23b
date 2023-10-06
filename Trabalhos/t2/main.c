@@ -76,7 +76,7 @@ int main()
   // cria o hardware
   cria_hardware(&hw);
   // cria o sistema operacional
-  so = so_cria(hw.cpu, hw.mem, hw.console, hw.relogio);
+  so = so_cria(hw.cpu, hw.mem, hw.mmu, hw.console, hw.relogio);
   
   // executa o laço de execução da CPU
   controle_laco(hw.controle);
