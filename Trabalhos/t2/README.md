@@ -8,3 +8,6 @@
 - o SO tem acesso à MMU na inicialização
 - cpu_modo_t movido para arquivo próprio por problemas na ordem de includes
 
+- coloca as instruções a executar em uma interrupção diretamente na memória,
+  dispensando a necessidade de trata_irq.asm
+

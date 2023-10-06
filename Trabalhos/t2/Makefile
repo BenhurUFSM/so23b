@@ -27,11 +27,6 @@ main: ${OBJS}
 		end=`expr $$end + 1000` ;\
 	done
 
-# o módulo trata_irq tem que ser montado no endereço 10, que é para onde
-#   a CPU desvia quando recebe uma interrupção
-trata_irq.maq: trata_irq.asm montador
-	./montador -e 10 trata_irq.asm > trata_irq.maq
-
 # apaga os arquivos gerados
 clean:
 	rm -f ${OBJS} ${OBJS_MONT} ${TARGETS} ${MAQS} ${OBJS:.o=.d}
