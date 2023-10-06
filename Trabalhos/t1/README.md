@@ -55,6 +55,9 @@ Alterações após ser apresentado em aula
       - criação de 3 processos no init, para executar os 3 novos programas
 - 14set
    - descrição da parte III
+- 6out
+   - comentários etc em so.c tentando explicitar melhor o que tem que implementar
+   - remoção de trata_irq.asm, agora o tratador é colocado "à mão" na memória pelo so
 
 
 ### Parte I

@@ -1,6 +1,7 @@
 #include "so.h"
 #include "irq.h"
 #include "programa.h"
+#include "instrucao.h"
 
 #include <stdlib.h>
 #include <stdbool.h>
@@ -35,15 +36,22 @@ so_t *so_cria(cpu_t *cpu, mem_t *mem, console_t *console, relogio_t *relogio)
   self->console = console;
   self->relogio = relogio;
 
-  // quando a CPU executar uma instrução CHAMAC, deve chamar essa função
+  // quando a CPU executar uma instrução CHAMAC, deve chamar a função
+  //   so_trata_interrupcao
   cpu_define_chamaC(self->cpu, so_trata_interrupcao, self);
+
   // coloca o tratador de interrupção na memória
-  if (so_carrega_programa(self, "trata_irq.maq") != 10) {
-    console_printf(console, "SO: problema na carga do tratador de interrupções");
-    free(self);
-    self = NULL;
-  }
-  // programa a interrupção do relógio
+  // quando a CPU aceita uma interrupção, passa para modo supervisor, 
+  //   salva seu estado à partir do endereço 0, e desvia para o endereço 10
+  // colocamos no endereço 10 a instrução CHAMAC, que vai chamar 
+  //   so_trata_interrupcao (conforme foi definido acima) e no endereço 11
+  //   colocamos a instrução RETI, para que a CPU retorne da interrupção
+  //   (recuperando seu estado no endereço 0) depois que o SO retornar de
+  //   so_trata_interrupcao.
+  mem_escreve(self->mem, 10, CHAMAC);
+  mem_escreve(self->mem, 11, RETI);
+
+  // programa o relógio para gerar uma interrupção após INTERVALO_INTERRUPCAO
   rel_escr(self->relogio, 2, INTERVALO_INTERRUPCAO);
 
   return self;
@@ -59,11 +67,18 @@ void so_destroi(so_t *self)
 // Tratamento de interrupção
 
 // funções auxiliares para tratar cada tipo de interrupção
+static err_t so_trata_irq(so_t *self, int irq);
 static err_t so_trata_irq_reset(so_t *self);
 static err_t so_trata_irq_err_cpu(so_t *self);
 static err_t so_trata_irq_relogio(so_t *self);
 static err_t so_trata_irq_desconhecida(so_t *self, int irq);
 static err_t so_trata_chamada_sistema(so_t *self);
+
+// funções auxiliares para o tratamento de interrupção
+static void so_salva_estado_da_cpu(so_t *self);
+static void so_trata_pendencias(so_t *self);
+static void so_escalona(so_t *self);
+static void so_despacha(so_t *self);
 
 // função a ser chamada pela CPU quando executa a instrução CHAMAC
 // essa instrução só deve ser executada quando for tratar uma interrupção
@@ -76,6 +91,52 @@ static err_t so_trata_interrupcao(void *argC, int reg_A)
 {
   so_t *self = argC;
   irq_t irq = reg_A;
+  err_t err;
+  console_printf(self->console, "SO: recebi IRQ %d (%s)", irq, irq_nome(irq));
+  // salva o estado da cpu no descritor do processo que foi interrompido
+  so_salva_estado_da_cpu(self);
+  // faz o atendimento da interrupção
+  err = so_trata_irq(self, irq);
+  // faz o processamento independente da interrupção
+  so_trata_pendencias(self);
+  // escolhe o próximo processo a executar
+  so_escalona(self);
+  // recupera o estado do processo escolhido
+  so_despacha(self);
+  return err;
+}
+
+static void so_salva_estado_da_cpu(so_t *self)
+{
+  // se não houver processo corrente, não faz nada
+  // salva os registradores que compõem o estado da cpu no descritor do
+  //   processo corrente
+  // mem_le(self->mem, IRQ_END_A, endereco onde vai o A no descritor);
+  // mem_le(self->mem, IRQ_END_X, endereco onde vai o X no descritor);
+  // etc
+}
+static void so_trata_pendencias(so_t *self)
+{
+  // realiza ações que não são diretamente ligadar com a interrupção que
+  //   está sendo atendida:
+  // - E/S pendente
+  // - desbloqueio de processos
+  // - contabilidades
+}
+static void so_escalona(so_t *self)
+{
+  // escolhe o próximo processo a executar, que passa a ser o processo
+  //   corrente; pode continuar sendo o mesmo de antes ou não
+}
+static void so_despacha(so_t *self)
+{
+  // se não houver processo corrente, coloca ERR_CPU_PARADA em IRQ_END_erro
+  // se houver processo corrente, coloca todo o estado desse processo em
+  //   IRQ_END_*
+}
+
+static err_t so_trata_irq(so_t *self, int irq)
+{
   err_t err;
   console_printf(self->console, "SO: recebi IRQ %d (%s)", irq, irq_nome(irq));
   switch (irq) {
@@ -105,6 +166,14 @@ static err_t so_trata_irq_reset(so_t *self)
     console_printf(self->console, "SO: problema na carga do programa inicial");
     return ERR_CPU_PARADA;
   }
+
+  // deveria criar um processo para o init, e inicializar o estado do
+  //   processador para esse processo com os registradores zerados, exceto
+  //   o PC e o modo.
+  // como não tem suporte a processos, está carregando os valores dos
+  //   registradores diretamente para a memória, de onde a CPU vai carregar
+  //   para os seus registradores quando executar a instrução RETI
+
   // altera o PC para o endereço de carga (deve ter sido 100)
   mem_escreve(self->mem, IRQ_END_PC, ender);
   // passa o processador para modo usuário
@@ -119,6 +188,9 @@ static err_t so_trata_irq_err_cpu(so_t *self)
   // Em geral, causa a morte do processo que causou o erro
   // Ainda não temos processos, causa a parada da CPU
   int err_int;
+  // com suporte a processos, deveria pegar o valor do registrador erro
+  //   no descritor do processo corrente, e reagir de acordo com esse erro
+  //   (em geral, matando o processo)
   mem_le(self->mem, IRQ_END_erro, &err_int);
   err_t err = err_int;
   console_printf(self->console,
@@ -133,7 +205,8 @@ static err_t so_trata_irq_relogio(so_t *self)
   rel_escr(self->relogio, 3, 0); // desliga o sinalizador de interrupção
   rel_escr(self->relogio, 2, INTERVALO_INTERRUPCAO);
   // trata a interrupção
-  // ...
+  // por exemplo, decrementa o quantum do processo corrente, quando se tem
+  // um escalonador com quantum
   console_printf(self->console, "SO: interrupção do relógio (não tratada)");
   return ERR_OK;
 }
@@ -154,6 +227,8 @@ static void so_chamada_mata_proc(so_t *self);
 
 static err_t so_trata_chamada_sistema(so_t *self)
 {
+  // com processos, a identificação da chamada está no reg A no descritor
+  //   do processo
   int id_chamada;
   mem_le(self->mem, IRQ_END_A, &id_chamada);
   console_printf(self->console,
@@ -182,7 +257,11 @@ static err_t so_trata_chamada_sistema(so_t *self)
 static void so_chamada_le(so_t *self)
 {
   // implementação com espera ocupada
-  //   deveria bloquear o processo se leitura não disponível
+  //   deveria bloquear o processo se leitura não disponível.
+  //   no caso de bloqueio do processo, a leitura (e desbloqueio) deverá
+  //   ser feita mais tarde, em tratamentos pendentes em outra interrupção,
+  //   ou diretamente em uma interrupção específica do dispositivo, se for
+  //   o caso
   // implementação lendo direto do terminal A
   //   deveria usar dispositivo corrente de entrada do processo
   for (;;) {
@@ -191,11 +270,14 @@ static void so_chamada_le(so_t *self)
     if (estado != 0) break;
     // como não está saindo do SO, o laço do processador não tá rodando
     // esta gambiarra faz o console andar
+    // com a implementação de bloqueio de processo, esta gambiarra não
+    //   deve mais existir.
     console_tictac(self->console);
     console_atualiza(self->console);
   }
   int dado;
   term_le(self->console, 0, &dado);
+  // com processo, deveria escrever no reg A do processo
   mem_escreve(self->mem, IRQ_END_A, dado);
 }
 
@@ -227,17 +309,20 @@ static void so_chamada_cria_proc(so_t *self)
 
   // em X está o endereço onde está o nome do arquivo
   int ender_proc;
+  // deveria ler o X do descritor do processo criador
   if (mem_le(self->mem, IRQ_END_X, &ender_proc) == ERR_OK) {
     char nome[100];
     if (copia_str_da_mem(100, nome, self->mem, ender_proc)) {
       int ender_carga = so_carrega_programa(self, nome);
       if (ender_carga > 0) {
+        // deveria escrever no PC do descritor do processo criado
         mem_escreve(self->mem, IRQ_END_PC, ender_carga);
         return;
       }
     }
-
   }
+  // deveria escrever -1 (se erro) ou 0 (se OK) no reg A do processo que
+  //   pediu a criação
   mem_escreve(self->mem, IRQ_END_A, -1);
 }
 
