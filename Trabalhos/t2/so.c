@@ -1,6 +1,7 @@
 #include "so.h"
 #include "irq.h"
 #include "programa.h"
+#include "instrucao.h"
 
 #include <stdlib.h>
 #include <stdbool.h>
@@ -38,15 +39,21 @@ so_t *so_cria(cpu_t *cpu, mem_t *mem, mmu_t *mmu,
   self->console = console;
   self->relogio = relogio;
 
-  // quando a CPU executar uma instrução CHAMAC, deve chamar essa função
+  // quando a CPU executar uma instrução CHAMAC, deve chamar a função
+  //   so_trata_interrupcao
   cpu_define_chamaC(self->cpu, so_trata_interrupcao, self);
   // coloca o tratador de interrupção na memória
-  if (so_carrega_programa(self, "trata_irq.maq") != 10) {
-    console_printf(console, "SO: problema na carga do tratador de interrupções");
-    free(self);
-    self = NULL;
-  }
-  // programa a interrupção do relógio
+  // quando a CPU aceita uma interrupção, passa para modo supervisor, 
+  //   salva seu estado à partir do endereço 0, e desvia para o endereço 10
+  // colocamos no endereço 10 a instrução CHAMAC, que vai chamar 
+  //   so_trata_interrupcao (conforme foi definido acima) e no endereço 11
+  //   colocamos a instrução RETI, para que a CPU retorne da interrupção
+  //   (recuperando seu estado no endereço 0) depois que o SO retornar de
+  //   so_trata_interrupcao.
+  mem_escreve(self->mem, 10, CHAMAC);
+  mem_escreve(self->mem, 11, RETI);
+
+  // programa o relógio para gerar uma interrupção após INTERVALO_INTERRUPCAO
   rel_escr(self->relogio, 2, INTERVALO_INTERRUPCAO);
 
   return self;
