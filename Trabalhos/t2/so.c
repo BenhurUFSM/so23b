@@ -42,6 +42,7 @@ so_t *so_cria(cpu_t *cpu, mem_t *mem, mmu_t *mmu,
   // quando a CPU executar uma instrução CHAMAC, deve chamar a função
   //   so_trata_interrupcao
   cpu_define_chamaC(self->cpu, so_trata_interrupcao, self);
+
   // coloca o tratador de interrupção na memória
   // quando a CPU aceita uma interrupção, passa para modo supervisor, 
   //   salva seu estado à partir do endereço 0, e desvia para o endereço 10
