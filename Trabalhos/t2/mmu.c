@@ -30,19 +30,13 @@ void mmu_define_tabpag(mmu_t *self, tabpag_t *tabpag)
   self->tabpag = tabpag;
 }
 
-err_t mmu_traduz(mmu_t *self, int endvirt, int *pendfis)
+err_t mmu_le(mmu_t *self, int endvirt, int *pvalor, cpu_modo_t modo)
 {
-  if (self->tabpag == NULL) {
-    *pendfis = endvirt;
-    return ERR_OK;
+  if (modo == supervisor || self->tabpag == NULL) {
+    return mem_le(self->mem, endvirt, pvalor);
   }
-  return tabpag_traduz(self->tabpag, endvirt, pendfis);
-}
-
-err_t mmu_le(mmu_t *self, int endvirt, int *pvalor)
-{
   int endfis;
-  err_t err = mmu_traduz(self, endvirt, &endfis);
+  err_t err = tabpag_traduz(self->tabpag, endvirt, &endfis);
   if (err == ERR_OK) {
     err = mem_le(self->mem, endfis, pvalor);
     if (err == ERR_OK) {
@@ -52,10 +46,13 @@ err_t mmu_le(mmu_t *self, int endvirt, int *pvalor)
   return err;
 }
 
-err_t mmu_escreve(mmu_t *self, int endvirt, int valor)
+err_t mmu_escreve(mmu_t *self, int endvirt, int valor, cpu_modo_t modo)
 {
+  if (modo == supervisor || self->tabpag == NULL) {
+    return mem_escreve(self->mem, endvirt, valor);
+  }
   int endfis;
-  err_t err = mmu_traduz(self, endvirt, &endfis);
+  err_t err = tabpag_traduz(self->tabpag, endvirt, &endfis);
   if (err == ERR_OK) {
     err = mem_escreve(self->mem, endfis, valor);
     if (err == ERR_OK) {
