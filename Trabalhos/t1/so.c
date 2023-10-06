@@ -1,6 +1,7 @@
 #include "so.h"
 #include "irq.h"
 #include "programa.h"
+#include "instrucao.h"
 
 #include <stdlib.h>
 #include <stdbool.h>
