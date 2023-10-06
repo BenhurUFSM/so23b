@@ -8,14 +8,13 @@
 // - memória, onde está o programa e os dados -- alterável pelas instruções
 // - controlador de ES, para as instruções de ES
 
+#include "cpu_modo.h"
 #include "err.h"
 #include "memoria.h"
 #include "es.h"
 #include "irq.h"
 
 typedef struct cpu_t cpu_t; // tipo opaco
-
-typedef enum { supervisor, usuario } cpu_modo_t;
 
 // tipo da função a ser chamada quando executar a instrução CHAMAC
 typedef err_t (*func_chamaC_t)(void *argC, int reg_A);
