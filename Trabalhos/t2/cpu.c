@@ -17,19 +17,19 @@ struct cpu_t {
   int complemento;
   cpu_modo_t modo;
   // acesso a dispositivos externos
-  mem_t *mem;
+  mmu_t *mmu;
   es_t *es;
   // função e argumento para implementar instrução CHAMAC
   func_chamaC_t funcaoC;
   void *argC;
 };
 
-cpu_t *cpu_cria(mem_t *mem, es_t *es)
+cpu_t *cpu_cria(mmu_t *mmu, es_t *es)
 {
   cpu_t *self;
   self = malloc(sizeof(*self));
   if (self != NULL) {
-    self->mem = mem;
+    self->mmu = mmu;
     self->es = es;
     // inicializa registradores
     self->PC = 0;
@@ -47,7 +47,7 @@ cpu_t *cpu_cria(mem_t *mem, es_t *es)
 
 void cpu_destroi(cpu_t *self)
 {
-  // eu nao criei memória nem es; quem criou que destrua!
+  // eu nao criei MMU nem es; quem criou que destrua!
   free(self);
 }
 
@@ -56,7 +56,7 @@ char *cpu_descricao(cpu_t *self)
   static char descr[100]; 
   // imprime registradores, opcode, instrução
   int opcode = -1;
-  mem_le(self->mem, self->PC, &opcode);
+  mmu_le(self->mmu, self->PC, &opcode, self->modo);
   sprintf(descr, "%sPC=%04d A=%06d X=%06d %02d %s",
                  self->modo == supervisor ? "🦸" : "🏃",
                  self->PC, self->A, self->X, opcode, instrucao_nome(opcode));
@@ -64,7 +64,7 @@ char *cpu_descricao(cpu_t *self)
   if (instrucao_num_args(opcode) > 0) {
     char aux[40];
     int A1;
-    mem_le(self->mem, self->PC + 1, &A1);
+    mmu_le(self->mmu, self->PC + 1, &A1, self->modo);
     sprintf(aux, " %d", A1);
     strcat(descr, aux);
   }
@@ -86,7 +86,7 @@ char *cpu_descricao(cpu_t *self)
 // lê um valor da memória
 static bool pega_mem(cpu_t *self, int endereco, int *pval)
 {
-  self->erro = mem_le(self->mem, endereco, pval);
+  self->erro = mmu_le(self->mmu, endereco, pval, self->modo);
   if (self->erro == ERR_OK) return true;
   self->complemento = endereco;
   return false;
@@ -107,7 +107,7 @@ static bool pega_A1(cpu_t *self, int *pA1)
 // escreve um valor na memória
 static bool poe_mem(cpu_t *self, int endereco, int val)
 {
-  self->erro = mem_escreve(self->mem, endereco, val);
+  self->erro = mmu_escreve(self->mmu, endereco, val, self->modo);
   if (self->erro == ERR_OK) return true;
   self->complemento = endereco;
   return false;
@@ -434,16 +434,17 @@ bool cpu_interrompe(cpu_t *self, irq_t irq)
   // só aceita interrupção em modo usuário
   if (self->modo != usuario) return false;
   // esta é uma CPU boazinha, salva todo o estado interno da CPU
-  mem_escreve(self->mem, IRQ_END_PC,          self->PC);
-  mem_escreve(self->mem, IRQ_END_A,           self->A);
-  mem_escreve(self->mem, IRQ_END_X,           self->X);
-  mem_escreve(self->mem, IRQ_END_erro,        self->erro);
-  mem_escreve(self->mem, IRQ_END_complemento, self->complemento);
-  mem_escreve(self->mem, IRQ_END_modo,        self->modo);
+  // poe em modo supervisor, para que o acesso seja feito na memória física
+  self->modo = supervisor;
+  poe_mem(self, IRQ_END_PC,          self->PC);
+  poe_mem(self, IRQ_END_A,           self->A);
+  poe_mem(self, IRQ_END_X,           self->X);
+  poe_mem(self, IRQ_END_erro,        self->erro);
+  poe_mem(self, IRQ_END_complemento, self->complemento);
+  poe_mem(self, IRQ_END_modo,        usuario);
 
   self->A = irq;
   self->erro = ERR_OK;
-  self->modo = supervisor;
   self->PC = 10;
 
   return true;
@@ -452,13 +453,13 @@ bool cpu_interrompe(cpu_t *self, irq_t irq)
 static void cpu_desinterrompe(cpu_t *self)
 {
   int dado;
-  mem_le(self->mem, IRQ_END_PC,          &self->PC);
-  mem_le(self->mem, IRQ_END_A,           &self->A);
-  mem_le(self->mem, IRQ_END_X,           &self->X);
-  mem_le(self->mem, IRQ_END_erro,        &dado);
+  pega_mem(self, IRQ_END_PC,          &self->PC);
+  pega_mem(self, IRQ_END_A,           &self->A);
+  pega_mem(self, IRQ_END_X,           &self->X);
+  pega_mem(self, IRQ_END_erro,        &dado);
   self->erro = dado;
-  mem_le(self->mem, IRQ_END_complemento, &self->complemento);
-  mem_le(self->mem, IRQ_END_modo,        &dado);
+  pega_mem(self, IRQ_END_complemento, &self->complemento);
+  pega_mem(self, IRQ_END_modo,        &dado);
   self->modo = dado;
 }
 
