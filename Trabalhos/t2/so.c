@@ -11,6 +11,7 @@
 struct so_t {
   cpu_t *cpu;
   mem_t *mem;
+  mmu_t *mmu;
   console_t *console;
   relogio_t *relogio;
 };
@@ -25,13 +26,15 @@ static bool copia_str_da_mem(int tam, char str[tam], mem_t *mem, int ender);
 
 
 
-so_t *so_cria(cpu_t *cpu, mem_t *mem, console_t *console, relogio_t *relogio)
+so_t *so_cria(cpu_t *cpu, mem_t *mem, mmu_t *mmu,
+              console_t *console, relogio_t *relogio)
 {
   so_t *self = malloc(sizeof(*self));
   if (self == NULL) return NULL;
 
   self->cpu = cpu;
   self->mem = mem;
+  self->mmu = mmu;
   self->console = console;
   self->relogio = relogio;
 

@@ -8,11 +8,13 @@
 typedef struct so_t so_t;
 
 #include "memoria.h"
+#include "mmu.h"
 #include "cpu.h"
 #include "console.h"
 #include "relogio.h"
 
-so_t *so_cria(cpu_t *cpu, mem_t *mem, console_t *console, relogio_t *relogio);
+so_t *so_cria(cpu_t *cpu, mem_t *mem, mmu_t *mmu,
+              console_t *console, relogio_t *relogio);
 void so_destroi(so_t *self);
 
 // Chamadas de sistema
