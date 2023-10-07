@@ -2,6 +2,7 @@
 #include "irq.h"
 #include "programa.h"
 #include "instrucao.h"
+#include "tabpag.h"
 
 #include <stdlib.h>
 #include <stdbool.h>
@@ -9,12 +10,29 @@
 // intervalo entre interrupções do relógio
 #define INTERVALO_INTERRUPCAO 50   // em instruções executadas
 
+// Não tem processos nem memória virtual, mas é preciso usar a paginação,
+//   pelo menos para implementar relocação, já que os programas estão sendo
+//   todos montados para serem executados no endereço 0 e o endereço 0
+//   físico é usado pelo hardware nas interrupções.
+// Os programas vão ser carregados no início de um quadro, e usar quantos
+//   quadros forem necessárias. Para isso a variável quadro_livre vai conter
+//   o número do primeiro quadro da memória principal que ainda não foi usado.
+//   Na carga do processo, a tabela de páginas (deveria ter uma por processo,
+//   mas não tem processo) é alterada para que o endereço virtual 0 resulte
+//   no quadro onde o programa foi carregado.
+
 struct so_t {
   cpu_t *cpu;
   mem_t *mem;
   mmu_t *mmu;
   console_t *console;
   relogio_t *relogio;
+  // quando tiver memória virtual, o controle de memória livre e ocupada
+  //   é mais completo que isso
+  int quadro_livre;
+  // quando tiver processos, não tem essa tabela aqui, tem que tem uma para
+  //   cada processo
+  tabpag_t *tabpag;
 };
 
 
@@ -23,7 +41,8 @@ static err_t so_trata_interrupcao(void *argC, int reg_A);
 
 // funções auxiliares
 static int so_carrega_programa(so_t *self, char *nome_do_executavel);
-static bool copia_str_da_mem(int tam, char str[tam], mem_t *mem, int ender);
+static bool so_copia_str_do_processo(so_t *self, int tam, char str[tam],
+                                     int end_virt/*, processo*/);
 
 
 
@@ -57,6 +76,14 @@ so_t *so_cria(cpu_t *cpu, mem_t *mem, mmu_t *mmu,
   // programa o relógio para gerar uma interrupção após INTERVALO_INTERRUPCAO
   rel_escr(self->relogio, 2, INTERVALO_INTERRUPCAO);
 
+  // inicializa a tabela de páginas global, e entrega ela para a MMU
+  // com processos, essa tabela não existiria, teria uma por processo
+  self->tabpag = tabpag_cria();
+  mmu_define_tabpag(self->mmu, self->tabpag);
+  // define o primeiro quadro livre de memória como o seguinte àquele que
+  //   contém o endereço 99 (as 100 primeiras posições de memória (pelo menos)
+  //   não vão ser usadas por programas de usuário)
+  self->quadro_livre = 99 / TAM_PAGINA + 1;
   return self;
 }
 
@@ -141,7 +168,6 @@ static void so_despacha(so_t *self)
 static err_t so_trata_irq(so_t *self, int irq)
 {
   err_t err;
-  console_printf(self->console, "SO: recebi IRQ %d (%s)", irq, irq_nome(irq));
   switch (irq) {
     case IRQ_RESET:
       err = so_trata_irq_reset(self);
@@ -163,9 +189,11 @@ static err_t so_trata_irq(so_t *self, int irq)
 
 static err_t so_trata_irq_reset(so_t *self)
 {
-  // coloca um programa na memória
+  // coloca o programa "init" na memória
+  // vai programar a tabela de páginas para traduzir os endereços virtuais
+  //   a partir de 0 para o endereço onde ele foi carregado.
   int ender = so_carrega_programa(self, "init.maq");
-  if (ender != 100) {
+  if (ender < 0) {
     console_printf(self->console, "SO: problema na carga do programa inicial");
     return ERR_CPU_PARADA;
   }
@@ -177,7 +205,7 @@ static err_t so_trata_irq_reset(so_t *self)
   //   registradores diretamente para a memória, de onde a CPU vai carregar
   //   para os seus registradores quando executar a instrução RETI
 
-  // altera o PC para o endereço de carga (deve ter sido 100)
+  // altera o PC para o endereço de carga (deve ter sido o endereço virtual 0)
   mem_escreve(self->mem, IRQ_END_PC, ender);
   // passa o processador para modo usuário
   mem_escreve(self->mem, IRQ_END_modo, usuario);
@@ -315,9 +343,10 @@ static void so_chamada_cria_proc(so_t *self)
   // deveria ler o X do descritor do processo criador
   if (mem_le(self->mem, IRQ_END_X, &ender_proc) == ERR_OK) {
     char nome[100];
-    if (copia_str_da_mem(100, nome, self->mem, ender_proc)) {
+    if (so_copia_str_do_processo(self, 100, nome, ender_proc)) {
       int ender_carga = so_carrega_programa(self, nome);
-      if (ender_carga > 0) {
+      // o endereço de carga é endereço virtual, deve ser 0
+      if (ender_carga >= 0) {
         // deveria escrever no PC do descritor do processo criado
         mem_escreve(self->mem, IRQ_END_PC, ender_carga);
         return;
@@ -339,6 +368,14 @@ static void so_chamada_mata_proc(so_t *self)
 
 // carrega o programa na memória
 // retorna o endereço de carga ou -1
+// está simplesmente lendo para o próximo quadro que nunca foi ocupado,
+//   nem testa se tem memória disponível
+// com memória virtual, a forma mais simples de implementar a carga
+//   de um programa é carregá-lo para a memória secundária, e mapear
+//   todas as páginas da tabela de páginas como inválidas. assim, 
+//   as páginas serão colocadas na memória principal por demanda.
+//   para simplificar ainda mais, a memória secundária pode ser alocada
+//   da forma como a principal está sendo alocada aqui (sem reuso)
 static int so_carrega_programa(so_t *self, char *nome_do_executavel)
 {
   // programa para executar na nossa CPU
@@ -349,30 +386,58 @@ static int so_carrega_programa(so_t *self, char *nome_do_executavel)
     return -1;
   }
 
-  int end_ini = prog_end_carga(prog);
-  int end_fim = end_ini + prog_tamanho(prog);
+  int end_virt_ini = prog_end_carga(prog);
+  int end_virt_fim = end_virt_ini + prog_tamanho(prog) - 1;
+  int pagina_ini = end_virt_ini / TAM_PAGINA;
+  int pagina_fim = end_virt_fim / TAM_PAGINA;
+  int quadro_ini = self->quadro_livre;
+  // mapeia as páginas nos quadros
+  int quadro = quadro_ini;
+  for (int pagina = pagina_ini; pagina <= pagina_fim; pagina++) {
+    tabpag_define_quadro(self->tabpag, pagina, quadro);
+    quadro++;
+  }
+  self->quadro_livre = quadro;
 
-  for (int end = end_ini; end < end_fim; end++) {
-    if (mem_escreve(self->mem, end, prog_dado(prog, end)) != ERR_OK) {
+  // carrega o programa na memória principal
+  int end_fis_ini = quadro_ini * TAM_PAGINA;
+  int end_fis = end_fis_ini;
+  for (int end_virt = end_virt_ini; end_virt <= end_virt_fim; end_virt++) {
+    if (mem_escreve(self->mem, end_fis, prog_dado(prog, end_virt)) != ERR_OK) {
       console_printf(self->console,
-          "Erro na carga da memória, endereco %d\n", end);
+          "Erro na carga da memória, end virt %d fís %d\n", end_virt, end_fis);
       return -1;
     }
+    end_fis++;
   }
   prog_destroi(prog);
   console_printf(self->console,
-      "SO: carga de '%s' em %d-%d", nome_do_executavel, end_ini, end_fim);
-  return end_ini;
+      "SO: carga de '%s' em V%d-%d F%d-%d", nome_do_executavel,
+                 end_virt_ini, end_virt_fim, end_fis_ini, end_fis - 1);
+  return end_virt_ini;
 }
 
-// copia uma string da memória do simulador para o vetor str.
+// copia uma string da memória do processo para o vetor str.
 // retorna false se erro (string maior que vetor, valor não ascii na memória,
 //   erro de acesso à memória)
-static bool copia_str_da_mem(int tam, char str[tam], mem_t *mem, int ender)
+// o endereço é um endereço virtual de um processo.
+// Com processos e memória virtual implementados, esta função deve também
+//   receber o processo como argumento
+// Cada valor do espaço de endereçamento do processo pode estar em memória
+//   principal ou secundária
+// O endereço é um endereço virtual de um processo.
+// Com processos e memória virtual implementados, esta função deve também
+//   receber o processo como argumento
+// Com memória virtual, cada valor do espaço de endereçamento do processo
+//   pode estar em memória principal ou secundária
+static bool so_copia_str_do_processo(so_t *self, int tam, char str[tam],
+                                     int end_virt/*, processo*/)
 {
   for (int indice_str = 0; indice_str < tam; indice_str++) {
     int caractere;
-    if (mem_le(mem, ender + indice_str, &caractere) != ERR_OK) {
+    // não tem memória virtual implementada, posso usar a mmu para traduzir
+    //   os endereços e acessar a memória
+    if (mmu_le(self->mmu, end_virt + indice_str, &caractere, usuario) != ERR_OK) {
       return false;
     }
     if (caractere < 0 || caractere > 255) {
