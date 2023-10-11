@@ -51,6 +51,8 @@ Ver [aqui](https://www.ufsm.br/ementario/disciplinas/ELC1080/).
 |   14 |  26set | comunicação entre processos
 |   15 |  28set | gerência de memória
 |   16 |   3out | gerência de memória
+|   17 |   5out | gerência de memória
+|   18 |  10out | gerência de memória ([algoritmo wsclock](Assuntos/wsclock.md))
 
 ## Trabalhos, provas, exercícios
 
@@ -58,6 +60,7 @@ Ver [aqui](https://www.ufsm.br/ementario/disciplinas/ELC1080/).
 | ----: | :-----------
 |    T0 | [simulador de CPU](Trabalhos/t0)
 |    T1 | [processos](Trabalhos/t1)
+|    T2 | [memória virtual](Trabalhos/t2)
 
 | prazo | entrega
 | ----: | :--------
