@@ -52,7 +52,7 @@ Ver [aqui](https://www.ufsm.br/ementario/disciplinas/ELC1080/).
 |   15 |  28set | gerência de memória
 |   16 |   3out | gerência de memória
 |   17 |   5out | gerência de memória
-|   18 |  10out | gerência de memória
+|   18 |  10out | gerência de memória ([algoritmo wsclock](Assuntos/wsclock.md))
 
 ## Trabalhos, provas, exercícios
 
