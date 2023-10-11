@@ -42,5 +42,5 @@ O algoritmo WSClock é executado quando tem uma falta de página e tem que ser e
 Algumas observações:
 - pode ter um limite no número de páginas que são colocadas na fila de gravação, para não sobrecarregar o disco.
 - pode ser que não seja encontrada nenhuma página não alterada fora de conjuntos de trabalho. Nesse caso, tem que aguardar uma das que foram para a fila ser gravada para realizar a escolha (em uma próxima execução do SO; enquanto isso o processo fica bloqueado).
-- pode ser todas as páginas estejam em algum conjunto de trabalho. Nesse caso, pode ser escolhida a com acesso menos recente. Essa informação pode tambér ser usada para suspender a execução de algum processo, já que é indicativo de risco de paginação excessiva.
+- pode ser todas as páginas estejam em algum conjunto de trabalho. Nesse caso, pode ser escolhida a com acesso menos recente. Essa informação pode também ser usada para suspender a execução de algum processo, já que é indicativo de risco de paginação excessiva.
 - se houver processo suspenso, as páginas que pertencem a ele podem ser consideradas para serem escolhidas independentemente do tempo do último acesso.
