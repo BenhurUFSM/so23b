@@ -5,25 +5,24 @@
 // executa a instrução no PC se possível, ou retorna erro
 
 // tem acesso a
-// - memória, onde está o programa e os dados -- alterável pelas instruções
+// - MMU, por onde consegue acessar a memória, onde está o programa e os dados
 // - controlador de ES, para as instruções de ES
 
+#include "cpu_modo.h"
 #include "err.h"
-#include "memoria.h"
+#include "mmu.h"
 #include "es.h"
 #include "irq.h"
 
 typedef struct cpu_t cpu_t; // tipo opaco
 
-typedef enum { supervisor, usuario } cpu_modo_t;
-
 // tipo da função a ser chamada quando executar a instrução CHAMAC
 typedef err_t (*func_chamaC_t)(void *argC, int reg_A);
 
 
-// cria uma unidade de execução com acesso à memória e ao
+// cria uma unidade de execução com acesso à MMU e ao
 //   controlador de E/S fornecidos
-cpu_t *cpu_cria(mem_t *mem, es_t *es);
+cpu_t *cpu_cria(mmu_t *mmu, es_t *es);
 
 // destrói a unidade de execução
 void cpu_destroi(cpu_t *self);
@@ -32,7 +31,7 @@ void cpu_destroi(cpu_t *self);
 void cpu_executa_1(cpu_t *self);
 
 // implementa uma interrupção
-// salva o estado da CPU no início da memória, passa para modo supervisor,
+// passa para modo supervisor, salva o estado da CPU no início da memória,
 //   altera A para identificar a requisição de interrupção, altera PC para
 //   o endereço do tratador de interrupção
 // retorna true se interrupção foi aceita ou false caso contrário

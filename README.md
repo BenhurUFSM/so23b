@@ -39,9 +39,31 @@ Ver [aqui](https://www.ufsm.br/ementario/disciplinas/ELC1080/).
 |    2 | 10ago  | introdução (até seção 1.2 do livro)
 |    3 | 15ago  | introdução (até seção 1.3 do livro)
 |    4 | 17ago  | código do t0
+|    5 | 22ago  | introdução
+|    6 | 24ago  | introdução
+|    7 | 29ago  | processos
+|    8 |  31ago | código do t1
+|    9 |   5set | threads
+|   10 |  12set | escalonamento (processos em lote e interativos)
+|   11 |  14set | escalonamento (processos de tempo real)
+|   12 |  19set | comunicação entre processos
+|   13 |  21set | comunicação entre processos
+|   14 |  26set | comunicação entre processos
+|   15 |  28set | gerência de memória
+|   16 |   3out | gerência de memória
+|   17 |   5out | gerência de memória
+|   18 |  10out | gerência de memória ([algoritmo wsclock](Assuntos/wsclock.md))
 
 ## Trabalhos, provas, exercícios
 
-|    id |      prazo | assunto
-| ----: | ---------: | :-----------
-|    T0 |            | [simulador de CPU](Trabalhos/t0)
+|    id | assunto
+| ----: | :-----------
+|    T0 | [simulador de CPU](Trabalhos/t0)
+|    T1 | [processos](Trabalhos/t1)
+|    T2 | [memória virtual](Trabalhos/t2)
+
+| prazo | entrega
+| ----: | :--------
+|  1out | embrulhe o estado atual do seu t1 (em um zip ou tgz ou rar ...) e anexe em um mail com assunto "so-t1-p1"
+
+As avaliações devem aparecer na [planilha](https://docs.google.com/spreadsheets/d/1NF9Z5qEr9Ezh9QG5iI3G8JvQOhSwQiBn_Li6fCpsRgc/edit?usp=sharing).
