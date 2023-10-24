@@ -7,7 +7,6 @@
 
 #include <stdlib.h>
 #include <stdbool.h>
-#include<time.h>
 
 // intervalo entre interrupções do relógio
 #define INTERVALO_INTERRUPCAO 50   // em instruções executadas
@@ -22,6 +21,7 @@ struct so_t {
   console_t *console;
   relogio_t *relogio;
   int pid_processo_em_execucao;
+  int count_processos;
   processo_t *tabela_processos[MAX_PROCESSOS];
 };
 
@@ -36,7 +36,7 @@ static bool copia_str_da_mem(int tam, char str[tam], mem_t *mem, int ender);
 // funções de tratamento de processo
 static void inicializa_tabela_processos(so_t *self);
 static processo_t* cria_processo(so_t *self);
-static int geraPid();
+static int geraPid(so_t *self);
 static processo_t* recupera_processo_por_pid(so_t *self, int pid);
 static processo_t* recupera_processo_atual(so_t *self);
 static processo_t* recupera_primeiro_processo_pronto(so_t *self);
@@ -55,6 +55,7 @@ so_t *so_cria(cpu_t *cpu, mem_t *mem, console_t *console, relogio_t *relogio)
   self->mem = mem;
   self->console = console;
   self->relogio = relogio;
+  self->count_processos = 0;
   self->pid_processo_em_execucao = NENHUM_PROCESSO_EM_EXECUCAO;
   inicializa_tabela_processos(self);
 
@@ -502,7 +503,7 @@ static processo_t* cria_processo(so_t *self) {
   processo_t *novo_processo = malloc(sizeof(processo_t));
   if(novo_processo != NULL) {
     novo_processo->estado_cpu = malloc(sizeof(registros_t));
-    novo_processo->pid = geraPid();
+    novo_processo->pid = geraPid(self);
     novo_processo->estado_processo = PRONTO;
     novo_processo->estado_cpu->modo = usuario;
     novo_processo->estado_cpu->complemento = 0;
@@ -513,9 +514,9 @@ static processo_t* cria_processo(so_t *self) {
   return novo_processo;
 }
 
-static int geraPid() {
-  srand(time(NULL));
-  return rand() % MAX_PROCESSOS;
+static int geraPid(so_t *self) {
+  self->count_processos++;
+  return self->count_processos;
 }
 
 // Recupera um processo com base em algum PID
