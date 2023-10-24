@@ -3,7 +3,7 @@ CFLAGS = -Wall -Werror -g
 LDLIBS = -lcurses
 
 OBJS = cpu.o es.o memoria.o relogio.o console.o instrucao.o err.o \
-			 main.o programa.o controle.o so.o irq.o
+			 main.o programa.o controle.o so.o irq.o processo.o
 OBJS_MONT = instrucao.o err.o montador.o
 #MAQS = trata_irq.maq init.maq ex1.maq ex2.maq ex3.maq ex4.maq ex5.maq ex6.maq
 MAQS = init.maq ex1.maq ex2.maq ex3.maq ex4.maq ex5.maq ex6.maq p1.maq p2.maq p3.maq
