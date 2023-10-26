@@ -120,7 +120,7 @@ static err_t so_trata_chamada_sistema(so_t *self);
 static void so_salva_estado_da_cpu(so_t *self);
 static void so_trata_pendencias(so_t *self);
 static void so_escalona(so_t *self);
-static err_t so_despacha(so_t *self);
+static void so_despacha(so_t *self);
 
 // função a ser chamada pela CPU quando executa a instrução CHAMAC
 // essa instrução só deve ser executada quando for tratar uma interrupção
@@ -133,7 +133,7 @@ static err_t so_trata_interrupcao(void *argC, int reg_A)
 {
   so_t *self = argC;
   irq_t irq = reg_A;
-  err_t err = ERR_OK;
+  err_t err;
   console_printf(self->console, "SO: recebi IRQ %d (%s)", irq, irq_nome(irq));
   // salva o estado da cpu no descritor do processo que foi interrompido
   so_salva_estado_da_cpu(self);
@@ -144,7 +144,7 @@ static err_t so_trata_interrupcao(void *argC, int reg_A)
   // escolhe o próximo processo a executar
   so_escalona(self);
   // recupera o estado do processo escolhido
-  err = so_despacha(self);
+  so_despacha(self);
   return err;
 }
 
@@ -200,13 +200,13 @@ static void so_escalona(so_t *self)
   self->pid_processo_em_execucao = pid_processo_escalonado;
   console_printf(self->console, "Processo escalonado: %d", self->pid_processo_em_execucao);
 }
-static err_t so_despacha(so_t *self)
+static void so_despacha(so_t *self)
 {
    // se não houver processo corrente, coloca ERR_CPU_PARADA em IRQ_END_erro
   if(self->pid_processo_em_execucao == NENHUM_PROCESSO_EM_EXECUCAO) {
    // Não existe processo para executar
+   mem_escreve(self->mem, IRQ_END_erro, ERR_CPU_PARADA);
    console_printf(self->console, "Não existe processo para executar ERR_CPU_PARADA");
-   return ERR_CPU_PARADA; 
   } else {
     // se houver processo corrente, coloca todo o estado desse processo em
     //   IRQ_END_*
