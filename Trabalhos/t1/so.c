@@ -54,16 +54,15 @@ static bool copia_str_da_mem(int tam, char str[tam], mem_t *mem, int ender);
 
 // funções de tratamento de processo
 static void inicializa_tabela_processos(so_t *self);
-static processo_t cria_processo(so_t *self);
+static int cria_processo(so_t *self, int ender_carga);
 static int geraPid(so_t *self);
 static int recupera_processo_por_pid(so_t *self, int pid);
 static int recupera_processo_atual(so_t *self);
 static int recupera_posicao_primeiro_processo_pronto(so_t *self);
-static void adiciona_processo_na_tabela(so_t *self, processo_t novo_processo);
+static int adiciona_processo_na_tabela(so_t *self, processo_t novo_processo);
 static int recupera_posicao_livre_tabela_de_processos(so_t *self);
 static void mata_processo(so_t *self, int posicao);
 static int recupera_posicao_tabela_de_processos(so_t *self, int pid);
-// static void exibir_tabela(so_t *self);
 
 so_t *so_cria(cpu_t *cpu, mem_t *mem, console_t *console, relogio_t *relogio)
 {
@@ -258,15 +257,9 @@ static err_t so_trata_irq_reset(so_t *self)
   //   registradores diretamente para a memória, de onde a CPU vai carregar
   //   para os seus registradores quando executar a instrução RETI
 
-  processo_t processo_init = cria_processo(self);
-  // escreve o endereço de carga no pc do descritor do processo
-  // mem_escreve(self->mem, processo_init->estado_cpu->PC, ender); //verificar isso
-  adiciona_processo_na_tabela(self, processo_init);
-
-  // altera o PC para o endereço de carga (deve ter sido 100)
-  mem_escreve(self->mem, IRQ_END_PC, ender);
-  // passa o processador para modo usuário
-  mem_escreve(self->mem, IRQ_END_modo, usuario);
+  // cria processo; escreve o endereço de carga no pc do descritor do processo; e muda o modo para usuário
+  cria_processo(self, ender);
+  
   return ERR_OK;
 }
 
@@ -316,7 +309,6 @@ static err_t so_trata_irq_desconhecida(so_t *self, int irq)
 }
 
 // Chamadas de sistema
-
 static void so_chamada_le(so_t *self);
 static void so_chamada_escr(so_t *self);
 static void so_chamada_cria_proc(so_t *self);
@@ -327,7 +319,7 @@ static err_t so_trata_chamada_sistema(so_t *self)
   // com processos, a identificação da chamada está no reg A no descritor
   //   do processo
   int id_chamada;
-  mem_le(self->mem, IRQ_END_A, &id_chamada);
+  mem_le(self->mem, IRQ_END_A, &id_chamada); //TODO
   console_printf(self->console,
       "SO: chamada de sistema %d", id_chamada);
   switch (id_chamada) {
@@ -409,20 +401,15 @@ static void so_chamada_cria_proc(so_t *self)
   int processo_pai = recupera_processo_por_pid(self, self->pid_processo_em_execucao);
 
   // em X está o endereço onde está o nome do arquivo
-  int ender_proc;
+  int ender_proc = self->tabela_processos[processo_pai].estado_cpu.X;
   // deveria ler o X do descritor do processo criador
-  if (mem_le(self->mem, self->tabela_processos[processo_pai].estado_cpu.X, &ender_proc) == ERR_OK) {
-    char nome[100];
-    if (copia_str_da_mem(100, nome, self->mem, ender_proc)) {
-      int ender_carga = so_carrega_programa(self, nome);
-      if (ender_carga > 0) {
-        // cria novo processo
-        processo_t novo_processo = cria_processo(self);
-        // escreve o endereço de carga no pc do descritor do processo
-         mem_escreve(self->mem, self->tabela_processos[processo_pai].estado_cpu.PC, ender_carga);
-        adiciona_processo_na_tabela(self, novo_processo);
-        return;
-      }
+  char nome[100];
+  if (copia_str_da_mem(100, nome, self->mem, ender_proc)) {
+    int ender_carga = so_carrega_programa(self, nome);
+    if (ender_carga > 0) {
+      // cria novo processo
+      cria_processo(self, ender_carga);
+      return;
     }
   }
   // deveria escrever -1 (se erro) ou o PID do processo criado (se OK) no reg A
@@ -511,16 +498,19 @@ static void inicializa_tabela_processos(so_t *self){
   }
 }
 
-static processo_t cria_processo(so_t *self) {
+static int cria_processo(so_t *self, int ender_carga) {
   processo_t novo_processo;
   novo_processo.pid = geraPid(self);
   novo_processo.estado_processo = PRONTO;
+  // escreve o endereço de carga no pc do descritor do processo
+  novo_processo.estado_cpu.PC = ender_carga;
   novo_processo.estado_cpu.modo = usuario;
   novo_processo.estado_cpu.complemento = 0;
   novo_processo.estado_cpu.X = 0;
   novo_processo.estado_cpu.erro = ERR_OK;
   novo_processo.livre = false;
-  return novo_processo;
+  int posicao = adiciona_processo_na_tabela(self, novo_processo);
+  return posicao;
 }
 
 static int geraPid(so_t *self) {
@@ -555,14 +545,16 @@ static int recupera_posicao_primeiro_processo_pronto(so_t *self) {
   return -1;
 }
 
-static void adiciona_processo_na_tabela(so_t *self, processo_t novo_processo) {
-  int posicao_livre_tabela_processos = recupera_posicao_livre_tabela_de_processos(self);
-  if(posicao_livre_tabela_processos != -1) {
-    self->tabela_processos[posicao_livre_tabela_processos] = novo_processo;
+static int adiciona_processo_na_tabela(so_t *self, processo_t novo_processo) {
+  int posicao = recupera_posicao_livre_tabela_de_processos(self);
+  if(posicao != -1) {
+    self->tabela_processos[posicao] = novo_processo;
   }else{
     console_printf(self->console, "Tabela cheia");
     // Tabela de processos cheia. O que fazer?
   }
+
+  return posicao;
 }
 
 // Recupera o primeiro processo que estiver com o estado PRONTO
@@ -594,10 +586,3 @@ static void mata_processo(so_t *self, int pid) {
     console_printf(self->console, "Processo não encontrado");
   }
 }
-
-// static void exibir_tabela(so_t *self) {
-//   for(int i=0; i<MAX_PROCESSOS; i++) {
-//     if(!self->tabela_processos[i]->livre)
-//     console_printf(self->console, "pid: %d", self->tabela_processos[i]->pid);
-//   }
-// }
