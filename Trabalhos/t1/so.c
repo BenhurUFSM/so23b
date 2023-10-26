@@ -2,8 +2,6 @@
 #include "irq.h"
 #include "programa.h"
 #include "instrucao.h"
-#include "processo.h"
-#include "processo.c"
 
 #include <stdlib.h>
 #include <stdbool.h>
@@ -14,6 +12,28 @@
 #define MAX_PROCESSOS 10
 
 #define NENHUM_PROCESSO_EM_EXECUCAO -1
+
+typedef enum {
+  EXECUCAO,
+  PRONTO,
+  BLOQUEADO
+} estado_processo;
+
+struct registros_t {
+    int PC;
+    int A;
+    int X;
+    int complemento;
+    int erro;
+    cpu_modo_t modo;
+};
+
+struct processo_t {
+   estado_processo estado_processo;
+   int pid;
+   registros_t estado_cpu;
+   bool livre;
+};
 
 struct so_t {
   cpu_t *cpu;
