@@ -245,6 +245,7 @@ static err_t so_trata_irq_reset(so_t *self)
   inicializa_tabela_processos(self);
   // coloca um programa na memória
   int ender = so_carrega_programa(self, "init.maq");
+  int ender = so_carrega_programa(self, "/Users/danielseitenfus/Documents/GitHub/so23b/Trabalhos/t1/init.maq");
   if (ender != 100) {
     console_printf(self->console, "SO: problema na carga do programa inicial");
     return ERR_CPU_PARADA;
@@ -318,8 +319,9 @@ static err_t so_trata_chamada_sistema(so_t *self)
 {
   // com processos, a identificação da chamada está no reg A no descritor
   //   do processo
-  int id_chamada;
-  mem_le(self->mem, IRQ_END_A, &id_chamada); //TODO
+  int posicao = recupera_processo_atual(self);
+  int id_chamada = self->tabela_processos[posicao].estado_cpu.A;   //mem_le(self->mem, IRQ_END_A, &id_chamada);
+  
   console_printf(self->console,
       "SO: chamada de sistema %d", id_chamada);
   switch (id_chamada) {
