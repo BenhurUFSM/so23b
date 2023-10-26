@@ -157,10 +157,6 @@ static void so_salva_estado_da_cpu(so_t *self)
   // salva os registradores que compõem o estado da cpu no descritor do
   //   processo corrente
   int processo_atual = recupera_processo_atual(self);
-  self->tabela_processos[processo_atual].estado_processo = BLOQUEADO;
-  // mem_le(self->mem, IRQ_END_A, endereco onde vai o A no descritor);
-  // mem_le(self->mem, IRQ_END_X, endereco onde vai o X no descritor);
-  // etc
   mem_le(self->mem, IRQ_END_A, &self->tabela_processos[processo_atual].estado_cpu.A);
   mem_le(self->mem, IRQ_END_X, &self->tabela_processos[processo_atual].estado_cpu.X);
   mem_le(self->mem, IRQ_END_complemento, &self->tabela_processos[processo_atual].estado_cpu.complemento);
