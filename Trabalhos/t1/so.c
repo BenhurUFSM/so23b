@@ -434,8 +434,8 @@ static void so_chamada_mata_proc(so_t *self)
   */
 
   //Lê do registrador A
-  int pid_processo_a_ser_morto = -1;
-  mem_le(self->mem, IRQ_END_A, &pid_processo_a_ser_morto);
+  int processo_anterior = recupera_processo_atual(self);
+  int pid_processo_a_ser_morto = self->tabela_processos[processo_anterior].estado_cpu.A;
   mata_processo(self, pid_processo_a_ser_morto);
 
   // ainda sem suporte a processos, retorna erro -1
