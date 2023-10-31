@@ -245,7 +245,6 @@ static err_t so_trata_irq_reset(so_t *self)
   inicializa_tabela_processos(self);
   // coloca um programa na memória
   int ender = so_carrega_programa(self, "init.maq");
-  int ender = so_carrega_programa(self, "/Users/danielseitenfus/Documents/GitHub/so23b/Trabalhos/t1/init.maq");
   if (ender != 100) {
     console_printf(self->console, "SO: problema na carga do programa inicial");
     return ERR_CPU_PARADA;
@@ -314,6 +313,7 @@ static void so_chamada_le(so_t *self);
 static void so_chamada_escr(so_t *self);
 static void so_chamada_cria_proc(so_t *self);
 static void so_chamada_mata_proc(so_t *self);
+static void so_chamada_espera_proc(so_t *self);
 
 static err_t so_trata_chamada_sistema(so_t *self)
 {
@@ -336,6 +336,9 @@ static err_t so_trata_chamada_sistema(so_t *self)
       break;
     case SO_MATA_PROC:
       so_chamada_mata_proc(self);
+      break;
+    case SO_ESPERA_PROC:
+      so_chamada_espera_proc(self);
       break;
     default:
       console_printf(self->console,
@@ -444,6 +447,10 @@ static void so_chamada_mata_proc(so_t *self)
   // mem_escreve(self->mem, IRQ_END_A, -1);
 }
 
+static void so_chamada_espera_proc(so_t *self)
+{
+
+}
 
 // carrega o programa na memória
 // retorna o endereço de carga ou -1
