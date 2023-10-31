@@ -269,7 +269,7 @@ static err_t so_trata_irq_err_cpu(so_t *self)
   // O erro está codificado em IRQ_END_erro
   // Em geral, causa a morte do processo que causou o erro
   // Ainda não temos processos, causa a parada da CPU
-  int err_int;
+
   // com suporte a processos, deveria pegar o valor do registrador erro
   //   no descritor do processo corrente, e reagir de acordo com esse erro
   //   (em geral, matando o processo)
@@ -277,7 +277,7 @@ static err_t so_trata_irq_err_cpu(so_t *self)
 
   int processo_atual = recupera_processo_atual(self);
 
-  mem_le(self->mem, self->tabela_processos[processo_atual].estado_cpu.erro, &err_int);
+  int err_int = self->tabela_processos[processo_atual].estado_cpu.erro;
   console_printf(self->console, "Lendo erro %d",err_int);
   err_t err = err_int;
   console_printf(self->console,
