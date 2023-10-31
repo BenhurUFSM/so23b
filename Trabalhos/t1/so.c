@@ -537,7 +537,7 @@ static int geraPid(so_t *self) {
 // Recupera um processo com base em algum PID
 static int recupera_processo_por_pid(so_t *self, int pid) {
   for (int i=0; i<MAX_PROCESSOS; i++) {
-    if(self->tabela_processos[i].pid == pid) {
+    if(self->tabela_processos[i].pid == pid && !self->tabela_processos[i].livre) {
       return i;
     }
   }
@@ -553,7 +553,7 @@ static int recupera_processo_atual(so_t *self) {
 // Recupera o primeiro processo que estiver com o estado PRONTO
 static int recupera_posicao_primeiro_processo_pronto(so_t *self) {
   for(int i=0; i<MAX_PROCESSOS; i++) {
-    if(self->tabela_processos[i].estado_processo == PRONTO){
+    if(self->tabela_processos[i].estado_processo == PRONTO && !self->tabela_processos[i].livre){
       return i;
     }
   }
@@ -586,7 +586,7 @@ static int recupera_posicao_livre_tabela_de_processos(so_t *self) {
 // Recupera posição do processo com base no PID
 static int recupera_posicao_tabela_de_processos(so_t *self, int pid) {
   for(int i=0; i<MAX_PROCESSOS; i++) {
-    if(self->tabela_processos[i].pid == pid){
+    if(self->tabela_processos[i].pid == pid && !self->tabela_processos[i].livre){
       return i;
     }
   }
@@ -596,7 +596,6 @@ static int recupera_posicao_tabela_de_processos(so_t *self, int pid) {
 static void mata_processo(so_t *self, int pid) {
   int i = recupera_posicao_tabela_de_processos(self, pid);
   if(i != - 1){
-    // self->tabela_processos[i] = malloc(sizeof(processo_t));
     self->tabela_processos[i].livre = true;
   }else{
     console_printf(self->console, "Processo não encontrado");
