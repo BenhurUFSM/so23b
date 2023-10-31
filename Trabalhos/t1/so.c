@@ -411,12 +411,15 @@ static void so_chamada_cria_proc(so_t *self)
     if (ender_carga > 0) {
       // cria novo processo
       cria_processo(self, ender_carga);
+    }else{
+      self->tabela_processos[processo_pai].estado_cpu.A = -1;
       return;
     }
   }
-  // deveria escrever -1 (se erro) ou o PID do processo criado (se OK) no reg A
-  //   do processo que pediu a criação
-  mem_escreve(self->mem, IRQ_END_A, -1);
+
+  // deveria escrever -1 (se erro) ou 0 (se OK) no reg A do processo que
+  //   pediu a criação
+  self->tabela_processos[processo_pai].estado_cpu.A = 0;
 }
 
 static void so_chamada_mata_proc(so_t *self)
