@@ -437,14 +437,17 @@ static void so_chamada_mata_proc(so_t *self)
     - Morto por outro processo (involuntário)
   */
 
-  //Lê do registrador A
-  int processo_anterior = recupera_processo_atual(self);
-  int pid_processo_a_ser_morto = self->tabela_processos[processo_anterior].estado_cpu.A;
-  mata_processo(self, pid_processo_a_ser_morto);
+  // Lê o X do processo chamador
+  int posicao_processo_chamador = recupera_processo_atual(self);
+  int pid_processo_a_ser_morto = self->tabela_processos[posicao_processo_chamador].estado_cpu.X;
+  if(pid_processo_a_ser_morto == 0) {
+    mata_processo(self, self->tabela_processos[posicao_processo_chamador].pid);
+  }else{
+    mata_processo(self, pid_processo_a_ser_morto);
+  }
 
-  // ainda sem suporte a processos, retorna erro -1
-  // console_printf(self->console, "SO: SO_MATA_PROC não implementada");
-  // mem_escreve(self->mem, IRQ_END_A, -1);
+  //Retorna sucessso
+  mem_escreve(self->mem, IRQ_END_A, 0); 
 }
 
 static void so_chamada_espera_proc(so_t *self)
