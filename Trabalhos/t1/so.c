@@ -369,7 +369,8 @@ static void so_chamada_le(so_t *self)
   int dado;
   term_le(self->console, 0, &dado);
   // com processo, deveria escrever no reg A do processo
-  mem_escreve(self->mem, IRQ_END_A, dado);
+  int processo = recupera_processo_atual(self);
+  self->tabela_processos[processo].estado_cpu.A = dado;   // mem_escreve(self->mem, IRQ_END_A, dado);
 }
 
 static void so_chamada_escr(so_t *self)
