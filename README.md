@@ -53,6 +53,9 @@ Ver [aqui](https://www.ufsm.br/ementario/disciplinas/ELC1080/).
 |   16 |   3out | gerência de memória
 |   17 |   5out | gerência de memória
 |   18 |  10out | gerência de memória ([algoritmo wsclock](Assuntos/wsclock.md))
+|   19 |  17out | gerência de memória
+|   20 |  19out | sistemas de arquivos
+|   21 |  31out | sistemas de arquivos
 
 ## Trabalhos, provas, exercícios
 
@@ -61,6 +64,8 @@ Ver [aqui](https://www.ufsm.br/ementario/disciplinas/ELC1080/).
 |    T0 | [simulador de CPU](Trabalhos/t0)
 |    T1 | [processos](Trabalhos/t1)
 |    T2 | [memória virtual](Trabalhos/t2)
+
+Os trabalhos podem ser desenvolvidos em grupos de até 2 alunos, desde que todos participem. A avaliação é individual.
 
 | prazo | entrega
 | ----: | :--------
