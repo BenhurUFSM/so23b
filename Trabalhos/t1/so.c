@@ -187,6 +187,9 @@ static void so_escalona(so_t *self)
     int proximo_processo = recupera_posicao_primeiro_processo_pronto(self);
     if(proximo_processo != -1){
       pid_processo_escalonado = self->tabela_processos[proximo_processo].pid;
+    } else {
+      // Existem processos mas nenhum está pronto
+      coloca_cpu_em_estado_parada(self);
     }
   }
 
@@ -200,8 +203,7 @@ static void so_despacha(so_t *self)
    // se não houver processo corrente, coloca ERR_CPU_PARADA em IRQ_END_erro
   if(self->pid_processo_em_execucao == NENHUM_PROCESSO_EM_EXECUCAO) {
    // Não existe processo para executar
-   mem_escreve(self->mem, IRQ_END_erro, ERR_CPU_PARADA);
-   console_printf(self->console, "Não existe processo para executar ERR_CPU_PARADA");
+   coloca_cpu_em_estado_parada(self);
   } else {
     // se houver processo corrente, coloca todo o estado desse processo em
     //   IRQ_END_*
@@ -213,6 +215,12 @@ static void so_despacha(so_t *self)
     mem_escreve(self->mem, IRQ_END_modo, (self->tabela_processos[processo_escalonado].estado_cpu.modo));
     mem_escreve(self->mem, IRQ_END_erro, (self->tabela_processos[processo_escalonado].estado_cpu.erro));
   }
+}
+
+static void coloca_cpu_em_estado_parada(so_t *self) {
+  mem_escreve(self->mem, IRQ_END_erro, ERR_CPU_PARADA);
+  mem_escreve(self->mem, IRQ_END_modo, usuario);
+  console_printf(self->console, "Não existe processo para executar ERR_CPU_PARADA");
 }
 
 static err_t so_trata_irq(so_t *self, int irq)
