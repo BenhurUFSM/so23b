@@ -196,7 +196,6 @@ static void so_escalona(so_t *self)
   // escolhe o próximo processo a executar, que passa a ser o processo
   //   corrente; pode continuar sendo o mesmo de antes ou não
   self->pid_processo_em_execucao = pid_processo_escalonado;
-  console_printf(self->console, "Processo escalonado: %d", self->pid_processo_em_execucao);
 }
 static void so_despacha(so_t *self)
 {
@@ -248,8 +247,6 @@ static err_t so_trata_irq(so_t *self, int irq)
 
 static err_t so_trata_irq_reset(so_t *self)
 {
-
-  console_printf(self->console, "so_trata_irq_reset");
   inicializa_tabela_processos(self);
   // coloca um programa na memória
   int ender = so_carrega_programa(self, "init.maq");
@@ -407,10 +404,6 @@ static void so_chamada_escr(so_t *self)
 
 static void so_chamada_cria_proc(so_t *self)
 {
-  console_printf(self->console, "so_chamada_cria_proc");
-  // ainda sem suporte a processos, carrega programa e passa a executar ele
-  // quem chamou o sistema não vai mais ser executado, coitado!
-
   //Recupera o processo atual. É ele que gerou uma chamada de sistema para criação de outro processo.
   int processo_pai = recupera_processo_por_pid(self, self->pid_processo_em_execucao);
 
@@ -436,7 +429,6 @@ static void so_chamada_cria_proc(so_t *self)
 
 static void so_chamada_mata_proc(so_t *self)
 {
-  console_printf(self->console, "so_chamada_mata_proc");
   /*
   O processo pode ser morto por 4 motivos:
     - Saída normal (voluntária): programa terminou ou se matou
@@ -467,7 +459,6 @@ static void so_chamada_espera_proc(so_t *self)
 // retorna o endereço de carga ou -1
 static int so_carrega_programa(so_t *self, char *nome_do_executavel)
 {
-  console_printf(self->console, "so_carrega_programa");
   // programa para executar na nossa CPU
   programa_t *prog = prog_cria(nome_do_executavel);
   if (prog == NULL) {
