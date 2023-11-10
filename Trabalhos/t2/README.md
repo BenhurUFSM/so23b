@@ -27,6 +27,8 @@ Para essa implementação, vamos necessitar:
 - manter uma tabela de páginas por processo, e atualizá-la a cada troca de processo;
 - alterar a carga de programas em memória, usando a memória secundária;
 - atender a interrupções de falta de página, e agir de acordo, em caso de acesso ilegal ou troca de páginas entre a memória principal e a secundária;
+- implementar um algoritmo de substituição de páginas (ou dois)
+- medir o desempenho da paginação
 
 #### MMU e tabela de páginas
 
@@ -83,3 +85,11 @@ No caso de falta de página, o SO deve:
 - marcar o quadro como não livre
 - alterar a tabela de páginas do processo, para indicar que essa página está nesse quadro
 - bloquear o processo por um tempo correspondente a um ou dois acessos ao disco
+
+### Algoritmo de substituição de página
+
+...
+
+### Medição do sistema de memória virtual
+
+...
