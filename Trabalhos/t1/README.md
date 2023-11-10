@@ -63,6 +63,7 @@ Alterações após ser apresentado em aula
      RETI coloca a CPU em ERR_CPU_PARADA
    - correção do comentário em so.c, sobre o retorno da chamada de criação de 
      processo, que não estava coerente com a documentação da chamada em so.h
+   - implementação de gravação das mensagens da console em um arquivo de log
 
 
 ### Parte I
