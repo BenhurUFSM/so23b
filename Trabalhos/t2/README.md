@@ -13,6 +13,12 @@
 - monta todos os .asm para serem carregados no endereço 0, agora sem memória virtual não dá para executá-los
 - carga de programa no próximo endereço livre, altera tabela de páginas para mapear o endereço virtual 0 para o endereço de carga
 
+### Alterações posteriores à cópia do t1
+
+- 10nov
+   - correção de um bug em que a CPU estava causando interrupção quando a instrução
+     RETI coloca a CPU em ERR_CPU_PARADA
+
 ### Descrição
 
 No t1, foi implementado o suporte a processos, mas tem 2 problemas sérios:

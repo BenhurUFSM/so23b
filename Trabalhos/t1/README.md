@@ -58,6 +58,9 @@ Alterações após ser apresentado em aula
 - 6out
    - comentários etc em so.c tentando explicitar melhor o que tem que implementar
    - remoção de trata_irq.asm, agora o tratador é colocado "à mão" na memória pelo so
+- 10nov
+   - correção de um bug em que a CPU estava causando interrupção quando a instrução
+     RETI coloca a CPU em ERR_CPU_PARADA
 
 
 ### Parte I
