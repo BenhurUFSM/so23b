@@ -16,8 +16,10 @@
 ### Alterações posteriores à cópia do t1
 
 - 10nov
-   - correção de um bug em que a CPU estava causando interrupção quando a instrução
-     RETI coloca a CPU em ERR_CPU_PARADA
+   - cópia do t1, da correção do bug em que a CPU estava causando interrupção quando a 
+     instrução RETI coloca a CPU em ERR_CPU_PARADA
+   - cópia do t1, da correção do comentário sobre o retorno da chamada de criação de 
+     processo
 
 ### Descrição
 

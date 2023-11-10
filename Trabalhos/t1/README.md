@@ -61,6 +61,8 @@ Alterações após ser apresentado em aula
 - 10nov
    - correção de um bug em que a CPU estava causando interrupção quando a instrução
      RETI coloca a CPU em ERR_CPU_PARADA
+   - correção do comentário em so.c, sobre o retorno da chamada de criação de 
+     processo, que não estava coerente com a documentação da chamada em so.h
 
 
 ### Parte I
