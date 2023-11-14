@@ -11,11 +11,11 @@
 
 
 // tamanho da tela -- a janela do terminal tem que ter pelo menos esse tamanho
-#define N_LIN 24  // número de linhas na tela
-#define N_COL 80  // número de colunas na tela
+#define N_LIN 40  // número de linhas na tela
+#define N_COL 110  // número de colunas na tela
 
 // número de linhas para cada componente da tela
-#define N_TERM        4  // número de terminais, cada um ocupa 2 linhas na tela
+#define N_TERM       10  // número de terminais, cada um ocupa 2 linhas na tela
 #define N_LIN_TERM    (N_TERM * 2)
 #define N_LIN_STATUS  1
 #define N_LIN_ENTRADA 1
@@ -58,6 +58,7 @@ typedef struct {
   enum { normal, rolando, limpando } estado_saida;
   int cor_txt;
   int cor_cursor;
+  bool livre;
 } term_t;
 
 struct console_t {
@@ -81,6 +82,7 @@ console_t *console_cria(void)
     self->term[t].entrada[0] = '\0';
     self->term[t].saida[0] = '\0';
     self->term[t].estado_saida = normal;
+    self->term[t].livre = true;
     if (t%2 == 0) {
       self->term[t].cor_txt = COR_TXT_PAR;
       self->term[t].cor_cursor = COR_CURSOR_PAR;
@@ -108,7 +110,7 @@ static void init_curses(void)
   initscr();
   cbreak();      // lê cada char, não espera enter
   noecho();      // não mostra o que é digitado
-  timeout(5);    // não espera digitar, retorna ERR se nada foi digitado
+  timeout(1);    // não espera digitar, retorna ERR se nada foi digitado
   start_color();
   init_pair(COR_TXT_PAR, COLOR_GREEN, COLOR_BLACK);
   init_pair(COR_CURSOR_PAR, COLOR_BLACK, COLOR_GREEN);
@@ -521,4 +523,18 @@ err_t term_escr(void *disp, int id, int valor)
       break;
   }
   return ERR_OK;
+}
+
+int obtem_proximo_terminal_disponivel(console_t *self) {
+  for (int t=0; t<N_TERM; t++) {
+    if(self->term[t].livre) {
+        self->term[t].livre = false;
+        return t;
+    }
+  }
+  return -1;
+}
+
+int obtem_id_por_tid(int tid, int op) {
+    return tid * 4 + op;
 }

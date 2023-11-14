@@ -30,7 +30,8 @@ struct registros_t {
 
 struct processo_t {
    estado_processo estado_processo;
-   int pid;
+   int pid; //id do processo
+   int tid; //id do terminal
    registros_t estado_cpu;
    bool livre;
 };
@@ -47,6 +48,7 @@ struct so_t {
 
 // função de tratamento de interrupção (entrada no SO)
 static err_t so_trata_interrupcao(void *argC, int reg_A);
+static void coloca_cpu_em_estado_parada(so_t *self);
 
 // funções auxiliares
 static int so_carrega_programa(so_t *self, char *nome_do_executavel);
@@ -355,6 +357,7 @@ static err_t so_trata_chamada_sistema(so_t *self)
 
 static void so_chamada_le(so_t *self)
 {
+  int i_processo = recupera_processo_atual(self);
   // implementação com espera ocupada
   //   deveria bloquear o processo se leitura não disponível.
   //   no caso de bloqueio do processo, a leitura (e desbloqueio) deverá
@@ -365,7 +368,8 @@ static void so_chamada_le(so_t *self)
   //   deveria usar dispositivo corrente de entrada do processo
   for (;;) {
     int estado;
-    term_le(self->console, 1, &estado);
+    int id_el = obtem_id_por_tid(self->tabela_processos[i_processo].tid, 1);
+    term_le(self->console, id_el, &estado);
     if (estado != 0) break;
     // como não está saindo do SO, o laço do processador não tá rodando
     // esta gambiarra faz o console andar
@@ -375,7 +379,8 @@ static void so_chamada_le(so_t *self)
     console_atualiza(self->console);
   }
   int dado;
-  term_le(self->console, 0, &dado);
+  int id_dl = obtem_id_por_tid(self->tabela_processos[i_processo].tid, 0);
+  term_le(self->console, id_dl, &dado);
   // com processo, deveria escrever no reg A do processo
   int processo = recupera_processo_atual(self);
   self->tabela_processos[processo].estado_cpu.A = dado;   // mem_escreve(self->mem, IRQ_END_A, dado);
@@ -383,13 +388,15 @@ static void so_chamada_le(so_t *self)
 
 static void so_chamada_escr(so_t *self)
 {
+  int i_processo = recupera_processo_atual(self);
   // implementação com espera ocupada
   //   deveria bloquear o processo se dispositivo ocupado
   // implementação escrevendo direto do terminal A
   //   deveria usar dispositivo corrente de saída do processo
   for (;;) {
     int estado;
-    term_le(self->console, 3, &estado);
+    int id_ee = obtem_id_por_tid(self->tabela_processos[i_processo].tid, 3);
+    term_le(self->console, id_ee, &estado);
     if (estado != 0) break;
     // como não está saindo do SO, o laço do processador não tá rodando
     // esta gambiarra faz o console andar
@@ -398,7 +405,8 @@ static void so_chamada_escr(so_t *self)
   }
   int dado;
   mem_le(self->mem, IRQ_END_X, &dado);
-  term_escr(self->console, 2, dado);
+  int id_de = obtem_id_por_tid(self->tabela_processos[i_processo].tid, 2);
+  term_escr(self->console, id_de, dado);
   mem_escreve(self->mem, IRQ_END_A, 0);
 }
 
@@ -524,6 +532,7 @@ static int cria_processo(so_t *self, int ender_carga) {
   novo_processo.estado_cpu.X = 0;
   novo_processo.estado_cpu.erro = ERR_OK;
   novo_processo.livre = false;
+  novo_processo.tid = obtem_proximo_terminal_disponivel(self->console);
   int posicao = adiciona_processo_na_tabela(self, novo_processo);
   return posicao;
 }
