@@ -56,7 +56,7 @@ Quando um processo é criado, deve ser também criada uma tabela de páginas par
 
 Quando um processo morre, sua tabela de páginas deve ser destruída (com `tabpag_destroi`), e as páginas de memória secundária e os quadros de memória real que o processo estiver ocupando devem ser liberados.
 
-Uma forma simples de escolher onde colocar o processo novo é carregá-lo complegamente em memória secundária quando ele é criado. Dessa forma nenhuma página está mapeada, a tabela de páginas pode ficar vazia. Quando o processo executar, causará faltas de página, e caberá ao algoritmo de substituição de páginas decidir onde colocar as páginas do processo.
+Uma forma simples de escolher onde colocar o processo novo é carregá-lo completamente em memória secundária quando ele é criado, sem alocar nenhum quadro da memória principal para ele. Dessa forma nenhuma página está mapeada, a tabela de páginas pode ficar vazia. Quando o processo executar, causará faltas de página, e caberá ao algoritmo de substituição de páginas decidir onde colocar as páginas do processo.
 
 Quando o SO despacha um processo para executar, além de atualizar o estado do processador para corresponder ao do processo, deve também configurar a MMU para que utilize a tabela de páginas do processo.
 Não é necessário atualizar a tabela de páginas do processo quando inicia o tratamento de uma interrupção, porque na implementação fornecida o MMU usa e altera a própria tabela do processo, e não uma cópia.
@@ -96,8 +96,17 @@ No caso de falta de página, o SO deve:
 
 ### Algoritmo de substituição de página
 
-...
+Implemente os algoritmos FIFO e segunda chance. Cuidado com a escolha da frequência com que o bit de acesso dos quadros de memória é zerado para o segunda chance, se for muito baixa a frequência, grande parte dos quadros estará marcada como acessada, e se for muito alta, bem poucos estarão, afetando o desempenho do algoritmo.
 
 ### Medição do sistema de memória virtual
 
-...
+Faça seu programa contar o número de falhas de página atendidas para cada processo.
+Defina a memória principal com tamanho suficiente para conter todas as páginas de todos os processos. Executando dessa forma com paginação por demanda, cada processo deve gerar um número de falhas de página igual ao número de páginas que corresponde ao seu tamanho.
+
+Altere o tamanho da memória para ter metade das páginas necessárias para conter todos os processos. Execute nessa configuração e compare o número de falhas de página e os tempos de execução dos programas em relação à configuração anterior.
+
+Continue diminuindo o tamanho da memória pela metade e refazendo a comparação.
+
+Qual o tamanho mínimo de memória que permite a execução dos processos?
+
+Faça o experimento com 2 tamanhos de página, um bem pequeno (algumas palavras) e outro pelo menos 4 vezes maior. Analise as diferenças no comportamento do sistema. Faça um relatório com suas observações e análises.
