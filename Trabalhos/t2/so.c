@@ -353,8 +353,8 @@ static void so_chamada_cria_proc(so_t *self)
       }
     }
   }
-  // deveria escrever -1 (se erro) ou 0 (se OK) no reg A do processo que
-  //   pediu a criação
+  // deveria escrever -1 (se erro) ou o PID do processo criado (se OK) no reg A
+  //   do processo que pediu a criação
   mem_escreve(self->mem, IRQ_END_A, -1);
 }
 

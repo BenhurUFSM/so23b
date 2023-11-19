@@ -66,6 +66,7 @@ struct console_t {
   char txt_console[N_LIN_CONSOLE][N_COL+1];
   char digitando[N_COL+1];
   char fila_de_comandos_externos[N_CMD_EXT];
+  FILE *arquivo_de_log;
 };
 
 // funções auxiliares
@@ -93,6 +94,7 @@ console_t *console_cria(void)
   }
   self->digitando[0] = '\0';
   self->fila_de_comandos_externos[0] = '\0';
+  self->arquivo_de_log = fopen("log_da_console", "w");
 
   init_curses();
 
@@ -120,6 +122,7 @@ static void init_curses(void)
 void console_destroi(console_t *self)
 {
   console_atualiza(self);
+  if (self->arquivo_de_log != NULL) fclose(self->arquivo_de_log);
   attron(COLOR_PAIR(COR_OCUPADO));
   addstr("  digite ENTER para sair  ");
   while (getch() != '\n') {
@@ -234,6 +237,9 @@ static void insere_string_na_console(console_t *self, char *s)
   }
   strncpy(self->txt_console[N_LIN_CONSOLE-1], s, N_COL);
   self->txt_console[N_LIN_CONSOLE-1][N_COL] = '\0'; // grrrr
+  if (self->arquivo_de_log != NULL) {
+    fprintf(self->arquivo_de_log, "%s\n", s);
+  }
 }
 
 static void insere_strings_na_console(console_t *self, char *s)
