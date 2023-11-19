@@ -45,7 +45,4 @@ void console_atualiza(console_t *self);
 err_t term_le(void *disp, int id, int *pvalor);
 err_t term_escr(void *disp, int id, int valor);
 
-int obtem_proximo_terminal_disponivel(console_t *self);
-int obtem_id_por_tid(int tid, int op);
-
 #endif // CONSOLE_H

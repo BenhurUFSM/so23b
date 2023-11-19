@@ -58,7 +58,6 @@ typedef struct {
   enum { normal, rolando, limpando } estado_saida;
   int cor_txt;
   int cor_cursor;
-  bool livre;
 } term_t;
 
 struct console_t {
@@ -82,7 +81,6 @@ console_t *console_cria(void)
     self->term[t].entrada[0] = '\0';
     self->term[t].saida[0] = '\0';
     self->term[t].estado_saida = normal;
-    self->term[t].livre = true;
     if (t%2 == 0) {
       self->term[t].cor_txt = COR_TXT_PAR;
       self->term[t].cor_cursor = COR_CURSOR_PAR;
@@ -523,18 +521,4 @@ err_t term_escr(void *disp, int id, int valor)
       break;
   }
   return ERR_OK;
-}
-
-int obtem_proximo_terminal_disponivel(console_t *self) {
-  for (int t=0; t<N_TERM; t++) {
-    if(self->term[t].livre) {
-        self->term[t].livre = false;
-        return t;
-    }
-  }
-  return -1;
-}
-
-int obtem_id_por_tid(int tid, int op) {
-    return tid * 4 + op;
 }
