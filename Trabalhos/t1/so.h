@@ -7,6 +7,7 @@
 typedef struct so_t so_t;
 typedef struct processo_t processo_t;
 typedef struct registros_t registros_t;
+typedef struct pendencia_t pendencia_t;
 
 #include "memoria.h"
 #include "cpu.h"

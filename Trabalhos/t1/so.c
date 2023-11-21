@@ -35,6 +35,11 @@ struct processo_t {
    bool livre;
 };
 
+struct pendencia_t {
+  int dispositivo;
+  int pid;
+};
+
 struct so_t {
   cpu_t *cpu;
   mem_t *mem;
@@ -43,6 +48,13 @@ struct so_t {
   int pid_processo_em_execucao;
   int count_processos;
   processo_t tabela_processos[MAX_PROCESSOS];
+  /*
+    pendencias_es 
+    Armazena as solicitações de E/S quando um dispositivo estiver ocupado com uma struct.
+    int dispositivo - Id do dispositivo de E/S (DL, EL, DE, EE)
+    int pid - PID do processo que solicitou a E/S
+  */
+  pendencia_t pendencias_es[MAX_PROCESSOS];
 };
 
 // função de tratamento de interrupção (entrada no SO)
@@ -64,8 +76,24 @@ static int adiciona_processo_na_tabela(so_t *self, processo_t novo_processo);
 static int recupera_posicao_livre_tabela_de_processos(so_t *self);
 static void mata_processo(so_t *self, int posicao);
 static int recupera_posicao_tabela_de_processos(so_t *self, int pid);
-int obter_terminal_por_pid(int pid);
-int obtem_id_por_term(int term, int op);
+static void desbloqueia_processo(so_t *self, int pid);
+
+// função de tratamento de terminal/dispositivo
+static int obter_terminal_por_pid(int pid);
+static int obter_id_por_term(int term, int op);
+static int obter_op_por_id(int id, int pid);
+
+// funções para tratamento de pendências
+static void inicializa_pendencias_es(so_t *self);
+static int obter_posicao_livre_pendencias_es(so_t *self);
+static void so_trata_pendencia_es(so_t *self);
+static void adiciona_pendencia(so_t *self, int id, int pid);
+static void remove_pendencia_es(so_t *self, int i);
+
+// funções para entrada e saída
+static bool verifica_estado_es(so_t *self, int id);
+static void atende_leitura(so_t *self, int term, int pid);
+static void atende_escrita(so_t *self, int term);
 
 so_t *so_cria(cpu_t *cpu, mem_t *mem, console_t *console, relogio_t *relogio)
 {
@@ -79,6 +107,7 @@ so_t *so_cria(cpu_t *cpu, mem_t *mem, console_t *console, relogio_t *relogio)
   self->count_processos = 0;
   self->pid_processo_em_execucao = NENHUM_PROCESSO_EM_EXECUCAO;
   inicializa_tabela_processos(self);
+  inicializa_pendencias_es(self);
 
   // quando a CPU executar uma instrução CHAMAC, deve chamar a função
   //   so_trata_interrupcao
@@ -106,7 +135,6 @@ void so_destroi(so_t *self)
   cpu_define_chamaC(self->cpu, NULL, NULL);
   free(self);
 }
-
 
 // Tratamento de interrupção
 
@@ -168,12 +196,57 @@ static void so_salva_estado_da_cpu(so_t *self)
 }
 static void so_trata_pendencias(so_t *self)
 {
-  // realiza ações que não são diretamente ligadar com a interrupção que
+  // realiza ações que não são diretamente ligadas com a interrupção que
   //   está sendo atendida:
   // - E/S pendente
   // - desbloqueio de processos
   // - contabilidades
+  so_trata_pendencia_es(self);
 }
+
+static void so_trata_pendencia_es(so_t *self) {
+  for(int i=0; i<MAX_PROCESSOS; i++) {
+    int dispositivo = self->pendencias_es[i].dispositivo;
+    int pid = self->pendencias_es[i].pid;
+    bool disponivel = verifica_estado_es(self, dispositivo);
+    if(disponivel) {
+      int op = obter_op_por_id(dispositivo, pid);
+      int term = obter_terminal_por_pid(pid);
+      if(op == 1) { //Leitura
+        atende_leitura(self, term, pid);
+      }else if(op == 3){ //Escrita
+        atende_escrita(self, term);
+      }
+      
+      desbloqueia_processo(self, pid);
+      remove_pendencia_es(self, i);
+    }
+  }
+}
+
+static void remove_pendencia_es(so_t *self, int i) {
+  self->pendencias_es[i].dispositivo = -1;
+  self->pendencias_es[i].pid = -1;
+}
+
+/*
+  Verifica se um dispositivo de E/S está disponível. 
+  Retorna 'tru'e se sim, 'false' se estiver ocupado.
+*/
+static bool verifica_estado_es(so_t *self, int id) {
+    int estado;
+    term_le(self->console, id, &estado);
+    return estado != 0;
+}
+
+/*
+  Desbloqueia um processo, colocando o estado dele como PRONTO.
+*/
+static void desbloqueia_processo(so_t *self, int pid) {
+  int i = recupera_processo_por_pid(self, pid);
+  self->tabela_processos[i].estado_processo = PRONTO;
+}
+
 static void so_escalona(so_t *self)
 {
 // Define essa variável que pode receber o PID do estado anterior ou do próximo. 
@@ -360,56 +433,56 @@ static void so_chamada_le(so_t *self)
 {
   int i_processo = recupera_processo_atual(self);
   int term = obter_terminal_por_pid(self->tabela_processos[i_processo].pid);
-  // implementação com espera ocupada
-  //   deveria bloquear o processo se leitura não disponível.
-  //   no caso de bloqueio do processo, a leitura (e desbloqueio) deverá
-  //   ser feita mais tarde, em tratamentos pendentes em outra interrupção,
-  //   ou diretamente em uma interrupção específica do dispositivo, se for
-  //   o caso
-  // implementação lendo direto do terminal A
-  //   deveria usar dispositivo corrente de entrada do processo
-  for (;;) {
+
     int estado;
-    int id_el = obtem_id_por_term(term, 1);
+    int id_el = obter_id_por_term(term, 1);
     term_le(self->console, id_el, &estado);
-    if (estado != 0) break;
-    // como não está saindo do SO, o laço do processador não tá rodando
-    // esta gambiarra faz o console andar
-    // com a implementação de bloqueio de processo, esta gambiarra não
-    //   deve mais existir.
-    console_tictac(self->console);
-    console_atualiza(self->console);
-  }
-  int dado;
-  int id_dl = obtem_id_por_term(term, 0);
-  term_le(self->console, id_dl, &dado);
-  // com processo, deveria escrever no reg A do processo
-  int processo = recupera_processo_atual(self);
-  self->tabela_processos[processo].estado_cpu.A = dado;   // mem_escreve(self->mem, IRQ_END_A, dado);
+    //Dispositivo disponível - Atende solicitação
+    if (estado != 0) {
+      atende_leitura(self, term, self->tabela_processos[i_processo].pid);
+    } else { //Dispositivo indisponível - Bloqueia processo
+      self->tabela_processos[i_processo].estado_processo = BLOQUEADO;
+      adiciona_pendencia(self, id_el, self->tabela_processos[i_processo].pid);
+    }
 }
 
 static void so_chamada_escr(so_t *self)
 {
   int i_processo = recupera_processo_atual(self);
   int term = obter_terminal_por_pid(self->tabela_processos[i_processo].pid);
-
-  // implementação com espera ocupada
-  //   deveria bloquear o processo se dispositivo ocupado
-  // implementação escrevendo direto do terminal A
-  //   deveria usar dispositivo corrente de saída do processo
-  for (;;) {
-    int estado;
-    int id_ee = obtem_id_por_term(term, 3);
-    term_le(self->console, id_ee, &estado);
-    if (estado != 0) break;
-    // como não está saindo do SO, o laço do processador não tá rodando
-    // esta gambiarra faz o console andar
-    console_tictac(self->console);
-    console_atualiza(self->console);
+ 
+  int estado;
+  int id_ee = obter_id_por_term(term, 3);
+  term_le(self->console, id_ee, &estado);
+  //Dispositivo disponível - Atende solicitação
+  if (estado != 0) {
+   atende_escrita(self, term);
+  } else { //Dispositivo indisponível - Bloqueia processo
+    self->tabela_processos[i_processo].estado_processo = BLOQUEADO;
+    adiciona_pendencia(self, id_ee, self->tabela_processos[i_processo].pid);
   }
+}
+
+/* 
+  Faz a leitura de um dispositivo de E/S. 
+  Essa função só pode ser chamada antes de verificar o estado do dispositivo. Ele deve estar pronto para leitura.
+*/
+static void atende_leitura(so_t *self, int term, int pid) {
+  int i_processo = recupera_processo_por_pid(self, pid);
+  int dado;
+  int id_dl = obter_id_por_term(term, 0);
+  term_le(self->console, id_dl, &dado);
+  self->tabela_processos[i_processo].estado_cpu.A = dado;
+}
+
+/* 
+  Faz a escrita em um dispositivo de E/S. 
+  Essa função só pode ser chamada antes de verificar o estado do dispositivo. Ele deve estar pronto para escrita.
+*/
+static void atende_escrita(so_t *self, int term) {
   int dado;
   mem_le(self->mem, IRQ_END_X, &dado);
-  int id_de = obtem_id_por_term(term, 2);
+  int id_de = obter_id_por_term(term, 2);
   term_escr(self->console, id_de, dado);
   mem_escreve(self->mem, IRQ_END_A, 0);
 }
@@ -613,10 +686,43 @@ static void mata_processo(so_t *self, int pid) {
   }
 }
 
-int obter_terminal_por_pid(int pid) {
+static int obter_terminal_por_pid(int pid) {
   return ((pid - 1) % 4) + 1;
 }  
 
-int obtem_id_por_term(int term, int op) {
+static int obter_id_por_term(int term, int op) {
   return term * 4 + op;
+}
+
+/*
+  Essa função retorna a operação pelo id do dispositivo.
+  Por exemplo, se eu possui um id de dispositivo 15, a função retornará 3 (que identifica uma operação de escrita).
+  Retorna 1, quando é leitura, 3 quando é escrita.
+*/
+static int obter_op_por_id(int id, int pid) {
+  int term = obter_terminal_por_pid(pid);
+  return id-(term*4);
+}
+
+// Tratamento de pendências
+static void inicializa_pendencias_es(so_t *self) {
+  for (int i=0; i<MAX_PROCESSOS; i++) {
+    self->pendencias_es[i].dispositivo = -1;
+    self->pendencias_es[i].pid = -1;
+  }
+}
+
+static int obter_posicao_livre_pendencias_es(so_t *self) {
+  for (int i=0; i<MAX_PROCESSOS; i++) {
+    if (self->pendencias_es[i].dispositivo == -1) {
+      return i;
+    }
+  }
+  return -1;
+}
+
+static void adiciona_pendencia(so_t *self, int id, int pid) {
+  int posicao = obter_posicao_livre_pendencias_es(self);
+  self->pendencias_es[posicao].dispositivo = id;
+  self->pendencias_es[posicao].pid = pid;
 }
