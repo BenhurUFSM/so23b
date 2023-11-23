@@ -824,7 +824,7 @@ static bool existe_processo(so_t *self, int pid)
 
 static int obter_terminal_por_pid(int pid)
 {
-  return ((pid - 1) % 4) + 1;
+  return ((pid - 1) % 4);
 }
 
 static int obter_id_por_term(int term, int op)
