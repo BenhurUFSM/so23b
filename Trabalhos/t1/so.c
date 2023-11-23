@@ -591,7 +591,8 @@ static void so_chamada_cria_proc(so_t *self)
     int ender_carga = so_carrega_programa(self, nome);
     if (ender_carga > 0) {
       // cria novo processo
-      cria_processo(self, ender_carga, self->pid_processo_em_execucao);
+      int pid = cria_processo(self, ender_carga, self->pid_processo_em_execucao);
+      self->tabela_processos[processo_pai].estado_cpu.A = pid;
     } else {
       self->tabela_processos[processo_pai].estado_cpu.A = -1;
       return;
@@ -716,7 +717,7 @@ static int cria_processo(so_t *self, int ender_carga, int pid_processo_pai)
   novo_processo.estado_cpu.erro = ERR_OK;
   novo_processo.livre = false;
   int posicao = adiciona_processo_na_tabela(self, novo_processo);
-  return posicao;
+  return novo_processo.pid;
 }
 
 static int geraPid(so_t *self)
