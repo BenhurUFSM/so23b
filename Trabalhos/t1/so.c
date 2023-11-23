@@ -598,10 +598,6 @@ static void so_chamada_cria_proc(so_t *self)
       return;
     }
   }
-
-  // deveria escrever -1 (se erro) ou 0 (se OK) no reg A do processo que
-  //   pediu a criação
-  self->tabela_processos[processo_pai].estado_cpu.A = 0;
 }
 
 static void so_chamada_mata_proc(so_t *self)
@@ -716,7 +712,7 @@ static int cria_processo(so_t *self, int ender_carga, int pid_processo_pai)
   novo_processo.estado_cpu.X = 0;
   novo_processo.estado_cpu.erro = ERR_OK;
   novo_processo.livre = false;
-  int posicao = adiciona_processo_na_tabela(self, novo_processo);
+  adiciona_processo_na_tabela(self, novo_processo);
   return novo_processo.pid;
 }
 
