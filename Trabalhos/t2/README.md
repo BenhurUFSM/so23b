@@ -110,3 +110,32 @@ Continue diminuindo o tamanho da memória pela metade e refazendo a comparação
 Qual o tamanho mínimo de memória que permite a execução dos processos?
 
 Faça o experimento com 2 tamanhos de página, um bem pequeno (algumas palavras) e outro pelo menos 4 vezes maior. Analise as diferenças no comportamento do sistema. Faça um relatório com suas observações e análises.
+
+
+### Respostas a perguntas
+
+Os programas agora estão sendo montados para serem executados no endereço 0.
+O PC deve ser inicializado com 0, porque é nesse endereço que o programa vai procurar sua primeira instrução.
+
+Mas o endereço físico 0 não pode ser usado por um programa, porque é onde a CPU coloca os registradores quando aceita uma interrupção. O endereço 10 também não pode ser usado porque é para onde a execução vai ser desviada para tratar uma interrupção.
+
+Então, para que o programa possa ser executado, deve haver mapeamento de endereços, entre os endereços virtuais gerados pelo programa e os endereços físicos correspondentes.
+Quem faz essa tradução é a MMU, quando ela é carregada com uma tabela de páginas. 
+Sem tabela de páginas, a MMU simplesmente repassa o endereço virtual que ela recebe para a memória principal como se fosse o endereço físico, e isso não tem chance de funcionar.
+
+Digamos que queiramos implementar somente essa tradução de endereços, sem memória secundária.
+Suponha que uma página tenha 10 palavras (é o tamanho que está definido em `tabpag.h`), e que o primeiro processo do sistema ocupe 205 palavras (o espaço de endereçamento virtual dele compreende os endereços entre 0 e 204). Digamos que o SO resolva carregar esse processo a partir do endereço 20 (o início do primeiro quadro livre, já que não pode usar o endereço físico 0 nem 10). O programa então vai ser colocado nos endereços entre 20 e 224.
+Para que a MMU traduza o endereço 0 do processo no endereço 20 da memória, a tabela de páginas desse processo deve mapear a página 0 do processo (endereços entre 0 e 9) no quadro 2 da memória (endereços entre 20 e 29).
+Da mesma forma, a página 1 deve ser mapeada no quadro 3, a página 20 no quadro 22.
+
+Quando esse processo executar, essa tabela deve ser colocada na MMU, ou o acesso do processo à sua memória não funcionará.
+
+Digamos que agora um segundo processo seja criado, e que o SO resolva carregar esse programa no próximo endereço livre da memória principal (endereço 230, início do quadro 23). O endereço virtual 0 desse processo deve ser mapeado para o endereço 230 (a página 0 deve ser mapeada para o quadro 23), então ele precisa de uma tabela de páginas diferente.
+
+Resumindo, cada processo precisa de uma tabela de páginas, que tem que ser carregada na MMU quando esse processo for escolhido para executar.
+
+Com memória secundária, cada página do processo pode estar em algum quadro da memória principal ou em algum lugar da memória secundária. A tabela de páginas só tem informação no primeiro caso, e a MMU só consegue resolver nesse caso. Se a MMU não consegue resolver, será gerada uma interrupção.
+
+A sugestão é implementar paginação por demanda, com alocação contígua de memória secundária: quando um programa é carregado, encontra uma região na memória secundária que tenha quadros contíguos suficientes para conter todas as páginas do programa, e carrega o programa para lá. Cria uma tabela de páginas vazia para o processo. Quando o processo executar, antes de executar a primeira instrução vai causar uma interrupção de falha de página. É fácil encontrar a página necessária na memória secundária. Em uma primeira versão, aloca a memória primária com tamanho suficiente para todas as páginas de todos os processos, então será fácil encontrar um quadro de memória livre para onde copiar a página, sem a necessidade de um algoritmo de substituição.
+
+Com isso funcionando (todos os processos executando corretamente mesmo com suas páginas espalhadas pela memória e sendo carregados por demanda), dá para reduzir a memória principal e testar o algoritmo de substituição.
