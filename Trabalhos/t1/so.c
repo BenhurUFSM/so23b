@@ -94,8 +94,8 @@ static bool copia_str_da_mem(int tam, char str[tam], mem_t *mem, int ender);
 static void inicializa_tabela_processos(so_t *self);
 static int cria_processo(so_t *self, int ender_carga, int pid_processo_pai);
 static int geraPid(so_t *self);
-static int recupera_processo_por_pid(so_t *self, int pid);
-static int recupera_processo_atual(so_t *self);
+static int recupera_posicao_processo_por_pid(so_t *self, int pid);
+static int recupera_posicao_processo_atual(so_t *self);
 static int recupera_posicao_primeiro_processo_pronto(so_t *self);
 static int adiciona_processo_na_tabela(so_t *self, processo_t novo_processo);
 static int recupera_posicao_livre_tabela_de_processos(so_t *self);
@@ -106,7 +106,7 @@ static bool existe_processo(so_t *self, int pid);
 
 // função de tratamento de terminal/dispositivo
 static int obter_terminal_por_pid(int pid);
-static int obter_id_por_term(int term, int op);
+static int obter_dipositivo_por_term(int term, int op);
 
 // funções para tratamento de pendências
 static void inicializa_pendencias_es(so_t *self);
@@ -216,7 +216,7 @@ static void so_salva_estado_da_cpu(so_t *self)
   }
   // salva os registradores que compõem o estado da cpu no descritor do
   //   processo corrente
-  int processo_atual = recupera_processo_atual(self);
+  int processo_atual = recupera_posicao_processo_atual(self);
   mem_le(self->mem, IRQ_END_A, &self->tabela_processos[processo_atual].estado_cpu.A);
   mem_le(self->mem, IRQ_END_X, &self->tabela_processos[processo_atual].estado_cpu.X);
   mem_le(self->mem, IRQ_END_complemento, &self->tabela_processos[processo_atual].estado_cpu.complemento);
@@ -318,7 +318,7 @@ static bool verifica_estado_es(so_t *self, int id)
 */
 static void desbloqueia_processo(so_t *self, int pid)
 {
-  int i = recupera_processo_por_pid(self, pid);
+  int i = recupera_posicao_processo_por_pid(self, pid);
   self->tabela_processos[i].estado_processo = PRONTO;
 }
 
@@ -329,7 +329,7 @@ static void so_escalona(so_t *self)
   int pid_processo_escalonado = NENHUM_PROCESSO_EM_EXECUCAO;
 
   // Obtém o último processo que estava sendo executado antes da interrupção
-  int i_processo_anterior = recupera_processo_atual(self);
+  int i_processo_anterior = recupera_posicao_processo_atual(self);
   processo_t processo_anterior = self->tabela_processos[i_processo_anterior];
 
   // Verifica se ele está PRONTO OU EXECUTANDO. Se não, obtém o próximo PRONTO da tabela de processos
@@ -362,7 +362,7 @@ static void so_despacha(so_t *self)
   {
     // se houver processo corrente, coloca todo o estado desse processo em
     //   IRQ_END_*
-    int processo_escalonado = recupera_processo_atual(self);
+    int processo_escalonado = recupera_posicao_processo_atual(self);
     mem_escreve(self->mem, IRQ_END_A, (self->tabela_processos[processo_escalonado].estado_cpu.A));
     mem_escreve(self->mem, IRQ_END_X, (self->tabela_processos[processo_escalonado].estado_cpu.X));
     mem_escreve(self->mem, IRQ_END_complemento, (self->tabela_processos[processo_escalonado].estado_cpu.complemento));
@@ -409,7 +409,6 @@ static err_t so_trata_irq_reset(so_t *self)
 {
   inicializa_tabela_processos(self);
   // coloca um programa na memória
-  int ender = so_carrega_programa(self, "init.maq");
   if (ender != 100)
   {
     console_printf(self->console, "SO: problema na carga do programa inicial");
@@ -441,7 +440,7 @@ static err_t so_trata_irq_err_cpu(so_t *self)
   //   (em geral, matando o processo)
   // mem_le(self->mem, IRQ_END_erro, &err_int);
 
-  int processo_atual = recupera_processo_atual(self);
+  int processo_atual = recupera_posicao_processo_atual(self);
 
   int err_int = self->tabela_processos[processo_atual].estado_cpu.erro;
   console_printf(self->console, "Lendo erro %d", err_int);
@@ -485,7 +484,7 @@ static err_t so_trata_chamada_sistema(so_t *self)
 {
   // com processos, a identificação da chamada está no reg A no descritor
   //   do processo
-  int posicao = recupera_processo_atual(self);
+  int posicao = recupera_posicao_processo_atual(self);
   int id_chamada = self->tabela_processos[posicao].estado_cpu.A; // mem_le(self->mem, IRQ_END_A, &id_chamada);
 
   console_printf(self->console,
@@ -517,11 +516,11 @@ static err_t so_trata_chamada_sistema(so_t *self)
 
 static void so_chamada_le(so_t *self)
 {
-  int i_processo = recupera_processo_atual(self);
+  int i_processo = recupera_posicao_processo_atual(self);
   int term = obter_terminal_por_pid(self->tabela_processos[i_processo].pid);
 
   int estado;
-  int id_el = obter_id_por_term(term, 1);
+  int id_el = obter_dipositivo_por_term(term, 1);
   term_le(self->console, id_el, &estado);
   // Dispositivo disponível - Atende solicitação
   if (estado != 0){
@@ -535,20 +534,36 @@ static void so_chamada_le(so_t *self)
 
 static void so_chamada_escr(so_t *self)
 {
-  int i_processo = recupera_processo_atual(self);
+  int i_processo = recupera_posicao_processo_atual(self);
   int term = obter_terminal_por_pid(self->tabela_processos[i_processo].pid);
 
   int estado;
-  int id_ee = obter_id_por_term(term, 3);
+  int id_ee = obter_dipositivo_por_term(term, 3);
   term_le(self->console, id_ee, &estado);
   // Dispositivo disponível - Atende solicitação
   if (estado != 0) {
-    console_printf(self->console, "ENTRADA ATENDIDA!");
     atende_escrita(self, term);
   } else { // Dispositivo indisponível - Bloqueia processo
       console_printf(self->console, "DISPOSITIVO INDISPONIVEL - PROCESSO BLOQUEADO!");
     self->tabela_processos[i_processo].estado_processo = BLOQUEADO;
     adiciona_pendencia(self, id_ee, self->tabela_processos[i_processo].pid, SAIDA);
+  }
+}
+
+static void so_chamada_espera_proc(so_t *self)
+{
+  int i_processo_solicitante = recupera_posicao_processo_atual(self);
+  int pid_espera_proc = self->tabela_processos[i_processo_solicitante].estado_cpu.X;
+
+  bool existe = existe_processo(self, pid_espera_proc);
+
+  if (existe) {
+    adiciona_pendencia(self, pid_espera_proc, self->tabela_processos[i_processo_solicitante].pid, ESPERA_PROC);
+    self->tabela_processos[i_processo_solicitante].estado_processo = BLOQUEADO;
+    self->tabela_processos[i_processo_solicitante].estado_cpu.A = 0; //Retorna sucesso
+  }
+  else {
+    self->tabela_processos[i_processo_solicitante].estado_cpu.A = -1; //Retorna erro
   }
 }
 
@@ -558,9 +573,9 @@ static void so_chamada_escr(so_t *self)
 */
 static void atende_leitura(so_t *self, int term, int pid)
 {
-  int i_processo = recupera_processo_por_pid(self, pid);
+  int i_processo = recupera_posicao_processo_por_pid(self, pid);
   int dado;
-  int id_dl = obter_id_por_term(term, 0);
+  int id_dl = obter_dipositivo_por_term(term, 0);
   term_le(self->console, id_dl, &dado);
   self->tabela_processos[i_processo].estado_cpu.A = dado;
 }
@@ -573,7 +588,7 @@ static void atende_escrita(so_t *self, int term)
 {
   int dado;
   mem_le(self->mem, IRQ_END_X, &dado);
-  int id_de = obter_id_por_term(term, 2);
+  int id_de = obter_dipositivo_por_term(term, 2);
   term_escr(self->console, id_de, dado);
   mem_escreve(self->mem, IRQ_END_A, 0);
 }
@@ -581,7 +596,7 @@ static void atende_escrita(so_t *self, int term)
 static void so_chamada_cria_proc(so_t *self)
 {
   // Recupera o processo atual. É ele que gerou uma chamada de sistema para criação de outro processo.
-  int processo_pai = recupera_processo_por_pid(self, self->pid_processo_em_execucao);
+  int processo_pai = recupera_posicao_processo_por_pid(self, self->pid_processo_em_execucao);
 
   // em X está o endereço onde está o nome do arquivo
   int ender_proc = self->tabela_processos[processo_pai].estado_cpu.X;
@@ -611,7 +626,7 @@ static void so_chamada_mata_proc(so_t *self)
   */
 
   // Lê o X do processo chamador
-  int posicao_processo_chamador = recupera_processo_atual(self);
+  int posicao_processo_chamador = recupera_posicao_processo_atual(self);
   int pid_processo_a_ser_morto = self->tabela_processos[posicao_processo_chamador].estado_cpu.X;
   if (pid_processo_a_ser_morto == 0) {
     mata_processo(self, self->tabela_processos[posicao_processo_chamador].pid);
@@ -622,22 +637,6 @@ static void so_chamada_mata_proc(so_t *self)
 
   // Retorna sucessso
   mem_escreve(self->mem, IRQ_END_A, 0);
-}
-
-static void so_chamada_espera_proc(so_t *self)
-{
-  // bloquear processo
-  int processo_solicitante = recupera_processo_atual(self);
-  int pid_espera_proc = self->tabela_processos[processo_solicitante].estado_cpu.X;
-  bool existe = existe_processo(self, pid_espera_proc);
-
-  if (existe){
-    self->tabela_processos[processo_solicitante].estado_cpu.A = 0;
-  }
-  else {
-    self->tabela_processos[processo_solicitante].estado_cpu.A = -1;
-    console_printf(self->console, "Processo %d não existe!", pid_espera_proc);
-  }
 }
 
 // carrega o programa na memória
@@ -723,7 +722,7 @@ static int geraPid(so_t *self)
 }
 
 // Recupera um processo com base em algum PID
-static int recupera_processo_por_pid(so_t *self, int pid)
+static int recupera_posicao_processo_por_pid(so_t *self, int pid)
 {
   for (int i = 0; i < MAX_PROCESSOS; i++) {
     if (self->tabela_processos[i].pid == pid && !self->tabela_processos[i].livre) {
@@ -735,9 +734,9 @@ static int recupera_processo_por_pid(so_t *self, int pid)
 }
 
 // Recupera o processo atual com base no pid_processo_em_execucao
-static int recupera_processo_atual(so_t *self)
+static int recupera_posicao_processo_atual(so_t *self)
 {
-  return recupera_processo_por_pid(self, self->pid_processo_em_execucao);
+  return recupera_posicao_processo_por_pid(self, self->pid_processo_em_execucao);
 }
 
 // Recupera o primeiro processo que estiver com o estado PRONTO
@@ -824,7 +823,7 @@ static int obter_terminal_por_pid(int pid)
   return ((pid - 1) % 4);
 }
 
-static int obter_id_por_term(int term, int op)
+static int obter_dipositivo_por_term(int term, int op)
 {
   return term * 4 + op;
 }
@@ -860,7 +859,7 @@ static int obter_posicao_livre_pendencias_es(so_t *self)
       return i;
     }
   }
-  return -1;
+  return -1; //Isso nunca deve ocorrer
 }
 
 /*
