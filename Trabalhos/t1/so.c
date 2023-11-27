@@ -13,6 +13,8 @@
 
 #define NENHUM_PROCESSO_EM_EXECUCAO -1
 
+#define QUANTUM 5
+
 typedef enum
 {
   EXECUCAO,
@@ -64,6 +66,17 @@ struct pendencia_t
   tipo_pendencia tipo_pendencia;
 };
 
+// Fila
+struct Node {
+    int pid;
+    Node* next;
+};
+
+struct Fila {
+    Node* front;
+    Node* rear;
+};
+
 struct so_t
 {
   cpu_t *cpu;
@@ -80,6 +93,12 @@ struct so_t
     int pid - PID do processo que solicitou a E/S
   */
   pendencia_t pendencias_es[MAX_PROCESSOS];
+
+  /*
+    escalonador circular preemptivo 
+  */
+  Fila fila;
+  int quantum_counter;
 };
 
 // função de tratamento de interrupção (entrada no SO)
@@ -96,7 +115,7 @@ static int cria_processo(so_t *self, int ender_carga, int pid_processo_pai);
 static int geraPid(so_t *self);
 static int recupera_posicao_processo_por_pid(so_t *self, int pid);
 static int recupera_posicao_processo_atual(so_t *self);
-static int recupera_posicao_primeiro_processo_pronto(so_t *self);
+// static int recupera_posicao_primeiro_processo_pronto(so_t *self);
 static int adiciona_processo_na_tabela(so_t *self, processo_t novo_processo);
 static int recupera_posicao_livre_tabela_de_processos(so_t *self);
 static void mata_processo(so_t *self, int posicao);
@@ -123,6 +142,30 @@ static bool verifica_estado_es(so_t *self, int id);
 static void atende_leitura(so_t *self, int term, int pid);
 static void atende_escrita(so_t *self, int term);
 
+// Tratamento de interrupção
+
+// funções auxiliares para tratar cada tipo de interrupção
+static err_t so_trata_irq(so_t *self, int irq);
+static err_t so_trata_irq_reset(so_t *self);
+static err_t so_trata_irq_err_cpu(so_t *self);
+static err_t so_trata_irq_relogio(so_t *self);
+static err_t so_trata_irq_desconhecida(so_t *self, int irq);
+static err_t so_trata_chamada_sistema(so_t *self);
+
+// funções auxiliares para o tratamento de interrupção
+static void so_salva_estado_da_cpu(so_t *self);
+static void so_trata_pendencias(so_t *self);
+static void so_escalona(so_t *self);
+static void so_despacha(so_t *self);
+
+// escalonador preemptivo
+static void atualiza_quantum_counter(so_t *self);
+static void inicializa_quantum_counter(so_t *self);
+static void print_fila(so_t *self);
+static int dequeue_processo(Fila* fila);
+static void enqueue_processo(so_t *self, Fila* fila, int pid); 
+static Fila cria_fila();
+
 so_t *so_cria(cpu_t *cpu, mem_t *mem, console_t *console, relogio_t *relogio)
 {
   so_t *self = malloc(sizeof(*self));
@@ -135,6 +178,8 @@ so_t *so_cria(cpu_t *cpu, mem_t *mem, console_t *console, relogio_t *relogio)
   self->relogio = relogio;
   self->count_processos = 0;
   self->pid_processo_em_execucao = NENHUM_PROCESSO_EM_EXECUCAO;
+  self->fila = cria_fila();
+  inicializa_quantum_counter(self);
   inicializa_tabela_processos(self);
   inicializa_pendencias_es(self);
 
@@ -164,22 +209,6 @@ void so_destroi(so_t *self)
   cpu_define_chamaC(self->cpu, NULL, NULL);
   free(self);
 }
-
-// Tratamento de interrupção
-
-// funções auxiliares para tratar cada tipo de interrupção
-static err_t so_trata_irq(so_t *self, int irq);
-static err_t so_trata_irq_reset(so_t *self);
-static err_t so_trata_irq_err_cpu(so_t *self);
-static err_t so_trata_irq_relogio(so_t *self);
-static err_t so_trata_irq_desconhecida(so_t *self, int irq);
-static err_t so_trata_chamada_sistema(so_t *self);
-
-// funções auxiliares para o tratamento de interrupção
-static void so_salva_estado_da_cpu(so_t *self);
-static void so_trata_pendencias(so_t *self);
-static void so_escalona(so_t *self);
-static void so_despacha(so_t *self);
 
 // função a ser chamada pela CPU quando executa a instrução CHAMAC
 // essa instrução só deve ser executada quando for tratar uma interrupção
@@ -226,6 +255,10 @@ static void so_salva_estado_da_cpu(so_t *self)
 }
 static void so_trata_pendencias(so_t *self)
 {
+  // for(int i=0; i<MAX_PROCESSOS; i++) {
+  //   pendencia_t pendencia = self->pendencias_es[i];
+  //   console_printf(self->console, "PENDÊNCIA: PID: %d, DISP: %d, PID_SO_PROC: %d", pendencia.pid, pendencia.dispositivo, pendencia.pid_espera_proc);
+  // }
   // realiza ações que não são diretamente ligadas com a interrupção que
   //   está sendo atendida:
   // - E/S pendente
@@ -328,21 +361,27 @@ static void so_escalona(so_t *self)
   // Caso não haja processo para escalonar, a variável mantém o valor que define que nenhum processo está em execução.
   int pid_processo_escalonado = NENHUM_PROCESSO_EM_EXECUCAO;
 
-  // Obtém o último processo que estava sendo executado antes da interrupção
-  int i_processo_anterior = recupera_posicao_processo_atual(self);
-  processo_t processo_anterior = self->tabela_processos[i_processo_anterior];
+  print_fila(self);
+  console_printf(self->console, "QUANTUM %d", self->quantum_counter);
 
-  // Verifica se ele está PRONTO OU EXECUTANDO. Se não, obtém o próximo PRONTO da tabela de processos
-  if (i_processo_anterior != -1 && (processo_anterior.estado_processo == PRONTO || processo_anterior.estado_processo == EXECUCAO)) {
-    pid_processo_escalonado = processo_anterior.pid;
-  } else {
-    int proximo_processo = recupera_posicao_primeiro_processo_pronto(self);
-    if (proximo_processo != -1) {
-      pid_processo_escalonado = self->tabela_processos[proximo_processo].pid;
-    } else {
-      // Existem processos mas nenhum está pronto
-      coloca_cpu_em_estado_parada(self);
+  if(self->quantum_counter == 0) { // O atualiza_quantum_counter descrementa o contador, então quando chegar em zero o processo deve ser preemptado
+    //Recupera o processo preemptado
+    int pid_processo_preemptado = self->pid_processo_em_execucao;
+    //Adiciona o processo preemptado ao final da fila
+    enqueue_processo(self, &self->fila, pid_processo_preemptado);
+
+    //Obtem o primeiro processo da fila
+    int pid = dequeue_processo(&self->fila);
+    if(pid == -1) {
+      console_printf(self->console, "Não há processos na fila");
+      return;
     }
+    //Escolhe o primeiro processo da fila para escalonar
+    pid_processo_escalonado = pid;
+    inicializa_quantum_counter(self);
+  } else {
+    //Escalona o processo atual
+    pid_processo_escalonado = self->pid_processo_em_execucao;
   }
 
   // escolhe o próximo processo a executar, que passa a ser o processo
@@ -383,6 +422,7 @@ static void coloca_cpu_em_estado_parada(so_t *self)
 
 static err_t so_trata_irq(so_t *self, int irq)
 {
+  atualiza_quantum_counter(self);
   err_t err;
   console_printf(self->console, "SO: recebi IRQ %d (%s)", irq, irq_nome(irq));
   switch (irq)
@@ -712,6 +752,10 @@ static int cria_processo(so_t *self, int ender_carga, int pid_processo_pai)
   novo_processo.estado_cpu.erro = ERR_OK;
   novo_processo.livre = false;
   adiciona_processo_na_tabela(self, novo_processo);
+
+  //Adiciona o processo no fim da fila
+  enqueue_processo(self, &self->fila, novo_processo.pid);
+
   return novo_processo.pid;
 }
 
@@ -740,16 +784,16 @@ static int recupera_posicao_processo_atual(so_t *self)
 }
 
 // Recupera o primeiro processo que estiver com o estado PRONTO
-static int recupera_posicao_primeiro_processo_pronto(so_t *self)
-{
-  for (int i = 0; i < MAX_PROCESSOS; i++) {
-    if (self->tabela_processos[i].estado_processo == PRONTO && !self->tabela_processos[i].livre) {
-      return i;
-    }
-  }
+// static int recupera_posicao_primeiro_processo_pronto(so_t *self)
+// {
+//   for (int i = 0; i < MAX_PROCESSOS; i++) {
+//     if (self->tabela_processos[i].estado_processo == PRONTO && !self->tabela_processos[i].livre) {
+//       return i;
+//     }
+//   }
 
-  return -1;
-}
+//   return -1;
+// }
 
 static int adiciona_processo_na_tabela(so_t *self, processo_t novo_processo)
 {
@@ -796,9 +840,9 @@ static int recupera_posicao_tabela_de_processos(so_t *self, int pid)
 static void mata_processo(so_t *self, int pid)
 {
   int i = recupera_posicao_tabela_de_processos(self, pid);
-  if (i != -1)
-  {
+  if (i != -1) {
     self->tabela_processos[i].livre = true;
+    inicializa_quantum_counter(self);
   }
   else
   {
@@ -808,10 +852,8 @@ static void mata_processo(so_t *self, int pid)
 
 static bool existe_processo(so_t *self, int pid)
 {
-  for (int i = 0; i < MAX_PROCESSOS; i++)
-  {
-    if (self->tabela_processos[i].pid == pid && !self->tabela_processos[i].livre)
-    {
+  for (int i = 0; i < MAX_PROCESSOS; i++) {
+    if (self->tabela_processos[i].pid == pid && !self->tabela_processos[i].livre) {
       return true;
     }
   }
@@ -842,8 +884,7 @@ static int obter_dipositivo_por_term(int term, int op)
 // Tratamento de pendências
 static void inicializa_pendencias_es(so_t *self)
 {
-  for (int i = 0; i < MAX_PROCESSOS; i++)
-  {
+  for (int i = 0; i < MAX_PROCESSOS; i++) {
     self->pendencias_es[i].dispositivo = -1;
     self->pendencias_es[i].pid = -1;
     self->pendencias_es[i].pid_espera_proc = -1;
@@ -886,4 +927,69 @@ static void adiciona_pendencia(so_t *self, int param, int pid, tipo_pendencia ti
     self->pendencias_es[posicao].pid = pid;
     self->pendencias_es[posicao].pid_espera_proc = param;
   }
+}
+
+// ESCALONADOR CIRCULAR PREEPTIVO
+
+// FILA
+
+static Fila cria_fila() {
+    Fila fila;
+    fila.front = fila.rear = NULL;
+    return fila;
+}
+
+static void enqueue_processo(so_t *self, Fila* fila, int pid) {
+    console_printf(self->console, "ADICIONANDO PROCESSO NA FILA %d", pid);
+    Node* new_node = (Node*)malloc(sizeof(Node));
+    new_node->pid = pid;
+    new_node->next = NULL;
+
+    if (fila->rear == NULL) {
+        fila->front = fila->rear = new_node;
+        return;
+    }
+
+    fila->rear->next = new_node;
+    fila->rear = new_node;
+    console_printf(self->console, "NODE PID: %d", new_node->pid);
+
+static int dequeue_processo(Fila* fila) {
+    if (fila->front == NULL) {
+        // printf("Queue is empty\n");
+        return -1;
+    }
+
+    Node* temp = fila->front;
+    int pid = temp->pid;
+    fila->front = fila->front->next;
+
+    if (fila->front == NULL)
+        fila->rear = NULL;
+
+    free(temp);
+    return pid;
+}
+
+static void print_fila(so_t *self) {
+    Node* temp = self->fila.front;
+    if (temp == NULL) {
+        console_printf(self->console, "Queue is empty\n");
+        return;
+    }
+
+    while (temp != NULL) {
+        console_printf(self->console, "%d ", temp->pid);
+        temp = temp->next;
+    }
+    // printf("\n");
+}
+
+// ESCALONADOR
+static void atualiza_quantum_counter(so_t *self) {
+  self->quantum_counter--;
+}
+
+static void inicializa_quantum_counter(so_t *self) {
+  self->quantum_counter = QUANTUM;
 }
