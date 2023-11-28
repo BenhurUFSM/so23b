@@ -19,8 +19,29 @@ typedef enum
 {
   EXECUCAO,
   PRONTO,
-  BLOQUEADO
+  BLOQUEADO,
+  QT_ESTADO_PROCESSO
 } estado_processo;
+
+/*
+- int qt_processos_criados: número de processos criados
+tempo total de execução
+tempo total em que o sistema ficou ocioso (todos os processos bloqueados)
+- int qt_interrupcoes[N_IRQ]: número de interrupções recebidas de cada tipo
+- int qt_preempcoes[MAX_PROCESSOS]: número de preempções
+tempo de retorno de cada processo (diferença entre data do término e da criação)
+- int qt_preempcoes[MAX_PROCESSOS]: número de preempções de cada processo
+número de vezes que cada processo entrou em cada estado (pronto, bloqueado, executando)
+tempo total de cada processo em cada estado (pronto, bloqueado, executando)
+tempo médio de resposta de cada processo (tempo médio em estado pronto)
+*/
+struct metricas_t 
+{
+  int qt_processos_criados;
+  int qt_interrupcoes[N_IRQ];
+  int qt_preempcoes[MAX_PROCESSOS];
+  int qt_processos_estado[MAX_PROCESSOS][QT_ESTADO_PROCESSO];
+};
 
 struct registros_t
 {
@@ -99,6 +120,8 @@ struct so_t
   */
   Fila fila;
   int quantum_counter;
+
+  metricas_t metricas_t;
 };
 
 // função de tratamento de interrupção (entrada no SO)
@@ -122,6 +145,7 @@ static void mata_processo(so_t *self, int posicao);
 static int recupera_posicao_tabela_de_processos(so_t *self, int pid);
 static void desbloqueia_processo(so_t *self, int pid);
 static bool existe_processo(so_t *self, int pid);
+static void altera_estado_processo(so_t *self, int i, estado_processo estado);
 
 // função de tratamento de terminal/dispositivo
 static int obter_terminal_por_pid(int pid);
@@ -166,6 +190,15 @@ static int dequeue_processo(Fila* fila);
 static void enqueue_processo(so_t *self, Fila* fila, int pid); 
 static Fila cria_fila();
 
+// funções para métricas
+static void inicializa_metricas(so_t *self);
+static void log_cria_processo(so_t *self);
+static void log_preempcao(so_t *self, int i);
+static void log_interrupcao(so_t *self, irq_t irq);
+static void exibe_metricas(so_t *self);
+static int calcula_total_de_preempcoes(metricas_t metricas);
+static void log_processo_estado(so_t *self, int i, estado_processo estado);
+
 so_t *so_cria(cpu_t *cpu, mem_t *mem, console_t *console, relogio_t *relogio)
 {
   so_t *self = malloc(sizeof(*self));
@@ -182,7 +215,7 @@ so_t *so_cria(cpu_t *cpu, mem_t *mem, console_t *console, relogio_t *relogio)
   inicializa_quantum_counter(self);
   inicializa_tabela_processos(self);
   inicializa_pendencias_es(self);
-
+  inicializa_metricas(self);
   // quando a CPU executar uma instrução CHAMAC, deve chamar a função
   //   so_trata_interrupcao
   cpu_define_chamaC(self->cpu, so_trata_interrupcao, self);
@@ -233,14 +266,18 @@ static err_t so_trata_interrupcao(void *argC, int reg_A)
   so_escalona(self);
   // recupera o estado do processo escolhido
   so_despacha(self);
+
+  if(self->quantum_counter < 0) {
+    return ERR_CPU_PARADA;
+  }
+
   return err;
 }
 
 static void so_salva_estado_da_cpu(so_t *self)
 {
   // se não houver processo corrente, não faz nada
-  if (self->pid_processo_em_execucao == NENHUM_PROCESSO_EM_EXECUCAO)
-  {
+  if (self->pid_processo_em_execucao == NENHUM_PROCESSO_EM_EXECUCAO) {
     return;
   }
   // salva os registradores que compõem o estado da cpu no descritor do
@@ -255,10 +292,6 @@ static void so_salva_estado_da_cpu(so_t *self)
 }
 static void so_trata_pendencias(so_t *self)
 {
-  // for(int i=0; i<MAX_PROCESSOS; i++) {
-  //   pendencia_t pendencia = self->pendencias_es[i];
-  //   console_printf(self->console, "PENDÊNCIA: PID: %d, DISP: %d, PID_SO_PROC: %d", pendencia.pid, pendencia.dispositivo, pendencia.pid_espera_proc);
-  // }
   // realiza ações que não são diretamente ligadas com a interrupção que
   //   está sendo atendida:
   // - E/S pendente
@@ -352,7 +385,13 @@ static bool verifica_estado_es(so_t *self, int id)
 static void desbloqueia_processo(so_t *self, int pid)
 {
   int i = recupera_posicao_processo_por_pid(self, pid);
-  self->tabela_processos[i].estado_processo = PRONTO;
+  altera_estado_processo(self, i, PRONTO);
+  enqueue_processo(self, &self->fila, self->tabela_processos[i].pid);  
+}
+
+static void altera_estado_processo(so_t *self, int i, estado_processo estado) {
+  self->tabela_processos[i].estado_processo = estado;
+  log_processo_estado(self, i, estado);
 }
 
 static void so_escalona(so_t *self)
@@ -364,41 +403,56 @@ static void so_escalona(so_t *self)
   print_fila(self);
   console_printf(self->console, "QUANTUM %d", self->quantum_counter);
 
-  if(self->quantum_counter == 0) { // O atualiza_quantum_counter descrementa o contador, então quando chegar em zero o processo deve ser preemptado
-    //Recupera o processo preemptado
-    int pid_processo_preemptado = self->pid_processo_em_execucao;
-    //Adiciona o processo preemptado ao final da fila
-    enqueue_processo(self, &self->fila, pid_processo_preemptado);
+  int i_processo_atual = recupera_posicao_processo_atual(self);
 
-    //Obtem o primeiro processo da fila
+  if(i_processo_atual == -1) {
+     //Obtem o primeiro processo da fila
     int pid = dequeue_processo(&self->fila);
     if(pid == -1) {
       console_printf(self->console, "Não há processos na fila");
-      return;
+    } else {
+      //Escolhe o primeiro processo da fila para escalonar
+      pid_processo_escalonado = pid;
+      inicializa_quantum_counter(self);
     }
-    //Escolhe o primeiro processo da fila para escalonar
-    pid_processo_escalonado = pid;
-    inicializa_quantum_counter(self);
-  } else {
-    //Escalona o processo atual
-    pid_processo_escalonado = self->pid_processo_em_execucao;
+  } else { // existe um processo
+    processo_t processo_atual = self->tabela_processos[i_processo_atual];
+
+      if(self->quantum_counter == 0 || processo_atual.estado_processo == BLOQUEADO) { // O atualiza_quantum_counter descrementa o contador, então quando chegar em zero o processo deve ser preemptado
+        if(processo_atual.estado_processo != BLOQUEADO) {
+          //Adiciona o processo preemptado ao final da fila
+          enqueue_processo(self, &self->fila, processo_atual.pid);  
+        }
+        
+        //Obtem o primeiro processo da fila
+        int pid = dequeue_processo(&self->fila);
+        if(pid == -1) {
+          console_printf(self->console, "Não há processos na fila");
+        } else {
+          //Escolhe o primeiro processo da fila para escalonar
+          pid_processo_escalonado = pid;
+          inicializa_quantum_counter(self);
+        }
+      } else {
+        //Escalona o processo atual
+        pid_processo_escalonado = self->pid_processo_em_execucao;
+      }
   }
 
   // escolhe o próximo processo a executar, que passa a ser o processo
   //   corrente; pode continuar sendo o mesmo de antes ou não
   self->pid_processo_em_execucao = pid_processo_escalonado;
-  
+  console_printf(self->console, "Processo escalonado: %d", self->pid_processo_em_execucao);
 }
+
 static void so_despacha(so_t *self)
 {
   // se não houver processo corrente, coloca ERR_CPU_PARADA em IRQ_END_erro
-  if (self->pid_processo_em_execucao == NENHUM_PROCESSO_EM_EXECUCAO)
-  {
+  if (self->pid_processo_em_execucao == NENHUM_PROCESSO_EM_EXECUCAO) {
     // Não existe processo para executar
     coloca_cpu_em_estado_parada(self);
   }
-  else
-  {
+  else {
     // se houver processo corrente, coloca todo o estado desse processo em
     //   IRQ_END_*
     int processo_escalonado = recupera_posicao_processo_atual(self);
@@ -409,7 +463,7 @@ static void so_despacha(so_t *self)
     mem_escreve(self->mem, IRQ_END_modo, (self->tabela_processos[processo_escalonado].estado_cpu.modo));
     mem_escreve(self->mem, IRQ_END_erro, (self->tabela_processos[processo_escalonado].estado_cpu.erro));
     // Define estado do processo para EXECUCAO
-    self->tabela_processos[processo_escalonado].estado_processo = EXECUCAO;
+    altera_estado_processo(self, processo_escalonado, EXECUCAO);
   }
 }
 
@@ -422,9 +476,9 @@ static void coloca_cpu_em_estado_parada(so_t *self)
 
 static err_t so_trata_irq(so_t *self, int irq)
 {
-  atualiza_quantum_counter(self);
   err_t err;
   console_printf(self->console, "SO: recebi IRQ %d (%s)", irq, irq_nome(irq));
+  log_interrupcao(self, irq);
   switch (irq)
   {
   case IRQ_RESET:
@@ -455,13 +509,6 @@ static err_t so_trata_irq_reset(so_t *self)
     return ERR_CPU_PARADA;
   }
 
-  // deveria criar um processo para o init, e inicializar o estado do
-  //   processador para esse processo com os registradores zerados, exceto
-  //   o PC e o modo.
-  // como não tem suporte a processos, está carregando os valores dos
-  //   registradores diretamente para a memória, de onde a CPU vai carregar
-  //   para os seus registradores quando executar a instrução RETI
-
   // cria processo; escreve o endereço de carga no pc do descritor do processo; e muda o modo para usuário
   cria_processo(self, ender, -1);
 
@@ -473,12 +520,6 @@ static err_t so_trata_irq_err_cpu(so_t *self)
   // Ocorreu um erro interno na CPU
   // O erro está codificado em IRQ_END_erro
   // Em geral, causa a morte do processo que causou o erro
-  // Ainda não temos processos, causa a parada da CPU
-
-  // com suporte a processos, deveria pegar o valor do registrador erro
-  //   no descritor do processo corrente, e reagir de acordo com esse erro
-  //   (em geral, matando o processo)
-  // mem_le(self->mem, IRQ_END_erro, &err_int);
 
   int processo_atual = recupera_posicao_processo_atual(self);
 
@@ -499,10 +540,8 @@ static err_t so_trata_irq_relogio(so_t *self)
   // rearma o interruptor do relógio e reinicializa o timer para a próxima interrupção
   rel_escr(self->relogio, 3, 0); // desliga o sinalizador de interrupção
   rel_escr(self->relogio, 2, INTERVALO_INTERRUPCAO);
-  // trata a interrupção
-  // por exemplo, decrementa o quantum do processo corrente, quando se tem
-  // um escalonador com quantum
-  console_printf(self->console, "SO: interrupção do relógio (não tratada)");
+  
+  atualiza_quantum_counter(self);
   return ERR_OK;
 }
 
@@ -567,7 +606,7 @@ static void so_chamada_le(so_t *self)
     atende_leitura(self, term, self->tabela_processos[i_processo].pid);
   }
   else { // Dispositivo indisponível - Bloqueia processo
-    self->tabela_processos[i_processo].estado_processo = BLOQUEADO;
+    altera_estado_processo(self, i_processo, BLOQUEADO);
     adiciona_pendencia(self, id_el, self->tabela_processos[i_processo].pid, ENTRADA);
   }
 }
@@ -584,8 +623,7 @@ static void so_chamada_escr(so_t *self)
   if (estado != 0) {
     atende_escrita(self, term);
   } else { // Dispositivo indisponível - Bloqueia processo
-      console_printf(self->console, "DISPOSITIVO INDISPONIVEL - PROCESSO BLOQUEADO!");
-    self->tabela_processos[i_processo].estado_processo = BLOQUEADO;
+    altera_estado_processo(self, i_processo, BLOQUEADO);
     adiciona_pendencia(self, id_ee, self->tabela_processos[i_processo].pid, SAIDA);
   }
 }
@@ -594,12 +632,11 @@ static void so_chamada_espera_proc(so_t *self)
 {
   int i_processo_solicitante = recupera_posicao_processo_atual(self);
   int pid_espera_proc = self->tabela_processos[i_processo_solicitante].estado_cpu.X;
-
   bool existe = existe_processo(self, pid_espera_proc);
 
   if (existe) {
     adiciona_pendencia(self, pid_espera_proc, self->tabela_processos[i_processo_solicitante].pid, ESPERA_PROC);
-    self->tabela_processos[i_processo_solicitante].estado_processo = BLOQUEADO;
+    altera_estado_processo(self, i_processo_solicitante, BLOQUEADO);
     self->tabela_processos[i_processo_solicitante].estado_cpu.A = 0; //Retorna sucesso
   }
   else {
@@ -734,6 +771,7 @@ static bool copia_str_da_mem(int tam, char str[tam], mem_t *mem, int ender)
 static void inicializa_tabela_processos(so_t *self)
 {
   for (int i = 0; i < MAX_PROCESSOS; i++) {
+    self->tabela_processos[i].pid = -1;
     self->tabela_processos[i].livre = true;
   }
 }
@@ -755,7 +793,7 @@ static int cria_processo(so_t *self, int ender_carga, int pid_processo_pai)
 
   //Adiciona o processo no fim da fila
   enqueue_processo(self, &self->fila, novo_processo.pid);
-
+  log_cria_processo(self);
   return novo_processo.pid;
 }
 
@@ -798,14 +836,12 @@ static int recupera_posicao_processo_atual(so_t *self)
 static int adiciona_processo_na_tabela(so_t *self, processo_t novo_processo)
 {
   int posicao = recupera_posicao_livre_tabela_de_processos(self);
-  if (posicao != -1)
-  {
+  if (posicao != -1) {
     self->tabela_processos[posicao] = novo_processo;
+    log_processo_estado(self, posicao, PRONTO);
   }
-  else
-  {
-    console_printf(self->console, "Tabela cheia");
-    // Tabela de processos cheia. O que fazer?
+  else {
+    console_printf(self->console, "Tabela cheia"); // Tabela de processos cheia. O que fazer?
   }
 
   return posicao;
@@ -814,10 +850,8 @@ static int adiciona_processo_na_tabela(so_t *self, processo_t novo_processo)
 // Recupera o primeiro processo que estiver com o estado PRONTO
 static int recupera_posicao_livre_tabela_de_processos(so_t *self)
 {
-  for (int i = 0; i < MAX_PROCESSOS; i++)
-  {
-    if (self->tabela_processos[i].livre)
-    {
+  for (int i = 0; i < MAX_PROCESSOS; i++) {
+    if (self->tabela_processos[i].livre) {
       return i;
     }
   }
@@ -827,10 +861,8 @@ static int recupera_posicao_livre_tabela_de_processos(so_t *self)
 // Recupera posição do processo com base no PID
 static int recupera_posicao_tabela_de_processos(so_t *self, int pid)
 {
-  for (int i = 0; i < MAX_PROCESSOS; i++)
-  {
-    if (self->tabela_processos[i].pid == pid && !self->tabela_processos[i].livre)
-    {
+  for (int i = 0; i < MAX_PROCESSOS; i++) {
+    if (self->tabela_processos[i].pid == pid && !self->tabela_processos[i].livre) {
       return i;
     }
   }
@@ -842,10 +874,13 @@ static void mata_processo(so_t *self, int pid)
   int i = recupera_posicao_tabela_de_processos(self, pid);
   if (i != -1) {
     self->tabela_processos[i].livre = true;
-    inicializa_quantum_counter(self);
-  }
-  else
-  {
+    self->tabela_processos[i].estado_processo = BLOQUEADO;
+    self->quantum_counter = 0;
+
+    if(pid == 1) {
+      exibe_metricas(self);
+    }
+  } else {
     console_printf(self->console, "Processo não encontrado");
   }
 }
@@ -893,10 +928,8 @@ static void inicializa_pendencias_es(so_t *self)
 
 static int obter_posicao_livre_pendencias_es(so_t *self)
 {
-  for (int i = 0; i < MAX_PROCESSOS; i++)
-  {
-    if (self->pendencias_es[i].pid == -1)
-    {
+  for (int i = 0; i < MAX_PROCESSOS; i++) {
+    if (self->pendencias_es[i].pid == -1) {
       return i;
     }
   }
@@ -911,22 +944,20 @@ static void adiciona_pendencia(so_t *self, int param, int pid, tipo_pendencia ti
 {
   int posicao = obter_posicao_livre_pendencias_es(self);
 
-  if (posicao == -1)
-  {
+  if (posicao == -1) {
     console_printf(self->console, "Não há espaço para mais pendências."); // Isso nunca deve ocorrer
     return;
   }
 
-  if (tipo_pendencia == ENTRADA || tipo_pendencia == SAIDA)
-  {
+  if (tipo_pendencia == ENTRADA || tipo_pendencia == SAIDA) {
     self->pendencias_es[posicao].pid = pid;
     self->pendencias_es[posicao].dispositivo = param;
-  }
-  else if (tipo_pendencia == ESPERA_PROC)
-  {
+  } else if (tipo_pendencia == ESPERA_PROC) {
     self->pendencias_es[posicao].pid = pid;
     self->pendencias_es[posicao].pid_espera_proc = param;
   }
+
+  self->pendencias_es[posicao].tipo_pendencia = tipo_pendencia;
 }
 
 // ESCALONADOR CIRCULAR PREEPTIVO
@@ -940,7 +971,9 @@ static Fila cria_fila() {
 }
 
 static void enqueue_processo(so_t *self, Fila* fila, int pid) {
-    console_printf(self->console, "ADICIONANDO PROCESSO NA FILA %d", pid);
+  int i = recupera_posicao_processo_por_pid(self, pid);
+    log_preempcao(self, i);
+
     Node* new_node = (Node*)malloc(sizeof(Node));
     new_node->pid = pid;
     new_node->next = NULL;
@@ -952,11 +985,10 @@ static void enqueue_processo(so_t *self, Fila* fila, int pid) {
 
     fila->rear->next = new_node;
     fila->rear = new_node;
-    console_printf(self->console, "NODE PID: %d", new_node->pid);
+}
 
 static int dequeue_processo(Fila* fila) {
     if (fila->front == NULL) {
-        // printf("Queue is empty\n");
         return -1;
     }
 
@@ -982,7 +1014,6 @@ static void print_fila(so_t *self) {
         console_printf(self->console, "%d ", temp->pid);
         temp = temp->next;
     }
-    // printf("\n");
 }
 
 // ESCALONADOR
@@ -992,4 +1023,73 @@ static void atualiza_quantum_counter(so_t *self) {
 
 static void inicializa_quantum_counter(so_t *self) {
   self->quantum_counter = QUANTUM;
+}
+
+//MÉTRICAS
+static void inicializa_metricas(so_t *self) {
+  self->metricas_t.qt_processos_criados = 0;
+  for(int i=0; i<MAX_PROCESSOS; i++) {
+    self->metricas_t.qt_preempcoes[i] = 0;
+    for(int j=0; j<3; j++) {
+      self->metricas_t.qt_processos_estado[i][j] = 0;
+    }
+  }
+}
+
+static void log_cria_processo(so_t *self) {
+  self->metricas_t.qt_processos_criados++;
+}
+
+static void log_preempcao(so_t *self, int i) {
+  self->metricas_t.qt_preempcoes[i]++;
+}
+
+static void log_interrupcao(so_t *self, irq_t irq) {
+  self->metricas_t.qt_interrupcoes[irq]++;
+}
+
+static void log_processo_estado(so_t *self, int i, estado_processo estado) {
+  self->metricas_t.qt_processos_estado[i][estado]++;
+}
+
+static void exibe_metricas(so_t *self) {
+  console_printf(self->console, "\n");
+  console_printf(self->console, "\n");
+  console_printf(self->console, "*--------------------------------------- RELATÓRIO DE SISTEMA ---------------------------------------*");
+  console_printf(self->console, "\n");
+  console_printf(self->console, "         - Quantidade de processos criados: %d", self->metricas_t.qt_processos_criados);
+  console_printf(self->console, "         - Quantidade de preempções totais: %d", calcula_total_de_preempcoes(self->metricas_t));
+  console_printf(self->console, "         - Quantidade de preempções por processo:");
+  for(int i=0; i<MAX_PROCESSOS; i++) {
+      processo_t processo = self->tabela_processos[i];
+      if(processo.pid != -1) {
+        console_printf(self->console, "             - PID %d: %d preempções", processo.pid, self->metricas_t.qt_preempcoes[i]);
+      }
+  }
+
+  console_printf(self->console, "         - Quantidade de estados por processo:");
+  for(int i=0; i<MAX_PROCESSOS; i++) {
+      processo_t processo = self->tabela_processos[i];
+      if(processo.pid != -1) {
+        console_printf(self->console, "             - PID %d: PRONTO: %d; EXECUCAO: %d, BLOQUEADO: %d", processo.pid, self->metricas_t.qt_processos_estado[i][PRONTO], self->metricas_t.qt_processos_estado[i][EXECUCAO], self->metricas_t.qt_processos_estado[i][BLOQUEADO]);
+      }
+  }
+  console_printf(self->console, "         - Quantidade de interrupcões: ");
+  console_printf(self->console, "             - IRQ_RESET: %d", self->metricas_t.qt_interrupcoes[IRQ_RESET]);
+  console_printf(self->console, "             - IRQ_ERR_CPU: %d", self->metricas_t.qt_interrupcoes[IRQ_ERR_CPU]);
+  console_printf(self->console, "             - IRQ_SISTEMA: %d", self->metricas_t.qt_interrupcoes[IRQ_SISTEMA]);
+  console_printf(self->console, "             - IRQ_RELOGIO: %d", self->metricas_t.qt_interrupcoes[IRQ_RELOGIO]);
+  console_printf(self->console, "             - IRQ_TECLADO: %d", self->metricas_t.qt_interrupcoes[IRQ_TECLADO]);
+  console_printf(self->console, "             - IRQ_TELA: %d", self->metricas_t.qt_interrupcoes[IRQ_TELA]);
+  console_printf(self->console, "\n*---------------------------------------------------------------------------------------------------*");
+  console_printf(self->console, "\n");
+  console_printf(self->console, "\n");
+}
+
+static int calcula_total_de_preempcoes(metricas_t metricas) {
+  int total = 0;
+  for(int i=0 ; i<MAX_PROCESSOS; i++) {
+    total += metricas.qt_preempcoes[i];
+  }
+  return total;
 }

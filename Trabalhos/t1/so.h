@@ -10,6 +10,7 @@ typedef struct registros_t registros_t;
 typedef struct pendencia_t pendencia_t;
 typedef struct Fila Fila;
 typedef struct Node Node;
+typedef struct metricas_t metricas_t;
 
 #include "memoria.h"
 #include "cpu.h"
