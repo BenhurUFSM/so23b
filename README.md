@@ -64,7 +64,7 @@ Ver [aqui](https://www.ufsm.br/ementario/disciplinas/ELC1080/).
 |   27 |  23nov | deadlocks
 |   28 |  27nov | deadlocks **Atenção, esta segunda tem aulas de quinta**
 |   -- |  28nov | **Atenção, esta terça tem aulas de sexta**
-|   29 |  30nov | deadlocks
+|   29 |  30nov | 
 |   -- |   5dez | **Atenção, esta terça tem aulas de sexta**
 |   30 |   7dez |
 |   -- |  12dez | **Atenção, esta terça tem aulas de sábado**
@@ -78,6 +78,7 @@ Ver [aqui](https://www.ufsm.br/ementario/disciplinas/ELC1080/).
 |    T0 | [simulador de CPU](Trabalhos/t0)
 |    T1 | [processos](Trabalhos/t1)
 |    T2 | [memória virtual](Trabalhos/t2)
+| final | [entrega final](final.md)
 
 Os trabalhos podem ser desenvolvidos em grupos de até 2 alunos, desde que todos participem. A avaliação é individual.
 
