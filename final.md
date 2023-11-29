@@ -4,11 +4,13 @@ Crie um diretório (*folder*), chamado "l1-nome" ("nome" é uma string que permi
 Coloque nesse diretório:
 - um diretório, chamado "t1", com a versão final do t1 (programas fonte + relatório)
 - um diretório, chamado "t2", com a versão final do t2 (programas fonte + relatório)
-- texto com a nota de auto-avaliação (0 a 10), com justificativa.
 
 Comprima esse diretório, criando um arquivo zip ou tgz ou 7z ou rar, que quando descomprimido recria o diretório e seu conteúdo.
 
-Envie um e-mail para `benhur+so23b@inf.ufsm.br`, com esse arquivo anexado.
+Cada aluno deve ainda fazer um texto com a nota de auto-avaliação (0 a 10), com justificativa.
+Esse arquivo deve indicar no início quais os componentes do grupo, mas o texto é individual.
+
+Envie um e-mail para `benhur+so23b@inf.ufsm.br`, com esses arquivos anexado. No caso de trabalho em grupo, só um dos membros do grupo deve enviar os programas, mas todos devem enviar o arquivo de avaliação.
 
 Além desse e-mail, tem que ter uma conversa com o professor. O horário da conversa vai ser definido por ordem de chegada dos e-mails. Caso tenha alguma restrição/preferência de dia/horário, por favor mencione no e-mail.
 
