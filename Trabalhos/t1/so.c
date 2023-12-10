@@ -15,6 +15,10 @@
 
 #define QUANTUM 5
 
+#define ESCALONADOR_ROUND_ROBIN 0
+#define ESCALONADOR_PRIO 1
+#define ESCALONADOR ESCALONADOR_PRIO
+
 typedef enum
 {
   EXECUCAO,
@@ -59,6 +63,8 @@ struct processo_t
   int pid;
   int pid_processo_pai;
   registros_t estado_cpu;
+  float prio;
+  int t_exec_inicio;
   bool livre;
 };
 
@@ -146,6 +152,7 @@ static int recupera_posicao_tabela_de_processos(so_t *self, int pid);
 static void desbloqueia_processo(so_t *self, int pid);
 static bool existe_processo(so_t *self, int pid);
 static void altera_estado_processo(so_t *self, int i, estado_processo estado);
+static int recupera_processo_maior_prio(so_t *self);
 
 // função de tratamento de terminal/dispositivo
 static int obter_terminal_por_pid(int pid);
@@ -180,6 +187,7 @@ static err_t so_trata_chamada_sistema(so_t *self);
 static void so_salva_estado_da_cpu(so_t *self);
 static void so_trata_pendencias(so_t *self);
 static void so_escalona(so_t *self);
+static void so_escalona_prio(so_t *self);
 static void so_despacha(so_t *self);
 
 // escalonador preemptivo
@@ -189,6 +197,8 @@ static void print_fila(so_t *self);
 static int dequeue_processo(Fila* fila);
 static void enqueue_processo(so_t *self, Fila* fila, int pid); 
 static Fila cria_fila();
+static void calcula_prio(so_t *self, int pid);
+static void inicializa_t_exec_inicio(so_t *self, int pid);
 
 // funções para métricas
 static void inicializa_metricas(so_t *self);
@@ -263,8 +273,12 @@ static err_t so_trata_interrupcao(void *argC, int reg_A)
   // faz o processamento independente da interrupção
   so_trata_pendencias(self);
   // escolhe o próximo processo a executar
-  so_escalona(self);
-  // recupera o estado do processo escolhido
+  if(ESCALONADOR == ESCALONADOR_ROUND_ROBIN) {
+    so_escalona(self);
+  } else if (ESCALONADOR == ESCALONADOR_PRIO) {
+    so_escalona_prio(self);
+  }
+  // recupera o esÍtado do processo escolhido
   so_despacha(self);
 
   if(self->quantum_counter < 0) {
@@ -386,11 +400,14 @@ static void desbloqueia_processo(so_t *self, int pid)
 {
   int i = recupera_posicao_processo_por_pid(self, pid);
   altera_estado_processo(self, i, PRONTO);
-  enqueue_processo(self, &self->fila, self->tabela_processos[i].pid);  
+  enqueue_processo(self, &self->fila, pid);   
 }
 
 static void altera_estado_processo(so_t *self, int i, estado_processo estado) {
   self->tabela_processos[i].estado_processo = estado;
+  if(estado == BLOQUEADO) {
+    calcula_prio(self, self->tabela_processos[i].pid);
+  }
   log_processo_estado(self, i, estado);
 }
 
@@ -441,6 +458,21 @@ static void so_escalona(so_t *self)
 
   // escolhe o próximo processo a executar, que passa a ser o processo
   //   corrente; pode continuar sendo o mesmo de antes ou não
+  self->pid_processo_em_execucao = pid_processo_escalonado;
+  console_printf(self->console, "Processo escalonado: %d", self->pid_processo_em_execucao);
+}
+
+static void so_escalona_prio(so_t *self)
+{
+  int pid_processo_escalonado = recupera_processo_maior_prio(self);
+
+  if((self->pid_processo_em_execucao != pid_processo_escalonado) || self->quantum_counter == 0) {
+    calcula_prio(self, self->pid_processo_em_execucao);
+    inicializa_quantum_counter(self);
+    inicializa_t_exec_inicio(self, pid_processo_escalonado);
+  } 
+
+  console_printf(self->console, "QUANTUM %d", self->quantum_counter);
   self->pid_processo_em_execucao = pid_processo_escalonado;
   console_printf(self->console, "Processo escalonado: %d", self->pid_processo_em_execucao);
 }
@@ -789,6 +821,8 @@ static int cria_processo(so_t *self, int ender_carga, int pid_processo_pai)
   novo_processo.estado_cpu.X = 0;
   novo_processo.estado_cpu.erro = ERR_OK;
   novo_processo.livre = false;
+  novo_processo.prio = 0.5;
+  novo_processo.t_exec_inicio = 0;
   adiciona_processo_na_tabela(self, novo_processo);
 
   //Adiciona o processo no fim da fila
@@ -867,6 +901,22 @@ static int recupera_posicao_tabela_de_processos(so_t *self, int pid)
     }
   }
   return -1;
+}
+
+static int recupera_processo_maior_prio(so_t *self) {
+  float prio = -1;
+  int pid_processo_maior_prio = -1;
+
+  for(int i=0; i<MAX_PROCESSOS; i++) {
+    processo_t processo = self->tabela_processos[i];
+    if(!processo.livre && processo.estado_processo != BLOQUEADO) {
+      if(processo.prio > prio) {
+        prio = processo.prio;
+        pid_processo_maior_prio = processo.pid;
+      }
+    }
+  }
+  return pid_processo_maior_prio;
 }
 
 static void mata_processo(so_t *self, int pid)
@@ -1025,6 +1075,19 @@ static void inicializa_quantum_counter(so_t *self) {
   self->quantum_counter = QUANTUM;
 }
 
+static void inicializa_t_exec_inicio(so_t *self, int pid) {
+  int i = recupera_posicao_processo_por_pid(self, pid);
+  self->tabela_processos[i].t_exec_inicio = rel_agora(self->relogio);
+}
+
+static void calcula_prio(so_t *self, int pid) {
+  int i = recupera_posicao_processo_por_pid(self, pid);
+  if(i != -1) {
+    int t_exec = rel_agora(self->relogio) - self->tabela_processos[i].t_exec_inicio;
+    self->tabela_processos[i].prio = self->tabela_processos[i].prio + (t_exec / (self->quantum_counter * INTERVALO_INTERRUPCAO));
+  }
+}
+
 //MÉTRICAS
 static void inicializa_metricas(so_t *self) {
   self->metricas_t.qt_processos_criados = 0;
@@ -1093,3 +1156,4 @@ static int calcula_total_de_preempcoes(metricas_t metricas) {
   }
   return total;
 }
+
