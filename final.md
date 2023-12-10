@@ -1,6 +1,6 @@
 ## Entrega final
 
-Crie um diretório (*folder*), chamado "l1-nome" ("nome" é uma string que permita identificar o(s) autor(es)).
+Crie um diretório (*folder*), chamado "so-nome" ("nome" é uma string que permita identificar o(s) autor(es)).
 Coloque nesse diretório:
 - um diretório, chamado "t1", com a versão final do t1 (programas fonte + relatório)
 - um diretório, chamado "t2", com a versão final do t2 (programas fonte + relatório)
