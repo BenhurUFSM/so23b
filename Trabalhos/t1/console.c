@@ -11,7 +11,7 @@
 
 
 // tamanho da tela -- a janela do terminal tem que ter pelo menos esse tamanho
-#define N_LIN 60  // número de linhas na tela
+#define N_LIN 58  // número de linhas na tela
 #define N_COL 110  // número de colunas na tela
 
 // número de linhas para cada componente da tela

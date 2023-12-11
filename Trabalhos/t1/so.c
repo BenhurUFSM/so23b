@@ -13,11 +13,11 @@
 
 #define NENHUM_PROCESSO_EM_EXECUCAO -1
 
-#define QUANTUM 5
+#define QUANTUM 50
 
 #define ESCALONADOR_ROUND_ROBIN 0
 #define ESCALONADOR_PRIO 1
-#define ESCALONADOR ESCALONADOR_PRIO
+#define ESCALONADOR ESCALONADOR_ROUND_ROBIN
 
 typedef enum
 {
@@ -45,6 +45,9 @@ struct metricas_t
   int qt_interrupcoes[N_IRQ];
   int qt_preempcoes[MAX_PROCESSOS];
   int qt_processos_estado[MAX_PROCESSOS][QT_ESTADO_PROCESSO];
+  int tempo_execucao_processo[MAX_PROCESSOS];
+  int tempo_total_processo_estado[MAX_PROCESSOS][QT_ESTADO_PROCESSO];
+  int tempo_ocioso;
 };
 
 struct registros_t
@@ -208,6 +211,9 @@ static void log_interrupcao(so_t *self, irq_t irq);
 static void exibe_metricas(so_t *self);
 static int calcula_total_de_preempcoes(metricas_t metricas);
 static void log_processo_estado(so_t *self, int i, estado_processo estado);
+static void log_ocioso(so_t *self);
+static void log_tempo_execucao_processo(so_t *self, int i);
+static void log_tempo_total_processo_estado(so_t *self, int i, estado_processo estado);
 
 so_t *so_cria(cpu_t *cpu, mem_t *mem, console_t *console, relogio_t *relogio)
 {
@@ -399,7 +405,9 @@ static bool verifica_estado_es(so_t *self, int id)
 static void desbloqueia_processo(so_t *self, int pid)
 {
   int i = recupera_posicao_processo_por_pid(self, pid);
+  log_tempo_execucao_processo(self,i);
   altera_estado_processo(self, i, PRONTO);
+  log_tempo_total_processo_estado(self, i, PRONTO);
   enqueue_processo(self, &self->fila, pid);   
 }
 
@@ -409,6 +417,7 @@ static void altera_estado_processo(so_t *self, int i, estado_processo estado) {
     calcula_prio(self, self->tabela_processos[i].pid);
   }
   log_processo_estado(self, i, estado);
+  log_tempo_total_processo_estado(self, i, estado);
 }
 
 static void so_escalona(so_t *self)
@@ -496,6 +505,7 @@ static void so_despacha(so_t *self)
     mem_escreve(self->mem, IRQ_END_erro, (self->tabela_processos[processo_escalonado].estado_cpu.erro));
     // Define estado do processo para EXECUCAO
     altera_estado_processo(self, processo_escalonado, EXECUCAO);
+    log_tempo_total_processo_estado(self, processo_escalonado, EXECUCAO);
   }
 }
 
@@ -535,6 +545,7 @@ static err_t so_trata_irq_reset(so_t *self)
 {
   inicializa_tabela_processos(self);
   // coloca um programa na memória
+  int ender = so_carrega_programa(self, "init.maq");
   if (ender != 100)
   {
     console_printf(self->console, "SO: problema na carga do programa inicial");
@@ -566,14 +577,19 @@ static err_t so_trata_irq_err_cpu(so_t *self)
   return ERR_OK;
 }
 
+// -1 - inicializa com agora
+// agora - final 
+
 static err_t so_trata_irq_relogio(so_t *self)
 {
   // ocorreu uma interrupção do relógio
   // rearma o interruptor do relógio e reinicializa o timer para a próxima interrupção
   rel_escr(self->relogio, 3, 0); // desliga o sinalizador de interrupção
   rel_escr(self->relogio, 2, INTERVALO_INTERRUPCAO);
-  
+  int i = recupera_posicao_processo_atual(self);
+  self->tabela_processos[i].t_exec_inicio++;
   atualiza_quantum_counter(self);
+  log_ocioso(self);
   return ERR_OK;
 }
 
@@ -639,6 +655,7 @@ static void so_chamada_le(so_t *self)
   }
   else { // Dispositivo indisponível - Bloqueia processo
     altera_estado_processo(self, i_processo, BLOQUEADO);
+    log_tempo_total_processo_estado(self, i_processo, BLOQUEADO);
     adiciona_pendencia(self, id_el, self->tabela_processos[i_processo].pid, ENTRADA);
   }
 }
@@ -656,6 +673,7 @@ static void so_chamada_escr(so_t *self)
     atende_escrita(self, term);
   } else { // Dispositivo indisponível - Bloqueia processo
     altera_estado_processo(self, i_processo, BLOQUEADO);
+    log_tempo_total_processo_estado(self, i_processo, BLOQUEADO);
     adiciona_pendencia(self, id_ee, self->tabela_processos[i_processo].pid, SAIDA);
   }
 }
@@ -669,6 +687,7 @@ static void so_chamada_espera_proc(so_t *self)
   if (existe) {
     adiciona_pendencia(self, pid_espera_proc, self->tabela_processos[i_processo_solicitante].pid, ESPERA_PROC);
     altera_estado_processo(self, i_processo_solicitante, BLOQUEADO);
+    log_tempo_total_processo_estado(self, i_processo_solicitante, BLOQUEADO);
     self->tabela_processos[i_processo_solicitante].estado_cpu.A = 0; //Retorna sucesso
   }
   else {
@@ -872,7 +891,9 @@ static int adiciona_processo_na_tabela(so_t *self, processo_t novo_processo)
   int posicao = recupera_posicao_livre_tabela_de_processos(self);
   if (posicao != -1) {
     self->tabela_processos[posicao] = novo_processo;
+    log_tempo_execucao_processo(self,posicao);
     log_processo_estado(self, posicao, PRONTO);
+    log_tempo_total_processo_estado(self, posicao, PRONTO);
   }
   else {
     console_printf(self->console, "Tabela cheia"); // Tabela de processos cheia. O que fazer?
@@ -1093,8 +1114,11 @@ static void inicializa_metricas(so_t *self) {
   self->metricas_t.qt_processos_criados = 0;
   for(int i=0; i<MAX_PROCESSOS; i++) {
     self->metricas_t.qt_preempcoes[i] = 0;
+    self->metricas_t.tempo_ocioso = 0;
+    self->metricas_t.tempo_execucao_processo[i] = 0;
     for(int j=0; j<3; j++) {
       self->metricas_t.qt_processos_estado[i][j] = 0;
+      self->metricas_t.tempo_total_processo_estado[i][j] = 0;
     }
   }
 }
@@ -1115,6 +1139,21 @@ static void log_processo_estado(so_t *self, int i, estado_processo estado) {
   self->metricas_t.qt_processos_estado[i][estado]++;
 }
 
+static void log_ocioso(so_t *self){
+  self->metricas_t.tempo_ocioso++;
+}
+
+static void log_tempo_total_processo_estado(so_t *self, int i, estado_processo estado) {
+  self->metricas_t.tempo_total_processo_estado[i][estado] = rel_agora(self->relogio)  - self->tabela_processos[i].t_exec_inicio * INTERVALO_INTERRUPCAO;
+}
+
+static void log_tempo_execucao_processo(so_t *self, int i){
+  self->metricas_t.tempo_execucao_processo[i] = rel_agora(self->relogio)  - self->tabela_processos[i].t_exec_inicio * INTERVALO_INTERRUPCAO;
+}
+
+// relogio - instrucoes executadas
+// t_exec - quantidade de interrupcoes de relogio;
+
 static void exibe_metricas(so_t *self) {
   console_printf(self->console, "\n");
   console_printf(self->console, "\n");
@@ -1122,11 +1161,28 @@ static void exibe_metricas(so_t *self) {
   console_printf(self->console, "\n");
   console_printf(self->console, "         - Quantidade de processos criados: %d", self->metricas_t.qt_processos_criados);
   console_printf(self->console, "         - Quantidade de preempções totais: %d", calcula_total_de_preempcoes(self->metricas_t));
+  console_printf(self->console, "         - Tempo ocioso: %d", self->metricas_t.tempo_ocioso);
   console_printf(self->console, "         - Quantidade de preempções por processo:");
   for(int i=0; i<MAX_PROCESSOS; i++) {
       processo_t processo = self->tabela_processos[i];
       if(processo.pid != -1) {
         console_printf(self->console, "             - PID %d: %d preempções", processo.pid, self->metricas_t.qt_preempcoes[i]);
+      }
+  }
+
+  console_printf(self->console, "         - Tempo de retorno de cada processo:");
+  for(int i=0; i<MAX_PROCESSOS; i++) {
+      processo_t processo = self->tabela_processos[i];
+      if(processo.pid != -1) {
+        console_printf(self->console, "             - PID %d: %d por interrupção", processo.pid, self->metricas_t.tempo_execucao_processo[i]);
+      }
+  }
+
+  console_printf(self->console, "         - Tempo total de cada processo em cada estado:");
+  for(int i=0; i<MAX_PROCESSOS; i++) {
+      processo_t processo = self->tabela_processos[i];
+      if(processo.pid != -1) {
+        console_printf(self->console, "             - PID %d: PRONTO: %d; EXECUCAO: %d, BLOQUEADO: %d", processo.pid, self->metricas_t.tempo_total_processo_estado[i][PRONTO], self->metricas_t.tempo_total_processo_estado[i][EXECUCAO], self->metricas_t.tempo_total_processo_estado[i][BLOQUEADO]);
       }
   }
 

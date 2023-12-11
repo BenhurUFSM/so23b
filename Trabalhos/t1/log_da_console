@@ -1,0 +1,6957 @@
+C
+SO: recebi IRQ 0 (Reset)
+SO: recebi IRQ 0 (Reset)
+SO: carga de 'init.maq' em 100-270
+1 
+QUANTUM 50
+Processo escalonado: 1
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: chamada de sistema 2
+Queue is empty
+QUANTUM 50
+Processo escalonado: 1
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: chamada de sistema 2
+Queue is empty
+QUANTUM 50
+Processo escalonado: 1
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+Queue is empty
+QUANTUM 49
+Processo escalonado: 1
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: chamada de sistema 2
+Queue is empty
+QUANTUM 49
+Processo escalonado: 1
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: chamada de sistema 2
+Queue is empty
+QUANTUM 49
+Processo escalonado: 1
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: chamada de sistema 2
+Queue is empty
+QUANTUM 49
+Processo escalonado: 1
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: chamada de sistema 2
+Queue is empty
+QUANTUM 49
+Processo escalonado: 1
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+Queue is empty
+QUANTUM 48
+Processo escalonado: 1
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: chamada de sistema 2
+Queue is empty
+QUANTUM 48
+Processo escalonado: 1
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: chamada de sistema 2
+Queue is empty
+QUANTUM 48
+Processo escalonado: 1
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: chamada de sistema 2
+Queue is empty
+QUANTUM 48
+Processo escalonado: 1
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+Queue is empty
+QUANTUM 47
+Processo escalonado: 1
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: chamada de sistema 2
+Queue is empty
+QUANTUM 47
+Processo escalonado: 1
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: chamada de sistema 2
+Queue is empty
+QUANTUM 47
+Processo escalonado: 1
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: chamada de sistema 2
+Queue is empty
+QUANTUM 47
+Processo escalonado: 1
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+Queue is empty
+QUANTUM 46
+Processo escalonado: 1
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: chamada de sistema 2
+Queue is empty
+QUANTUM 46
+Processo escalonado: 1
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: chamada de sistema 2
+Queue is empty
+QUANTUM 46
+Processo escalonado: 1
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: chamada de sistema 2
+Queue is empty
+QUANTUM 46
+Processo escalonado: 1
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+Queue is empty
+QUANTUM 45
+Processo escalonado: 1
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: chamada de sistema 2
+Queue is empty
+QUANTUM 45
+Processo escalonado: 1
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: chamada de sistema 2
+Queue is empty
+QUANTUM 45
+Processo escalonado: 1
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: chamada de sistema 2
+Queue is empty
+QUANTUM 45
+Processo escalonado: 1
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+Queue is empty
+QUANTUM 44
+Processo escalonado: 1
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: chamada de sistema 2
+Queue is empty
+QUANTUM 44
+Processo escalonado: 1
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: chamada de sistema 2
+Queue is empty
+QUANTUM 44
+Processo escalonado: 1
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: chamada de sistema 2
+Queue is empty
+QUANTUM 44
+Processo escalonado: 1
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: chamada de sistema 2
+Queue is empty
+QUANTUM 44
+Processo escalonado: 1
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+Queue is empty
+QUANTUM 43
+Processo escalonado: 1
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: chamada de sistema 7
+SO: carga de 'p1.maq' em 7100-7341
+2 
+QUANTUM 43
+Processo escalonado: 1
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: chamada de sistema 7
+SO: carga de 'p2.maq' em 8100-8343
+2 
+3 
+QUANTUM 43
+Processo escalonado: 1
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: chamada de sistema 7
+SO: carga de 'p3.maq' em 9100-9341
+2 
+3 
+4 
+QUANTUM 43
+Processo escalonado: 1
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: chamada de sistema 9
+2 
+3 
+4 
+QUANTUM 43
+Processo escalonado: 2
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: chamada de sistema 2
+3 
+4 
+QUANTUM 50
+Processo escalonado: 2
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+3 
+4 
+QUANTUM 49
+Processo escalonado: 2
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: chamada de sistema 2
+3 
+4 
+QUANTUM 49
+Processo escalonado: 2
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: chamada de sistema 2
+3 
+4 
+QUANTUM 49
+Processo escalonado: 2
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: chamada de sistema 2
+3 
+4 
+QUANTUM 49
+Processo escalonado: 2
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+3 
+4 
+QUANTUM 48
+Processo escalonado: 2
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: chamada de sistema 2
+3 
+4 
+QUANTUM 48
+Processo escalonado: 2
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: chamada de sistema 2
+3 
+4 
+QUANTUM 48
+Processo escalonado: 2
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: chamada de sistema 2
+3 
+4 
+QUANTUM 48
+Processo escalonado: 2
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+3 
+4 
+QUANTUM 47
+Processo escalonado: 2
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: chamada de sistema 2
+3 
+4 
+QUANTUM 47
+Processo escalonado: 2
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: chamada de sistema 2
+3 
+4 
+QUANTUM 47
+Processo escalonado: 2
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: chamada de sistema 2
+3 
+4 
+QUANTUM 47
+Processo escalonado: 2
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+3 
+4 
+QUANTUM 46
+Processo escalonado: 2
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: chamada de sistema 2
+3 
+4 
+QUANTUM 46
+Processo escalonado: 2
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: chamada de sistema 2
+3 
+4 
+QUANTUM 46
+Processo escalonado: 2
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: chamada de sistema 2
+3 
+4 
+QUANTUM 46
+Processo escalonado: 2
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: chamada de sistema 2
+3 
+4 
+QUANTUM 46
+Processo escalonado: 2
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+3 
+4 
+QUANTUM 45
+Processo escalonado: 2
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: chamada de sistema 2
+3 
+4 
+QUANTUM 45
+Processo escalonado: 2
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: chamada de sistema 2
+3 
+4 
+QUANTUM 45
+Processo escalonado: 2
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: chamada de sistema 2
+3 
+4 
+QUANTUM 45
+Processo escalonado: 2
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+3 
+4 
+QUANTUM 44
+Processo escalonado: 2
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: chamada de sistema 2
+3 
+4 
+QUANTUM 44
+Processo escalonado: 2
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: chamada de sistema 2
+3 
+4 
+QUANTUM 44
+Processo escalonado: 2
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: chamada de sistema 2
+3 
+4 
+QUANTUM 44
+Processo escalonado: 2
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+3 
+4 
+QUANTUM 43
+Processo escalonado: 2
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: chamada de sistema 2
+3 
+4 
+QUANTUM 43
+Processo escalonado: 2
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: chamada de sistema 2
+3 
+4 
+QUANTUM 43
+Processo escalonado: 2
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: chamada de sistema 2
+3 
+4 
+QUANTUM 43
+Processo escalonado: 2
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+3 
+4 
+QUANTUM 42
+Processo escalonado: 2
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: chamada de sistema 2
+3 
+4 
+QUANTUM 42
+Processo escalonado: 2
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: chamada de sistema 2
+3 
+4 
+QUANTUM 42
+Processo escalonado: 2
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: chamada de sistema 2
+3 
+4 
+QUANTUM 42
+Processo escalonado: 2
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+3 
+4 
+QUANTUM 41
+Processo escalonado: 2
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: chamada de sistema 2
+3 
+4 
+QUANTUM 41
+Processo escalonado: 2
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: chamada de sistema 2
+3 
+4 
+QUANTUM 41
+Processo escalonado: 2
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: chamada de sistema 2
+3 
+4 
+QUANTUM 41
+Processo escalonado: 2
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: chamada de sistema 2
+3 
+4 
+QUANTUM 41
+Processo escalonado: 2
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+3 
+4 
+QUANTUM 40
+Processo escalonado: 2
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: chamada de sistema 2
+3 
+4 
+QUANTUM 40
+Processo escalonado: 2
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: chamada de sistema 2
+3 
+4 
+QUANTUM 40
+Processo escalonado: 2
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: chamada de sistema 2
+3 
+4 
+QUANTUM 40
+Processo escalonado: 2
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+3 
+4 
+QUANTUM 39
+Processo escalonado: 2
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: chamada de sistema 2
+3 
+4 
+QUANTUM 39
+Processo escalonado: 2
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: chamada de sistema 2
+3 
+4 
+QUANTUM 39
+Processo escalonado: 2
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: chamada de sistema 2
+3 
+4 
+QUANTUM 39
+Processo escalonado: 2
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+3 
+4 
+QUANTUM 38
+Processo escalonado: 2
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: chamada de sistema 2
+3 
+4 
+QUANTUM 38
+Processo escalonado: 2
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: chamada de sistema 2
+3 
+4 
+QUANTUM 38
+Processo escalonado: 2
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: chamada de sistema 2
+3 
+4 
+QUANTUM 38
+Processo escalonado: 2
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+3 
+4 
+QUANTUM 37
+Processo escalonado: 2
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: chamada de sistema 2
+3 
+4 
+QUANTUM 37
+Processo escalonado: 2
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: chamada de sistema 2
+3 
+4 
+QUANTUM 37
+Processo escalonado: 2
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: chamada de sistema 2
+3 
+4 
+QUANTUM 37
+Processo escalonado: 2
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+3 
+4 
+QUANTUM 36
+Processo escalonado: 2
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: chamada de sistema 2
+3 
+4 
+QUANTUM 36
+Processo escalonado: 2
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: chamada de sistema 2
+3 
+4 
+QUANTUM 36
+Processo escalonado: 2
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: chamada de sistema 2
+3 
+4 
+QUANTUM 36
+Processo escalonado: 2
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: chamada de sistema 2
+3 
+4 
+QUANTUM 36
+Processo escalonado: 2
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+3 
+4 
+QUANTUM 35
+Processo escalonado: 2
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: chamada de sistema 2
+3 
+4 
+QUANTUM 35
+Processo escalonado: 2
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: chamada de sistema 2
+3 
+4 
+QUANTUM 35
+Processo escalonado: 2
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: chamada de sistema 2
+3 
+4 
+QUANTUM 35
+Processo escalonado: 2
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+3 
+4 
+QUANTUM 34
+Processo escalonado: 2
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: chamada de sistema 2
+3 
+4 
+QUANTUM 34
+Processo escalonado: 2
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: chamada de sistema 2
+3 
+4 
+QUANTUM 34
+Processo escalonado: 2
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: chamada de sistema 2
+3 
+4 
+QUANTUM 34
+Processo escalonado: 2
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+3 
+4 
+QUANTUM 33
+Processo escalonado: 2
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: chamada de sistema 2
+3 
+4 
+QUANTUM 33
+Processo escalonado: 2
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: chamada de sistema 2
+3 
+4 
+QUANTUM 33
+Processo escalonado: 2
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: chamada de sistema 2
+3 
+4 
+QUANTUM 33
+Processo escalonado: 2
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+3 
+4 
+QUANTUM 32
+Processo escalonado: 2
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: chamada de sistema 2
+3 
+4 
+QUANTUM 32
+Processo escalonado: 2
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: chamada de sistema 2
+3 
+4 
+QUANTUM 32
+Processo escalonado: 2
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: chamada de sistema 2
+3 
+4 
+QUANTUM 32
+Processo escalonado: 2
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+3 
+4 
+QUANTUM 31
+Processo escalonado: 2
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: chamada de sistema 2
+3 
+4 
+QUANTUM 31
+Processo escalonado: 2
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: chamada de sistema 2
+3 
+4 
+QUANTUM 31
+Processo escalonado: 2
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: chamada de sistema 2
+3 
+4 
+QUANTUM 31
+Processo escalonado: 2
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: chamada de sistema 2
+3 
+4 
+QUANTUM 31
+Processo escalonado: 2
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+3 
+4 
+QUANTUM 30
+Processo escalonado: 2
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: chamada de sistema 2
+3 
+4 
+QUANTUM 30
+Processo escalonado: 2
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: chamada de sistema 2
+3 
+4 
+QUANTUM 30
+Processo escalonado: 2
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: chamada de sistema 2
+3 
+4 
+QUANTUM 30
+Processo escalonado: 2
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+3 
+4 
+QUANTUM 29
+Processo escalonado: 2
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: chamada de sistema 2
+3 
+4 
+QUANTUM 29
+Processo escalonado: 2
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: chamada de sistema 2
+3 
+4 
+QUANTUM 29
+Processo escalonado: 2
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+3 
+4 
+QUANTUM 28
+Processo escalonado: 2
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: chamada de sistema 2
+3 
+4 
+QUANTUM 28
+Processo escalonado: 2
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+3 
+4 
+QUANTUM 27
+Processo escalonado: 2
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: chamada de sistema 2
+3 
+4 
+QUANTUM 27
+Processo escalonado: 2
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: chamada de sistema 2
+3 
+4 
+QUANTUM 27
+Processo escalonado: 2
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: chamada de sistema 2
+3 
+4 
+QUANTUM 27
+Processo escalonado: 2
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+3 
+4 
+QUANTUM 26
+Processo escalonado: 2
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: chamada de sistema 2
+3 
+4 
+QUANTUM 26
+Processo escalonado: 2
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: chamada de sistema 2
+3 
+4 
+QUANTUM 26
+Processo escalonado: 2
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+3 
+4 
+QUANTUM 25
+Processo escalonado: 2
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: chamada de sistema 2
+3 
+4 
+QUANTUM 25
+Processo escalonado: 2
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: chamada de sistema 2
+3 
+4 
+QUANTUM 25
+Processo escalonado: 2
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+3 
+4 
+QUANTUM 24
+Processo escalonado: 2
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: chamada de sistema 2
+3 
+4 
+QUANTUM 24
+Processo escalonado: 2
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: chamada de sistema 2
+3 
+4 
+QUANTUM 24
+Processo escalonado: 2
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: chamada de sistema 2
+3 
+4 
+QUANTUM 24
+Processo escalonado: 2
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+3 
+4 
+QUANTUM 23
+Processo escalonado: 2
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+3 
+4 
+QUANTUM 22
+Processo escalonado: 2
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+3 
+4 
+QUANTUM 21
+Processo escalonado: 2
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+3 
+4 
+QUANTUM 20
+Processo escalonado: 2
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+3 
+4 
+QUANTUM 19
+Processo escalonado: 2
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+3 
+4 
+QUANTUM 18
+Processo escalonado: 2
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+3 
+4 
+QUANTUM 17
+Processo escalonado: 2
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+3 
+4 
+QUANTUM 16
+Processo escalonado: 2
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+3 
+4 
+QUANTUM 15
+Processo escalonado: 2
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+3 
+4 
+QUANTUM 14
+Processo escalonado: 2
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+3 
+4 
+QUANTUM 13
+Processo escalonado: 2
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+3 
+4 
+QUANTUM 12
+Processo escalonado: 2
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+3 
+4 
+QUANTUM 11
+Processo escalonado: 2
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+3 
+4 
+QUANTUM 10
+Processo escalonado: 2
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+3 
+4 
+QUANTUM 9
+Processo escalonado: 2
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+3 
+4 
+QUANTUM 8
+Processo escalonado: 2
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+3 
+4 
+QUANTUM 7
+Processo escalonado: 2
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+3 
+4 
+QUANTUM 6
+Processo escalonado: 2
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+3 
+4 
+QUANTUM 5
+Processo escalonado: 2
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+3 
+4 
+QUANTUM 4
+Processo escalonado: 2
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+3 
+4 
+QUANTUM 3
+Processo escalonado: 2
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+3 
+4 
+QUANTUM 2
+Processo escalonado: 2
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+3 
+4 
+QUANTUM 1
+Processo escalonado: 2
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+3 
+4 
+QUANTUM 0
+Processo escalonado: 3
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: chamada de sistema 2
+4 
+2 
+QUANTUM 50
+Processo escalonado: 3
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: chamada de sistema 2
+4 
+2 
+QUANTUM 50
+Processo escalonado: 3
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: chamada de sistema 2
+4 
+2 
+QUANTUM 50
+Processo escalonado: 3
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+4 
+2 
+QUANTUM 49
+Processo escalonado: 3
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: chamada de sistema 2
+4 
+2 
+QUANTUM 49
+Processo escalonado: 3
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: chamada de sistema 2
+4 
+2 
+QUANTUM 49
+Processo escalonado: 3
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: chamada de sistema 2
+4 
+2 
+QUANTUM 49
+Processo escalonado: 3
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+4 
+2 
+QUANTUM 48
+Processo escalonado: 3
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: chamada de sistema 2
+4 
+2 
+QUANTUM 48
+Processo escalonado: 3
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: chamada de sistema 2
+4 
+2 
+QUANTUM 48
+Processo escalonado: 3
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: chamada de sistema 2
+4 
+2 
+QUANTUM 48
+Processo escalonado: 3
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+4 
+2 
+QUANTUM 47
+Processo escalonado: 3
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: chamada de sistema 2
+4 
+2 
+QUANTUM 47
+Processo escalonado: 3
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: chamada de sistema 2
+4 
+2 
+QUANTUM 47
+Processo escalonado: 3
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: chamada de sistema 2
+4 
+2 
+QUANTUM 47
+Processo escalonado: 3
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: chamada de sistema 2
+4 
+2 
+QUANTUM 47
+Processo escalonado: 3
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+4 
+2 
+QUANTUM 46
+Processo escalonado: 3
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: chamada de sistema 2
+4 
+2 
+QUANTUM 46
+Processo escalonado: 3
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: chamada de sistema 2
+4 
+2 
+QUANTUM 46
+Processo escalonado: 3
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: chamada de sistema 2
+4 
+2 
+QUANTUM 46
+Processo escalonado: 3
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+4 
+2 
+QUANTUM 45
+Processo escalonado: 3
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: chamada de sistema 2
+4 
+2 
+QUANTUM 45
+Processo escalonado: 3
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: chamada de sistema 2
+4 
+2 
+QUANTUM 45
+Processo escalonado: 3
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: chamada de sistema 2
+4 
+2 
+QUANTUM 45
+Processo escalonado: 3
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+4 
+2 
+QUANTUM 44
+Processo escalonado: 3
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: chamada de sistema 2
+4 
+2 
+QUANTUM 44
+Processo escalonado: 3
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: chamada de sistema 2
+4 
+2 
+QUANTUM 44
+Processo escalonado: 3
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: chamada de sistema 2
+4 
+2 
+QUANTUM 44
+Processo escalonado: 3
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+4 
+2 
+QUANTUM 43
+Processo escalonado: 3
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: chamada de sistema 2
+4 
+2 
+QUANTUM 43
+Processo escalonado: 3
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: chamada de sistema 2
+4 
+2 
+QUANTUM 43
+Processo escalonado: 3
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: chamada de sistema 2
+4 
+2 
+QUANTUM 43
+Processo escalonado: 3
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+4 
+2 
+QUANTUM 42
+Processo escalonado: 3
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: chamada de sistema 2
+4 
+2 
+QUANTUM 42
+Processo escalonado: 3
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: chamada de sistema 2
+4 
+2 
+QUANTUM 42
+Processo escalonado: 3
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: chamada de sistema 2
+4 
+2 
+QUANTUM 42
+Processo escalonado: 3
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: chamada de sistema 2
+4 
+2 
+QUANTUM 42
+Processo escalonado: 3
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+4 
+2 
+QUANTUM 41
+Processo escalonado: 3
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: chamada de sistema 2
+4 
+2 
+QUANTUM 41
+Processo escalonado: 3
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: chamada de sistema 2
+4 
+2 
+QUANTUM 41
+Processo escalonado: 3
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: chamada de sistema 2
+4 
+2 
+QUANTUM 41
+Processo escalonado: 3
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+4 
+2 
+QUANTUM 40
+Processo escalonado: 3
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: chamada de sistema 2
+4 
+2 
+QUANTUM 40
+Processo escalonado: 3
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: chamada de sistema 2
+4 
+2 
+QUANTUM 40
+Processo escalonado: 3
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: chamada de sistema 2
+4 
+2 
+QUANTUM 40
+Processo escalonado: 3
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+4 
+2 
+QUANTUM 39
+Processo escalonado: 3
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: chamada de sistema 2
+4 
+2 
+QUANTUM 39
+Processo escalonado: 3
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: chamada de sistema 2
+4 
+2 
+QUANTUM 39
+Processo escalonado: 3
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: chamada de sistema 2
+4 
+2 
+QUANTUM 39
+Processo escalonado: 3
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+4 
+2 
+QUANTUM 38
+Processo escalonado: 3
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: chamada de sistema 2
+4 
+2 
+QUANTUM 38
+Processo escalonado: 3
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: chamada de sistema 2
+4 
+2 
+QUANTUM 38
+Processo escalonado: 3
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: chamada de sistema 2
+4 
+2 
+QUANTUM 38
+Processo escalonado: 3
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+4 
+2 
+QUANTUM 37
+Processo escalonado: 3
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: chamada de sistema 2
+4 
+2 
+QUANTUM 37
+Processo escalonado: 3
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: chamada de sistema 2
+4 
+2 
+QUANTUM 37
+Processo escalonado: 3
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: chamada de sistema 2
+4 
+2 
+QUANTUM 37
+Processo escalonado: 3
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: chamada de sistema 2
+4 
+2 
+QUANTUM 37
+Processo escalonado: 3
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+4 
+2 
+QUANTUM 36
+Processo escalonado: 3
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: chamada de sistema 2
+4 
+2 
+QUANTUM 36
+Processo escalonado: 3
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: chamada de sistema 2
+4 
+2 
+QUANTUM 36
+Processo escalonado: 3
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: chamada de sistema 2
+4 
+2 
+QUANTUM 36
+Processo escalonado: 3
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+4 
+2 
+QUANTUM 35
+Processo escalonado: 3
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: chamada de sistema 2
+4 
+2 
+QUANTUM 35
+Processo escalonado: 3
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: chamada de sistema 2
+4 
+2 
+QUANTUM 35
+Processo escalonado: 3
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: chamada de sistema 2
+4 
+2 
+QUANTUM 35
+Processo escalonado: 3
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+4 
+2 
+QUANTUM 34
+Processo escalonado: 3
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: chamada de sistema 2
+4 
+2 
+QUANTUM 34
+Processo escalonado: 3
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: chamada de sistema 2
+4 
+2 
+QUANTUM 34
+Processo escalonado: 3
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: chamada de sistema 2
+4 
+2 
+QUANTUM 34
+Processo escalonado: 3
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+4 
+2 
+QUANTUM 33
+Processo escalonado: 3
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: chamada de sistema 2
+4 
+2 
+QUANTUM 33
+Processo escalonado: 3
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: chamada de sistema 2
+4 
+2 
+QUANTUM 33
+Processo escalonado: 3
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: chamada de sistema 2
+4 
+2 
+QUANTUM 33
+Processo escalonado: 3
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+4 
+2 
+QUANTUM 32
+Processo escalonado: 3
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: chamada de sistema 2
+4 
+2 
+QUANTUM 32
+Processo escalonado: 3
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: chamada de sistema 2
+4 
+2 
+QUANTUM 32
+Processo escalonado: 3
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: chamada de sistema 2
+4 
+2 
+QUANTUM 32
+Processo escalonado: 3
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: chamada de sistema 2
+4 
+2 
+QUANTUM 32
+Processo escalonado: 3
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+4 
+2 
+QUANTUM 31
+Processo escalonado: 3
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: chamada de sistema 2
+4 
+2 
+QUANTUM 31
+Processo escalonado: 3
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: chamada de sistema 2
+4 
+2 
+QUANTUM 31
+Processo escalonado: 3
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: chamada de sistema 2
+4 
+2 
+QUANTUM 31
+Processo escalonado: 3
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+4 
+2 
+QUANTUM 30
+Processo escalonado: 3
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: chamada de sistema 2
+4 
+2 
+QUANTUM 30
+Processo escalonado: 3
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: chamada de sistema 2
+4 
+2 
+QUANTUM 30
+Processo escalonado: 3
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: chamada de sistema 2
+4 
+2 
+QUANTUM 30
+Processo escalonado: 3
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+4 
+2 
+QUANTUM 29
+Processo escalonado: 3
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: chamada de sistema 2
+4 
+2 
+QUANTUM 29
+Processo escalonado: 3
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: chamada de sistema 2
+4 
+2 
+QUANTUM 29
+Processo escalonado: 3
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+4 
+2 
+QUANTUM 28
+Processo escalonado: 3
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: chamada de sistema 2
+4 
+2 
+QUANTUM 28
+Processo escalonado: 3
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+4 
+2 
+QUANTUM 27
+Processo escalonado: 3
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: chamada de sistema 2
+4 
+2 
+QUANTUM 27
+Processo escalonado: 3
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: chamada de sistema 2
+4 
+2 
+QUANTUM 27
+Processo escalonado: 3
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: chamada de sistema 2
+4 
+2 
+QUANTUM 27
+Processo escalonado: 3
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+4 
+2 
+QUANTUM 26
+Processo escalonado: 3
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: chamada de sistema 2
+4 
+2 
+QUANTUM 26
+Processo escalonado: 3
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: chamada de sistema 2
+4 
+2 
+QUANTUM 26
+Processo escalonado: 3
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+4 
+2 
+QUANTUM 25
+Processo escalonado: 3
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: chamada de sistema 2
+4 
+2 
+QUANTUM 25
+Processo escalonado: 3
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: chamada de sistema 2
+4 
+2 
+QUANTUM 25
+Processo escalonado: 3
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: chamada de sistema 2
+4 
+2 
+QUANTUM 25
+Processo escalonado: 3
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+4 
+2 
+QUANTUM 24
+Processo escalonado: 3
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+4 
+2 
+QUANTUM 23
+Processo escalonado: 3
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+4 
+2 
+QUANTUM 22
+Processo escalonado: 3
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+4 
+2 
+QUANTUM 21
+Processo escalonado: 3
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+4 
+2 
+QUANTUM 20
+Processo escalonado: 3
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: chamada de sistema 2
+4 
+2 
+QUANTUM 20
+Processo escalonado: 3
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: chamada de sistema 2
+4 
+2 
+QUANTUM 20
+Processo escalonado: 3
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+4 
+2 
+QUANTUM 19
+Processo escalonado: 3
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: chamada de sistema 2
+4 
+2 
+QUANTUM 19
+Processo escalonado: 3
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+4 
+2 
+QUANTUM 18
+Processo escalonado: 3
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+4 
+2 
+QUANTUM 17
+Processo escalonado: 3
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+4 
+2 
+QUANTUM 16
+Processo escalonado: 3
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+4 
+2 
+QUANTUM 15
+Processo escalonado: 3
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: chamada de sistema 2
+4 
+2 
+QUANTUM 15
+Processo escalonado: 3
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+4 
+2 
+QUANTUM 14
+Processo escalonado: 3
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: chamada de sistema 2
+4 
+2 
+QUANTUM 14
+Processo escalonado: 3
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: chamada de sistema 2
+4 
+2 
+QUANTUM 14
+Processo escalonado: 3
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+4 
+2 
+QUANTUM 13
+Processo escalonado: 3
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+4 
+2 
+QUANTUM 12
+Processo escalonado: 3
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+4 
+2 
+QUANTUM 11
+Processo escalonado: 3
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+4 
+2 
+QUANTUM 10
+Processo escalonado: 3
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+4 
+2 
+QUANTUM 9
+Processo escalonado: 3
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: chamada de sistema 2
+4 
+2 
+QUANTUM 9
+Processo escalonado: 3
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: chamada de sistema 2
+4 
+2 
+QUANTUM 9
+Processo escalonado: 3
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: chamada de sistema 2
+4 
+2 
+QUANTUM 9
+Processo escalonado: 3
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+4 
+2 
+QUANTUM 8
+Processo escalonado: 3
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+4 
+2 
+QUANTUM 7
+Processo escalonado: 3
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+4 
+2 
+QUANTUM 6
+Processo escalonado: 3
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+4 
+2 
+QUANTUM 5
+Processo escalonado: 3
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+4 
+2 
+QUANTUM 4
+Processo escalonado: 3
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: chamada de sistema 2
+4 
+2 
+QUANTUM 4
+Processo escalonado: 3
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: chamada de sistema 2
+4 
+2 
+QUANTUM 4
+Processo escalonado: 3
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+4 
+2 
+QUANTUM 3
+Processo escalonado: 3
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: chamada de sistema 2
+4 
+2 
+QUANTUM 3
+Processo escalonado: 3
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: chamada de sistema 2
+4 
+2 
+QUANTUM 3
+Processo escalonado: 3
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+4 
+2 
+QUANTUM 2
+Processo escalonado: 3
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+4 
+2 
+QUANTUM 1
+Processo escalonado: 3
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+4 
+2 
+QUANTUM 0
+Processo escalonado: 4
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: chamada de sistema 2
+2 
+3 
+QUANTUM 50
+Processo escalonado: 4
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: chamada de sistema 2
+2 
+3 
+QUANTUM 50
+Processo escalonado: 4
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: chamada de sistema 2
+2 
+3 
+QUANTUM 50
+Processo escalonado: 4
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+2 
+3 
+QUANTUM 49
+Processo escalonado: 4
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: chamada de sistema 2
+2 
+3 
+QUANTUM 49
+Processo escalonado: 4
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: chamada de sistema 2
+2 
+3 
+QUANTUM 49
+Processo escalonado: 4
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: chamada de sistema 2
+2 
+3 
+QUANTUM 49
+Processo escalonado: 4
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+2 
+3 
+QUANTUM 48
+Processo escalonado: 4
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: chamada de sistema 2
+2 
+3 
+QUANTUM 48
+Processo escalonado: 4
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: chamada de sistema 2
+2 
+3 
+QUANTUM 48
+Processo escalonado: 4
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: chamada de sistema 2
+2 
+3 
+QUANTUM 48
+Processo escalonado: 4
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+2 
+3 
+QUANTUM 47
+Processo escalonado: 4
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: chamada de sistema 2
+2 
+3 
+QUANTUM 47
+Processo escalonado: 4
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: chamada de sistema 2
+2 
+3 
+QUANTUM 47
+Processo escalonado: 4
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: chamada de sistema 2
+2 
+3 
+QUANTUM 47
+Processo escalonado: 4
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: chamada de sistema 2
+2 
+3 
+QUANTUM 47
+Processo escalonado: 4
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+2 
+3 
+QUANTUM 46
+Processo escalonado: 4
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: chamada de sistema 2
+2 
+3 
+QUANTUM 46
+Processo escalonado: 4
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: chamada de sistema 2
+2 
+3 
+QUANTUM 46
+Processo escalonado: 4
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: chamada de sistema 2
+2 
+3 
+QUANTUM 46
+Processo escalonado: 4
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+2 
+3 
+QUANTUM 45
+Processo escalonado: 4
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: chamada de sistema 2
+2 
+3 
+QUANTUM 45
+Processo escalonado: 4
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: chamada de sistema 2
+2 
+3 
+QUANTUM 45
+Processo escalonado: 4
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: chamada de sistema 2
+2 
+3 
+QUANTUM 45
+Processo escalonado: 4
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+2 
+3 
+QUANTUM 44
+Processo escalonado: 4
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: chamada de sistema 2
+2 
+3 
+QUANTUM 44
+Processo escalonado: 4
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: chamada de sistema 2
+2 
+3 
+QUANTUM 44
+Processo escalonado: 4
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: chamada de sistema 2
+2 
+3 
+QUANTUM 44
+Processo escalonado: 4
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+2 
+3 
+QUANTUM 43
+Processo escalonado: 4
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: chamada de sistema 2
+2 
+3 
+QUANTUM 43
+Processo escalonado: 4
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: chamada de sistema 2
+2 
+3 
+QUANTUM 43
+Processo escalonado: 4
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: chamada de sistema 2
+2 
+3 
+QUANTUM 43
+Processo escalonado: 4
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+2 
+3 
+QUANTUM 42
+Processo escalonado: 4
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: chamada de sistema 2
+2 
+3 
+QUANTUM 42
+Processo escalonado: 4
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: chamada de sistema 2
+2 
+3 
+QUANTUM 42
+Processo escalonado: 4
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: chamada de sistema 2
+2 
+3 
+QUANTUM 42
+Processo escalonado: 4
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: chamada de sistema 2
+2 
+3 
+QUANTUM 42
+Processo escalonado: 4
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+2 
+3 
+QUANTUM 41
+Processo escalonado: 4
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: chamada de sistema 2
+2 
+3 
+QUANTUM 41
+Processo escalonado: 4
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: chamada de sistema 2
+2 
+3 
+QUANTUM 41
+Processo escalonado: 4
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: chamada de sistema 2
+2 
+3 
+QUANTUM 41
+Processo escalonado: 4
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+2 
+3 
+QUANTUM 40
+Processo escalonado: 4
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: chamada de sistema 2
+2 
+3 
+QUANTUM 40
+Processo escalonado: 4
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: chamada de sistema 2
+2 
+3 
+QUANTUM 40
+Processo escalonado: 4
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: chamada de sistema 2
+2 
+3 
+QUANTUM 40
+Processo escalonado: 4
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+2 
+3 
+QUANTUM 39
+Processo escalonado: 4
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: chamada de sistema 2
+2 
+3 
+QUANTUM 39
+Processo escalonado: 4
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: chamada de sistema 2
+2 
+3 
+QUANTUM 39
+Processo escalonado: 4
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: chamada de sistema 2
+2 
+3 
+QUANTUM 39
+Processo escalonado: 4
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+2 
+3 
+QUANTUM 38
+Processo escalonado: 4
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: chamada de sistema 2
+2 
+3 
+QUANTUM 38
+Processo escalonado: 4
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: chamada de sistema 2
+2 
+3 
+QUANTUM 38
+Processo escalonado: 4
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: chamada de sistema 2
+2 
+3 
+QUANTUM 38
+Processo escalonado: 4
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+2 
+3 
+QUANTUM 37
+Processo escalonado: 4
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: chamada de sistema 2
+2 
+3 
+QUANTUM 37
+Processo escalonado: 4
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: chamada de sistema 2
+2 
+3 
+QUANTUM 37
+Processo escalonado: 4
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: chamada de sistema 2
+2 
+3 
+QUANTUM 37
+Processo escalonado: 4
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: chamada de sistema 2
+2 
+3 
+QUANTUM 37
+Processo escalonado: 4
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+2 
+3 
+QUANTUM 36
+Processo escalonado: 4
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: chamada de sistema 2
+2 
+3 
+QUANTUM 36
+Processo escalonado: 4
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: chamada de sistema 2
+2 
+3 
+QUANTUM 36
+Processo escalonado: 4
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: chamada de sistema 2
+2 
+3 
+QUANTUM 36
+Processo escalonado: 4
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+2 
+3 
+QUANTUM 35
+Processo escalonado: 4
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: chamada de sistema 2
+2 
+3 
+QUANTUM 35
+Processo escalonado: 4
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: chamada de sistema 2
+2 
+3 
+QUANTUM 35
+Processo escalonado: 4
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: chamada de sistema 2
+2 
+3 
+QUANTUM 35
+Processo escalonado: 4
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+2 
+3 
+QUANTUM 34
+Processo escalonado: 4
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: chamada de sistema 2
+2 
+3 
+QUANTUM 34
+Processo escalonado: 4
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: chamada de sistema 2
+2 
+3 
+QUANTUM 34
+Processo escalonado: 4
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: chamada de sistema 2
+2 
+3 
+QUANTUM 34
+Processo escalonado: 4
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+2 
+3 
+QUANTUM 33
+Processo escalonado: 4
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: chamada de sistema 2
+2 
+3 
+QUANTUM 33
+Processo escalonado: 4
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: chamada de sistema 2
+2 
+3 
+QUANTUM 33
+Processo escalonado: 4
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: chamada de sistema 2
+2 
+3 
+QUANTUM 33
+Processo escalonado: 4
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+2 
+3 
+QUANTUM 32
+Processo escalonado: 4
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: chamada de sistema 2
+2 
+3 
+QUANTUM 32
+Processo escalonado: 4
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: chamada de sistema 2
+2 
+3 
+QUANTUM 32
+Processo escalonado: 4
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: chamada de sistema 2
+2 
+3 
+QUANTUM 32
+Processo escalonado: 4
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: chamada de sistema 2
+2 
+3 
+QUANTUM 32
+Processo escalonado: 4
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+2 
+3 
+QUANTUM 31
+Processo escalonado: 4
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: chamada de sistema 2
+2 
+3 
+QUANTUM 31
+Processo escalonado: 4
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: chamada de sistema 2
+2 
+3 
+QUANTUM 31
+Processo escalonado: 4
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: chamada de sistema 2
+2 
+3 
+QUANTUM 31
+Processo escalonado: 4
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+2 
+3 
+QUANTUM 30
+Processo escalonado: 4
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: chamada de sistema 2
+2 
+3 
+QUANTUM 30
+Processo escalonado: 4
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: chamada de sistema 2
+2 
+3 
+QUANTUM 30
+Processo escalonado: 4
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: chamada de sistema 2
+2 
+3 
+QUANTUM 30
+Processo escalonado: 4
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+2 
+3 
+QUANTUM 29
+Processo escalonado: 4
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: chamada de sistema 2
+2 
+3 
+QUANTUM 29
+Processo escalonado: 4
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+2 
+3 
+QUANTUM 28
+Processo escalonado: 4
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: chamada de sistema 2
+2 
+3 
+QUANTUM 28
+Processo escalonado: 4
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: chamada de sistema 2
+2 
+3 
+QUANTUM 28
+Processo escalonado: 4
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: chamada de sistema 2
+2 
+3 
+QUANTUM 28
+Processo escalonado: 4
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+2 
+3 
+QUANTUM 27
+Processo escalonado: 4
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: chamada de sistema 2
+2 
+3 
+QUANTUM 27
+Processo escalonado: 4
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: chamada de sistema 2
+2 
+3 
+QUANTUM 27
+Processo escalonado: 4
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: chamada de sistema 2
+2 
+3 
+QUANTUM 27
+Processo escalonado: 4
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+2 
+3 
+QUANTUM 26
+Processo escalonado: 4
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: chamada de sistema 2
+2 
+3 
+QUANTUM 26
+Processo escalonado: 4
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: chamada de sistema 2
+2 
+3 
+QUANTUM 26
+Processo escalonado: 4
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+2 
+3 
+QUANTUM 25
+Processo escalonado: 4
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: chamada de sistema 2
+2 
+3 
+QUANTUM 25
+Processo escalonado: 4
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+2 
+3 
+QUANTUM 24
+Processo escalonado: 4
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: chamada de sistema 2
+2 
+3 
+QUANTUM 24
+Processo escalonado: 4
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+2 
+3 
+QUANTUM 23
+Processo escalonado: 4
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: chamada de sistema 2
+2 
+3 
+QUANTUM 23
+Processo escalonado: 4
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: chamada de sistema 2
+2 
+3 
+QUANTUM 23
+Processo escalonado: 4
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+2 
+3 
+QUANTUM 22
+Processo escalonado: 4
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: chamada de sistema 2
+2 
+3 
+QUANTUM 22
+Processo escalonado: 4
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: chamada de sistema 2
+2 
+3 
+QUANTUM 22
+Processo escalonado: 4
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+2 
+3 
+QUANTUM 21
+Processo escalonado: 4
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: chamada de sistema 2
+2 
+3 
+QUANTUM 21
+Processo escalonado: 4
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: chamada de sistema 2
+2 
+3 
+QUANTUM 21
+Processo escalonado: 4
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+2 
+3 
+QUANTUM 20
+Processo escalonado: 4
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: chamada de sistema 2
+2 
+3 
+QUANTUM 20
+Processo escalonado: 4
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+2 
+3 
+QUANTUM 19
+Processo escalonado: 4
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: chamada de sistema 2
+2 
+3 
+QUANTUM 19
+Processo escalonado: 4
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+2 
+3 
+QUANTUM 18
+Processo escalonado: 4
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: chamada de sistema 2
+2 
+3 
+QUANTUM 18
+Processo escalonado: 4
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: chamada de sistema 2
+2 
+3 
+QUANTUM 18
+Processo escalonado: 4
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+2 
+3 
+QUANTUM 17
+Processo escalonado: 4
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: chamada de sistema 2
+2 
+3 
+QUANTUM 17
+Processo escalonado: 4
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: chamada de sistema 2
+2 
+3 
+QUANTUM 17
+Processo escalonado: 4
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+2 
+3 
+QUANTUM 16
+Processo escalonado: 4
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: chamada de sistema 2
+2 
+3 
+QUANTUM 16
+Processo escalonado: 4
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: chamada de sistema 2
+2 
+3 
+QUANTUM 16
+Processo escalonado: 4
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+2 
+3 
+QUANTUM 15
+Processo escalonado: 4
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: chamada de sistema 2
+2 
+3 
+QUANTUM 15
+Processo escalonado: 4
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+2 
+3 
+QUANTUM 14
+Processo escalonado: 4
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: chamada de sistema 2
+2 
+3 
+QUANTUM 14
+Processo escalonado: 4
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: chamada de sistema 2
+2 
+3 
+QUANTUM 14
+Processo escalonado: 4
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+2 
+3 
+QUANTUM 13
+Processo escalonado: 4
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: chamada de sistema 2
+2 
+3 
+QUANTUM 13
+Processo escalonado: 4
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: chamada de sistema 2
+2 
+3 
+QUANTUM 13
+Processo escalonado: 4
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+2 
+3 
+QUANTUM 12
+Processo escalonado: 4
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: chamada de sistema 2
+2 
+3 
+QUANTUM 12
+Processo escalonado: 4
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+2 
+3 
+QUANTUM 11
+Processo escalonado: 4
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: chamada de sistema 2
+2 
+3 
+QUANTUM 11
+Processo escalonado: 4
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: chamada de sistema 2
+2 
+3 
+QUANTUM 11
+Processo escalonado: 4
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+2 
+3 
+QUANTUM 10
+Processo escalonado: 4
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: chamada de sistema 2
+2 
+3 
+QUANTUM 10
+Processo escalonado: 4
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+2 
+3 
+QUANTUM 9
+Processo escalonado: 4
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: chamada de sistema 2
+2 
+3 
+QUANTUM 9
+Processo escalonado: 4
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: chamada de sistema 2
+2 
+3 
+QUANTUM 9
+Processo escalonado: 4
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: chamada de sistema 2
+2 
+3 
+QUANTUM 9
+Processo escalonado: 4
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+2 
+3 
+QUANTUM 8
+Processo escalonado: 4
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: chamada de sistema 2
+2 
+3 
+QUANTUM 8
+Processo escalonado: 4
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+2 
+3 
+QUANTUM 7
+Processo escalonado: 4
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: chamada de sistema 2
+2 
+3 
+QUANTUM 7
+Processo escalonado: 4
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: chamada de sistema 2
+2 
+3 
+QUANTUM 7
+Processo escalonado: 4
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+2 
+3 
+QUANTUM 6
+Processo escalonado: 4
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: chamada de sistema 2
+2 
+3 
+QUANTUM 6
+Processo escalonado: 4
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+2 
+3 
+QUANTUM 5
+Processo escalonado: 4
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: chamada de sistema 2
+2 
+3 
+QUANTUM 5
+Processo escalonado: 4
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: chamada de sistema 2
+2 
+3 
+QUANTUM 5
+Processo escalonado: 2
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+3 
+QUANTUM 49
+Processo escalonado: 2
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+3 
+QUANTUM 48
+Processo escalonado: 2
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+3 
+4 
+QUANTUM 47
+Processo escalonado: 2
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+3 
+4 
+QUANTUM 46
+Processo escalonado: 2
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+3 
+4 
+QUANTUM 45
+Processo escalonado: 2
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+3 
+4 
+QUANTUM 44
+Processo escalonado: 2
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+3 
+4 
+QUANTUM 43
+Processo escalonado: 2
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+3 
+4 
+QUANTUM 42
+Processo escalonado: 2
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+3 
+4 
+QUANTUM 41
+Processo escalonado: 2
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+3 
+4 
+QUANTUM 40
+Processo escalonado: 2
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+3 
+4 
+QUANTUM 39
+Processo escalonado: 2
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+3 
+4 
+QUANTUM 38
+Processo escalonado: 2
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+3 
+4 
+QUANTUM 37
+Processo escalonado: 2
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+3 
+4 
+QUANTUM 36
+Processo escalonado: 2
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+3 
+4 
+QUANTUM 35
+Processo escalonado: 2
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+3 
+4 
+QUANTUM 34
+Processo escalonado: 2
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+3 
+4 
+QUANTUM 33
+Processo escalonado: 2
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+3 
+4 
+QUANTUM 32
+Processo escalonado: 2
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+3 
+4 
+QUANTUM 31
+Processo escalonado: 2
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+3 
+4 
+QUANTUM 30
+Processo escalonado: 2
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+3 
+4 
+QUANTUM 29
+Processo escalonado: 2
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+3 
+4 
+QUANTUM 28
+Processo escalonado: 2
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+3 
+4 
+QUANTUM 27
+Processo escalonado: 2
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+3 
+4 
+QUANTUM 26
+Processo escalonado: 2
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+3 
+4 
+QUANTUM 25
+Processo escalonado: 2
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+3 
+4 
+QUANTUM 24
+Processo escalonado: 2
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+3 
+4 
+QUANTUM 23
+Processo escalonado: 2
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+3 
+4 
+QUANTUM 22
+Processo escalonado: 2
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+3 
+4 
+QUANTUM 21
+Processo escalonado: 2
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+3 
+4 
+QUANTUM 20
+Processo escalonado: 2
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+3 
+4 
+QUANTUM 19
+Processo escalonado: 2
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+3 
+4 
+QUANTUM 18
+Processo escalonado: 2
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+3 
+4 
+QUANTUM 17
+Processo escalonado: 2
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+3 
+4 
+QUANTUM 16
+Processo escalonado: 2
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+3 
+4 
+QUANTUM 15
+Processo escalonado: 2
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+3 
+4 
+QUANTUM 14
+Processo escalonado: 2
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+3 
+4 
+QUANTUM 13
+Processo escalonado: 2
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+3 
+4 
+QUANTUM 12
+Processo escalonado: 2
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+3 
+4 
+QUANTUM 11
+Processo escalonado: 2
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+3 
+4 
+QUANTUM 10
+Processo escalonado: 2
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+3 
+4 
+QUANTUM 9
+Processo escalonado: 2
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+3 
+4 
+QUANTUM 8
+Processo escalonado: 2
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+3 
+4 
+QUANTUM 7
+Processo escalonado: 2
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+3 
+4 
+QUANTUM 6
+Processo escalonado: 2
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+3 
+4 
+QUANTUM 5
+Processo escalonado: 2
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+3 
+4 
+QUANTUM 4
+Processo escalonado: 2
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+3 
+4 
+QUANTUM 3
+Processo escalonado: 2
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+3 
+4 
+QUANTUM 2
+Processo escalonado: 2
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+3 
+4 
+QUANTUM 1
+Processo escalonado: 2
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+3 
+4 
+QUANTUM 0
+Processo escalonado: 3
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+4 
+2 
+QUANTUM 49
+Processo escalonado: 3
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+4 
+2 
+QUANTUM 48
+Processo escalonado: 3
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: chamada de sistema 2
+4 
+2 
+QUANTUM 48
+Processo escalonado: 3
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: chamada de sistema 2
+4 
+2 
+QUANTUM 48
+Processo escalonado: 3
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+4 
+2 
+QUANTUM 47
+Processo escalonado: 3
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: chamada de sistema 2
+4 
+2 
+QUANTUM 47
+Processo escalonado: 3
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: chamada de sistema 2
+4 
+2 
+QUANTUM 47
+Processo escalonado: 3
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+4 
+2 
+QUANTUM 46
+Processo escalonado: 3
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+4 
+2 
+QUANTUM 45
+Processo escalonado: 3
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+4 
+2 
+QUANTUM 44
+Processo escalonado: 3
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+4 
+2 
+QUANTUM 43
+Processo escalonado: 3
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+4 
+2 
+QUANTUM 42
+Processo escalonado: 3
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: chamada de sistema 2
+4 
+2 
+QUANTUM 42
+Processo escalonado: 3
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: chamada de sistema 2
+4 
+2 
+QUANTUM 42
+Processo escalonado: 3
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: chamada de sistema 2
+4 
+2 
+QUANTUM 42
+Processo escalonado: 3
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+4 
+2 
+QUANTUM 41
+Processo escalonado: 3
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: chamada de sistema 2
+4 
+2 
+QUANTUM 41
+Processo escalonado: 3
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+4 
+2 
+QUANTUM 40
+Processo escalonado: 3
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+4 
+2 
+QUANTUM 39
+Processo escalonado: 3
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+4 
+2 
+QUANTUM 38
+Processo escalonado: 3
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+4 
+2 
+QUANTUM 37
+Processo escalonado: 3
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+4 
+2 
+QUANTUM 36
+Processo escalonado: 3
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: chamada de sistema 2
+4 
+2 
+QUANTUM 36
+Processo escalonado: 3
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: chamada de sistema 2
+4 
+2 
+QUANTUM 36
+Processo escalonado: 3
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: chamada de sistema 2
+4 
+2 
+QUANTUM 36
+Processo escalonado: 3
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+4 
+2 
+QUANTUM 35
+Processo escalonado: 3
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: chamada de sistema 2
+4 
+2 
+QUANTUM 35
+Processo escalonado: 3
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+4 
+2 
+QUANTUM 34
+Processo escalonado: 3
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+4 
+2 
+QUANTUM 33
+Processo escalonado: 3
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+4 
+2 
+QUANTUM 32
+Processo escalonado: 3
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+4 
+2 
+QUANTUM 31
+Processo escalonado: 3
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: chamada de sistema 2
+4 
+2 
+QUANTUM 31
+Processo escalonado: 3
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+4 
+2 
+QUANTUM 30
+Processo escalonado: 3
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: chamada de sistema 2
+4 
+2 
+QUANTUM 30
+Processo escalonado: 3
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: chamada de sistema 2
+4 
+2 
+QUANTUM 30
+Processo escalonado: 3
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+4 
+2 
+QUANTUM 29
+Processo escalonado: 3
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: chamada de sistema 2
+4 
+2 
+QUANTUM 29
+Processo escalonado: 3
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: chamada de sistema 2
+4 
+2 
+QUANTUM 29
+Processo escalonado: 3
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: chamada de sistema 8
+4 
+2 
+QUANTUM 0
+Processo escalonado: 4
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+2 
+QUANTUM 49
+Processo escalonado: 4
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: chamada de sistema 2
+2 
+QUANTUM 49
+Processo escalonado: 4
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+2 
+QUANTUM 48
+Processo escalonado: 4
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: chamada de sistema 2
+2 
+QUANTUM 48
+Processo escalonado: 2
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+Queue is empty
+QUANTUM 49
+Processo escalonado: 2
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: chamada de sistema 2
+Queue is empty
+QUANTUM 49
+Processo escalonado: 2
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+4 
+QUANTUM 48
+Processo escalonado: 2
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: chamada de sistema 2
+4 
+QUANTUM 48
+Processo escalonado: 2
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: chamada de sistema 2
+4 
+QUANTUM 48
+Processo escalonado: 2
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: chamada de sistema 2
+4 
+QUANTUM 48
+Processo escalonado: 2
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+4 
+QUANTUM 47
+Processo escalonado: 2
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+4 
+QUANTUM 46
+Processo escalonado: 2
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+4 
+QUANTUM 45
+Processo escalonado: 2
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+4 
+QUANTUM 44
+Processo escalonado: 2
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+4 
+QUANTUM 43
+Processo escalonado: 2
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+4 
+QUANTUM 42
+Processo escalonado: 2
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+4 
+QUANTUM 41
+Processo escalonado: 2
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+4 
+QUANTUM 40
+Processo escalonado: 2
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+4 
+QUANTUM 39
+Processo escalonado: 2
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+4 
+QUANTUM 38
+Processo escalonado: 2
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+4 
+QUANTUM 37
+Processo escalonado: 2
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+4 
+QUANTUM 36
+Processo escalonado: 2
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+4 
+QUANTUM 35
+Processo escalonado: 2
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+4 
+QUANTUM 34
+Processo escalonado: 2
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+4 
+QUANTUM 33
+Processo escalonado: 2
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+4 
+QUANTUM 32
+Processo escalonado: 2
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+4 
+QUANTUM 31
+Processo escalonado: 2
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+4 
+QUANTUM 30
+Processo escalonado: 2
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+4 
+QUANTUM 29
+Processo escalonado: 2
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+4 
+QUANTUM 28
+Processo escalonado: 2
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+4 
+QUANTUM 27
+Processo escalonado: 2
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+4 
+QUANTUM 26
+Processo escalonado: 2
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+4 
+QUANTUM 25
+Processo escalonado: 2
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+4 
+QUANTUM 24
+Processo escalonado: 2
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+4 
+QUANTUM 23
+Processo escalonado: 2
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+4 
+QUANTUM 22
+Processo escalonado: 2
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+4 
+QUANTUM 21
+Processo escalonado: 2
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+4 
+QUANTUM 20
+Processo escalonado: 2
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+4 
+QUANTUM 19
+Processo escalonado: 2
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+4 
+QUANTUM 18
+Processo escalonado: 2
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+4 
+QUANTUM 17
+Processo escalonado: 2
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+4 
+QUANTUM 16
+Processo escalonado: 2
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+4 
+QUANTUM 15
+Processo escalonado: 2
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+4 
+QUANTUM 14
+Processo escalonado: 2
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+4 
+QUANTUM 13
+Processo escalonado: 2
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+4 
+QUANTUM 12
+Processo escalonado: 2
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+4 
+QUANTUM 11
+Processo escalonado: 2
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+4 
+QUANTUM 10
+Processo escalonado: 2
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+4 
+QUANTUM 9
+Processo escalonado: 2
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+4 
+QUANTUM 8
+Processo escalonado: 2
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+4 
+QUANTUM 7
+Processo escalonado: 2
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+4 
+QUANTUM 6
+Processo escalonado: 2
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+4 
+QUANTUM 5
+Processo escalonado: 2
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+4 
+QUANTUM 4
+Processo escalonado: 2
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+4 
+QUANTUM 3
+Processo escalonado: 2
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+4 
+QUANTUM 2
+Processo escalonado: 2
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+4 
+QUANTUM 1
+Processo escalonado: 2
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+4 
+QUANTUM 0
+Processo escalonado: 4
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: chamada de sistema 2
+2 
+QUANTUM 50
+Processo escalonado: 4
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+2 
+QUANTUM 49
+Processo escalonado: 4
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: chamada de sistema 2
+2 
+QUANTUM 49
+Processo escalonado: 2
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+Queue is empty
+QUANTUM 49
+Processo escalonado: 2
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+4 
+QUANTUM 48
+Processo escalonado: 2
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+4 
+QUANTUM 47
+Processo escalonado: 2
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+4 
+QUANTUM 46
+Processo escalonado: 2
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+4 
+QUANTUM 45
+Processo escalonado: 2
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+4 
+QUANTUM 44
+Processo escalonado: 2
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+4 
+QUANTUM 43
+Processo escalonado: 2
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+4 
+QUANTUM 42
+Processo escalonado: 2
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+4 
+QUANTUM 41
+Processo escalonado: 2
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+4 
+QUANTUM 40
+Processo escalonado: 2
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+4 
+QUANTUM 39
+Processo escalonado: 2
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+4 
+QUANTUM 38
+Processo escalonado: 2
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+4 
+QUANTUM 37
+Processo escalonado: 2
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+4 
+QUANTUM 36
+Processo escalonado: 2
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+4 
+QUANTUM 35
+Processo escalonado: 2
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+4 
+QUANTUM 34
+Processo escalonado: 2
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+4 
+QUANTUM 33
+Processo escalonado: 2
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+4 
+QUANTUM 32
+Processo escalonado: 2
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+4 
+QUANTUM 31
+Processo escalonado: 2
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+4 
+QUANTUM 30
+Processo escalonado: 2
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+4 
+QUANTUM 29
+Processo escalonado: 2
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+4 
+QUANTUM 28
+Processo escalonado: 2
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+4 
+QUANTUM 27
+Processo escalonado: 2
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+4 
+QUANTUM 26
+Processo escalonado: 2
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+4 
+QUANTUM 25
+Processo escalonado: 2
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+4 
+QUANTUM 24
+Processo escalonado: 2
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+4 
+QUANTUM 23
+Processo escalonado: 2
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: chamada de sistema 2
+4 
+QUANTUM 23
+Processo escalonado: 2
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: chamada de sistema 2
+4 
+QUANTUM 23
+Processo escalonado: 2
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: chamada de sistema 2
+4 
+QUANTUM 23
+Processo escalonado: 2
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+4 
+QUANTUM 22
+Processo escalonado: 2
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: chamada de sistema 2
+4 
+QUANTUM 22
+Processo escalonado: 2
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: chamada de sistema 2
+4 
+QUANTUM 22
+Processo escalonado: 2
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: chamada de sistema 2
+4 
+QUANTUM 22
+Processo escalonado: 2
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+4 
+QUANTUM 21
+Processo escalonado: 2
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: chamada de sistema 8
+4 
+1 
+QUANTUM 0
+Processo escalonado: 4
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: chamada de sistema 2
+1 
+QUANTUM 50
+Processo escalonado: 4
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: chamada de sistema 2
+1 
+QUANTUM 50
+Processo escalonado: 1
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+Queue is empty
+QUANTUM 49
+Processo escalonado: 1
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: chamada de sistema 9
+Queue is empty
+QUANTUM 49
+Processo escalonado: 1
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: chamada de sistema 9
+Queue is empty
+QUANTUM 49
+Não há processos na fila
+Processo escalonado: -1
+Não existe nenhum processo PRONTO para executar ERR_CPU_PARADA
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+Queue is empty
+QUANTUM 48
+Não há processos na fila
+Processo escalonado: -1
+Não existe nenhum processo PRONTO para executar ERR_CPU_PARADA
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+4 
+QUANTUM 47
+Processo escalonado: 4
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+Queue is empty
+QUANTUM 49
+Processo escalonado: 4
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: chamada de sistema 2
+Queue is empty
+QUANTUM 49
+Não há processos na fila
+Processo escalonado: -1
+Não existe nenhum processo PRONTO para executar ERR_CPU_PARADA
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+Queue is empty
+QUANTUM 48
+Não há processos na fila
+Processo escalonado: -1
+Não existe nenhum processo PRONTO para executar ERR_CPU_PARADA
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+4 
+QUANTUM 47
+Processo escalonado: 4
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: chamada de sistema 2
+Queue is empty
+QUANTUM 50
+Não há processos na fila
+Processo escalonado: -1
+Não existe nenhum processo PRONTO para executar ERR_CPU_PARADA
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+Queue is empty
+QUANTUM 49
+Não há processos na fila
+Processo escalonado: -1
+Não existe nenhum processo PRONTO para executar ERR_CPU_PARADA
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+Queue is empty
+QUANTUM 48
+Não há processos na fila
+Processo escalonado: -1
+Não existe nenhum processo PRONTO para executar ERR_CPU_PARADA
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+4 
+QUANTUM 47
+Processo escalonado: 4
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: chamada de sistema 2
+Queue is empty
+QUANTUM 50
+Não há processos na fila
+Processo escalonado: -1
+Não existe nenhum processo PRONTO para executar ERR_CPU_PARADA
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+Queue is empty
+QUANTUM 49
+Não há processos na fila
+Processo escalonado: -1
+Não existe nenhum processo PRONTO para executar ERR_CPU_PARADA
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+Queue is empty
+QUANTUM 48
+Não há processos na fila
+Processo escalonado: -1
+Não existe nenhum processo PRONTO para executar ERR_CPU_PARADA
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+4 
+QUANTUM 47
+Processo escalonado: 4
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+Queue is empty
+QUANTUM 49
+Processo escalonado: 4
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: chamada de sistema 2
+Queue is empty
+QUANTUM 49
+Não há processos na fila
+Processo escalonado: -1
+Não existe nenhum processo PRONTO para executar ERR_CPU_PARADA
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+Queue is empty
+QUANTUM 48
+Não há processos na fila
+Processo escalonado: -1
+Não existe nenhum processo PRONTO para executar ERR_CPU_PARADA
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+4 
+QUANTUM 47
+Processo escalonado: 4
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: chamada de sistema 2
+Queue is empty
+QUANTUM 50
+Não há processos na fila
+Processo escalonado: -1
+Não existe nenhum processo PRONTO para executar ERR_CPU_PARADA
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+Queue is empty
+QUANTUM 49
+Não há processos na fila
+Processo escalonado: -1
+Não existe nenhum processo PRONTO para executar ERR_CPU_PARADA
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+Queue is empty
+QUANTUM 48
+Não há processos na fila
+Processo escalonado: -1
+Não existe nenhum processo PRONTO para executar ERR_CPU_PARADA
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+4 
+QUANTUM 47
+Processo escalonado: 4
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: chamada de sistema 2
+Queue is empty
+QUANTUM 50
+Não há processos na fila
+Processo escalonado: -1
+Não existe nenhum processo PRONTO para executar ERR_CPU_PARADA
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+Queue is empty
+QUANTUM 49
+Não há processos na fila
+Processo escalonado: -1
+Não existe nenhum processo PRONTO para executar ERR_CPU_PARADA
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+Queue is empty
+QUANTUM 48
+Não há processos na fila
+Processo escalonado: -1
+Não existe nenhum processo PRONTO para executar ERR_CPU_PARADA
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+4 
+QUANTUM 47
+Processo escalonado: 4
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+Queue is empty
+QUANTUM 49
+Processo escalonado: 4
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: chamada de sistema 2
+Queue is empty
+QUANTUM 49
+Não há processos na fila
+Processo escalonado: -1
+Não existe nenhum processo PRONTO para executar ERR_CPU_PARADA
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+Queue is empty
+QUANTUM 48
+Não há processos na fila
+Processo escalonado: -1
+Não existe nenhum processo PRONTO para executar ERR_CPU_PARADA
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+4 
+QUANTUM 47
+Processo escalonado: 4
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: chamada de sistema 2
+Queue is empty
+QUANTUM 50
+Não há processos na fila
+Processo escalonado: -1
+Não existe nenhum processo PRONTO para executar ERR_CPU_PARADA
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+Queue is empty
+QUANTUM 49
+Não há processos na fila
+Processo escalonado: -1
+Não existe nenhum processo PRONTO para executar ERR_CPU_PARADA
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+Queue is empty
+QUANTUM 48
+Não há processos na fila
+Processo escalonado: -1
+Não existe nenhum processo PRONTO para executar ERR_CPU_PARADA
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+4 
+QUANTUM 47
+Processo escalonado: 4
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: chamada de sistema 2
+Queue is empty
+QUANTUM 50
+Não há processos na fila
+Processo escalonado: -1
+Não existe nenhum processo PRONTO para executar ERR_CPU_PARADA
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+Queue is empty
+QUANTUM 49
+Não há processos na fila
+Processo escalonado: -1
+Não existe nenhum processo PRONTO para executar ERR_CPU_PARADA
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+Queue is empty
+QUANTUM 48
+Não há processos na fila
+Processo escalonado: -1
+Não existe nenhum processo PRONTO para executar ERR_CPU_PARADA
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+4 
+QUANTUM 47
+Processo escalonado: 4
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+Queue is empty
+QUANTUM 49
+Processo escalonado: 4
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: chamada de sistema 2
+Queue is empty
+QUANTUM 49
+Não há processos na fila
+Processo escalonado: -1
+Não existe nenhum processo PRONTO para executar ERR_CPU_PARADA
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+Queue is empty
+QUANTUM 48
+Não há processos na fila
+Processo escalonado: -1
+Não existe nenhum processo PRONTO para executar ERR_CPU_PARADA
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+4 
+QUANTUM 47
+Processo escalonado: 4
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: chamada de sistema 2
+Queue is empty
+QUANTUM 50
+Não há processos na fila
+Processo escalonado: -1
+Não existe nenhum processo PRONTO para executar ERR_CPU_PARADA
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+Queue is empty
+QUANTUM 49
+Não há processos na fila
+Processo escalonado: -1
+Não existe nenhum processo PRONTO para executar ERR_CPU_PARADA
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+Queue is empty
+QUANTUM 48
+Não há processos na fila
+Processo escalonado: -1
+Não existe nenhum processo PRONTO para executar ERR_CPU_PARADA
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+4 
+QUANTUM 47
+Processo escalonado: 4
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: chamada de sistema 2
+Queue is empty
+QUANTUM 50
+Não há processos na fila
+Processo escalonado: -1
+Não existe nenhum processo PRONTO para executar ERR_CPU_PARADA
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+Queue is empty
+QUANTUM 49
+Não há processos na fila
+Processo escalonado: -1
+Não existe nenhum processo PRONTO para executar ERR_CPU_PARADA
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+Queue is empty
+QUANTUM 48
+Não há processos na fila
+Processo escalonado: -1
+Não existe nenhum processo PRONTO para executar ERR_CPU_PARADA
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+4 
+QUANTUM 47
+Processo escalonado: 4
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+Queue is empty
+QUANTUM 49
+Processo escalonado: 4
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: chamada de sistema 2
+Queue is empty
+QUANTUM 49
+Não há processos na fila
+Processo escalonado: -1
+Não existe nenhum processo PRONTO para executar ERR_CPU_PARADA
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+Queue is empty
+QUANTUM 48
+Não há processos na fila
+Processo escalonado: -1
+Não existe nenhum processo PRONTO para executar ERR_CPU_PARADA
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+4 
+QUANTUM 47
+Processo escalonado: 4
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: chamada de sistema 2
+Queue is empty
+QUANTUM 50
+Não há processos na fila
+Processo escalonado: -1
+Não existe nenhum processo PRONTO para executar ERR_CPU_PARADA
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+Queue is empty
+QUANTUM 49
+Não há processos na fila
+Processo escalonado: -1
+Não existe nenhum processo PRONTO para executar ERR_CPU_PARADA
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+Queue is empty
+QUANTUM 48
+Não há processos na fila
+Processo escalonado: -1
+Não existe nenhum processo PRONTO para executar ERR_CPU_PARADA
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+4 
+QUANTUM 47
+Processo escalonado: 4
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: chamada de sistema 2
+Queue is empty
+QUANTUM 50
+Não há processos na fila
+Processo escalonado: -1
+Não existe nenhum processo PRONTO para executar ERR_CPU_PARADA
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+Queue is empty
+QUANTUM 49
+Não há processos na fila
+Processo escalonado: -1
+Não existe nenhum processo PRONTO para executar ERR_CPU_PARADA
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+Queue is empty
+QUANTUM 48
+Não há processos na fila
+Processo escalonado: -1
+Não existe nenhum processo PRONTO para executar ERR_CPU_PARADA
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+4 
+QUANTUM 47
+Processo escalonado: 4
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+Queue is empty
+QUANTUM 49
+Processo escalonado: 4
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: chamada de sistema 2
+Queue is empty
+QUANTUM 49
+Não há processos na fila
+Processo escalonado: -1
+Não existe nenhum processo PRONTO para executar ERR_CPU_PARADA
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+Queue is empty
+QUANTUM 48
+Não há processos na fila
+Processo escalonado: -1
+Não existe nenhum processo PRONTO para executar ERR_CPU_PARADA
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+4 
+QUANTUM 47
+Processo escalonado: 4
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: chamada de sistema 2
+Queue is empty
+QUANTUM 50
+Não há processos na fila
+Processo escalonado: -1
+Não existe nenhum processo PRONTO para executar ERR_CPU_PARADA
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+Queue is empty
+QUANTUM 49
+Não há processos na fila
+Processo escalonado: -1
+Não existe nenhum processo PRONTO para executar ERR_CPU_PARADA
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+Queue is empty
+QUANTUM 48
+Não há processos na fila
+Processo escalonado: -1
+Não existe nenhum processo PRONTO para executar ERR_CPU_PARADA
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+4 
+QUANTUM 47
+Processo escalonado: 4
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: chamada de sistema 2
+Queue is empty
+QUANTUM 50
+Não há processos na fila
+Processo escalonado: -1
+Não existe nenhum processo PRONTO para executar ERR_CPU_PARADA
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+Queue is empty
+QUANTUM 49
+Não há processos na fila
+Processo escalonado: -1
+Não existe nenhum processo PRONTO para executar ERR_CPU_PARADA
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+Queue is empty
+QUANTUM 48
+Não há processos na fila
+Processo escalonado: -1
+Não existe nenhum processo PRONTO para executar ERR_CPU_PARADA
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+4 
+QUANTUM 47
+Processo escalonado: 4
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+Queue is empty
+QUANTUM 49
+Processo escalonado: 4
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: chamada de sistema 2
+Queue is empty
+QUANTUM 49
+Não há processos na fila
+Processo escalonado: -1
+Não existe nenhum processo PRONTO para executar ERR_CPU_PARADA
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+Queue is empty
+QUANTUM 48
+Não há processos na fila
+Processo escalonado: -1
+Não existe nenhum processo PRONTO para executar ERR_CPU_PARADA
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+4 
+QUANTUM 47
+Processo escalonado: 4
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: chamada de sistema 2
+Queue is empty
+QUANTUM 50
+Não há processos na fila
+Processo escalonado: -1
+Não existe nenhum processo PRONTO para executar ERR_CPU_PARADA
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+Queue is empty
+QUANTUM 49
+Não há processos na fila
+Processo escalonado: -1
+Não existe nenhum processo PRONTO para executar ERR_CPU_PARADA
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+Queue is empty
+QUANTUM 48
+Não há processos na fila
+Processo escalonado: -1
+Não existe nenhum processo PRONTO para executar ERR_CPU_PARADA
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+4 
+QUANTUM 47
+Processo escalonado: 4
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: chamada de sistema 2
+Queue is empty
+QUANTUM 50
+Não há processos na fila
+Processo escalonado: -1
+Não existe nenhum processo PRONTO para executar ERR_CPU_PARADA
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+Queue is empty
+QUANTUM 49
+Não há processos na fila
+Processo escalonado: -1
+Não existe nenhum processo PRONTO para executar ERR_CPU_PARADA
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+Queue is empty
+QUANTUM 48
+Não há processos na fila
+Processo escalonado: -1
+Não existe nenhum processo PRONTO para executar ERR_CPU_PARADA
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+4 
+QUANTUM 47
+Processo escalonado: 4
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+Queue is empty
+QUANTUM 49
+Processo escalonado: 4
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: chamada de sistema 2
+Queue is empty
+QUANTUM 49
+Não há processos na fila
+Processo escalonado: -1
+Não existe nenhum processo PRONTO para executar ERR_CPU_PARADA
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+Queue is empty
+QUANTUM 48
+Não há processos na fila
+Processo escalonado: -1
+Não existe nenhum processo PRONTO para executar ERR_CPU_PARADA
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+4 
+QUANTUM 47
+Processo escalonado: 4
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: chamada de sistema 2
+Queue is empty
+QUANTUM 50
+Não há processos na fila
+Processo escalonado: -1
+Não existe nenhum processo PRONTO para executar ERR_CPU_PARADA
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+Queue is empty
+QUANTUM 49
+Não há processos na fila
+Processo escalonado: -1
+Não existe nenhum processo PRONTO para executar ERR_CPU_PARADA
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+Queue is empty
+QUANTUM 48
+Não há processos na fila
+Processo escalonado: -1
+Não existe nenhum processo PRONTO para executar ERR_CPU_PARADA
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+4 
+QUANTUM 47
+Processo escalonado: 4
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: chamada de sistema 2
+Queue is empty
+QUANTUM 50
+Não há processos na fila
+Processo escalonado: -1
+Não existe nenhum processo PRONTO para executar ERR_CPU_PARADA
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+Queue is empty
+QUANTUM 49
+Não há processos na fila
+Processo escalonado: -1
+Não existe nenhum processo PRONTO para executar ERR_CPU_PARADA
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+Queue is empty
+QUANTUM 48
+Não há processos na fila
+Processo escalonado: -1
+Não existe nenhum processo PRONTO para executar ERR_CPU_PARADA
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+4 
+QUANTUM 47
+Processo escalonado: 4
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+Queue is empty
+QUANTUM 49
+Processo escalonado: 4
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: chamada de sistema 2
+Queue is empty
+QUANTUM 49
+Não há processos na fila
+Processo escalonado: -1
+Não existe nenhum processo PRONTO para executar ERR_CPU_PARADA
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+Queue is empty
+QUANTUM 48
+Não há processos na fila
+Processo escalonado: -1
+Não existe nenhum processo PRONTO para executar ERR_CPU_PARADA
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+4 
+QUANTUM 47
+Processo escalonado: 4
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: chamada de sistema 2
+Queue is empty
+QUANTUM 50
+Não há processos na fila
+Processo escalonado: -1
+Não existe nenhum processo PRONTO para executar ERR_CPU_PARADA
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+Queue is empty
+QUANTUM 49
+Não há processos na fila
+Processo escalonado: -1
+Não existe nenhum processo PRONTO para executar ERR_CPU_PARADA
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+Queue is empty
+QUANTUM 48
+Não há processos na fila
+Processo escalonado: -1
+Não existe nenhum processo PRONTO para executar ERR_CPU_PARADA
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+4 
+QUANTUM 47
+Processo escalonado: 4
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: chamada de sistema 2
+Queue is empty
+QUANTUM 50
+Não há processos na fila
+Processo escalonado: -1
+Não existe nenhum processo PRONTO para executar ERR_CPU_PARADA
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+Queue is empty
+QUANTUM 49
+Não há processos na fila
+Processo escalonado: -1
+Não existe nenhum processo PRONTO para executar ERR_CPU_PARADA
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+Queue is empty
+QUANTUM 48
+Não há processos na fila
+Processo escalonado: -1
+Não existe nenhum processo PRONTO para executar ERR_CPU_PARADA
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+4 
+QUANTUM 47
+Processo escalonado: 4
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+Queue is empty
+QUANTUM 49
+Processo escalonado: 4
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: chamada de sistema 2
+Queue is empty
+QUANTUM 49
+Não há processos na fila
+Processo escalonado: -1
+Não existe nenhum processo PRONTO para executar ERR_CPU_PARADA
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+Queue is empty
+QUANTUM 48
+Não há processos na fila
+Processo escalonado: -1
+Não existe nenhum processo PRONTO para executar ERR_CPU_PARADA
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+4 
+QUANTUM 47
+Processo escalonado: 4
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: chamada de sistema 2
+Queue is empty
+QUANTUM 50
+Não há processos na fila
+Processo escalonado: -1
+Não existe nenhum processo PRONTO para executar ERR_CPU_PARADA
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+Queue is empty
+QUANTUM 49
+Não há processos na fila
+Processo escalonado: -1
+Não existe nenhum processo PRONTO para executar ERR_CPU_PARADA
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+Queue is empty
+QUANTUM 48
+Não há processos na fila
+Processo escalonado: -1
+Não existe nenhum processo PRONTO para executar ERR_CPU_PARADA
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+4 
+QUANTUM 47
+Processo escalonado: 4
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: chamada de sistema 2
+Queue is empty
+QUANTUM 50
+Não há processos na fila
+Processo escalonado: -1
+Não existe nenhum processo PRONTO para executar ERR_CPU_PARADA
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+Queue is empty
+QUANTUM 49
+Não há processos na fila
+Processo escalonado: -1
+Não existe nenhum processo PRONTO para executar ERR_CPU_PARADA
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+Queue is empty
+QUANTUM 48
+Não há processos na fila
+Processo escalonado: -1
+Não existe nenhum processo PRONTO para executar ERR_CPU_PARADA
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+4 
+QUANTUM 47
+Processo escalonado: 4
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+Queue is empty
+QUANTUM 49
+Processo escalonado: 4
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: chamada de sistema 2
+Queue is empty
+QUANTUM 49
+Não há processos na fila
+Processo escalonado: -1
+Não existe nenhum processo PRONTO para executar ERR_CPU_PARADA
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+Queue is empty
+QUANTUM 48
+Não há processos na fila
+Processo escalonado: -1
+Não existe nenhum processo PRONTO para executar ERR_CPU_PARADA
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+4 
+QUANTUM 47
+Processo escalonado: 4
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: chamada de sistema 2
+Queue is empty
+QUANTUM 50
+Não há processos na fila
+Processo escalonado: -1
+Não existe nenhum processo PRONTO para executar ERR_CPU_PARADA
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+Queue is empty
+QUANTUM 49
+Não há processos na fila
+Processo escalonado: -1
+Não existe nenhum processo PRONTO para executar ERR_CPU_PARADA
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+Queue is empty
+QUANTUM 48
+Não há processos na fila
+Processo escalonado: -1
+Não existe nenhum processo PRONTO para executar ERR_CPU_PARADA
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+4 
+QUANTUM 47
+Processo escalonado: 4
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: chamada de sistema 2
+Queue is empty
+QUANTUM 50
+Não há processos na fila
+Processo escalonado: -1
+Não existe nenhum processo PRONTO para executar ERR_CPU_PARADA
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+Queue is empty
+QUANTUM 49
+Não há processos na fila
+Processo escalonado: -1
+Não existe nenhum processo PRONTO para executar ERR_CPU_PARADA
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+Queue is empty
+QUANTUM 48
+Não há processos na fila
+Processo escalonado: -1
+Não existe nenhum processo PRONTO para executar ERR_CPU_PARADA
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+4 
+QUANTUM 47
+Processo escalonado: 4
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+Queue is empty
+QUANTUM 49
+Processo escalonado: 4
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: chamada de sistema 2
+Queue is empty
+QUANTUM 49
+Não há processos na fila
+Processo escalonado: -1
+Não existe nenhum processo PRONTO para executar ERR_CPU_PARADA
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+Queue is empty
+QUANTUM 48
+Não há processos na fila
+Processo escalonado: -1
+Não existe nenhum processo PRONTO para executar ERR_CPU_PARADA
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+4 
+QUANTUM 47
+Processo escalonado: 4
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: chamada de sistema 2
+Queue is empty
+QUANTUM 50
+Não há processos na fila
+Processo escalonado: -1
+Não existe nenhum processo PRONTO para executar ERR_CPU_PARADA
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+Queue is empty
+QUANTUM 49
+Não há processos na fila
+Processo escalonado: -1
+Não existe nenhum processo PRONTO para executar ERR_CPU_PARADA
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+Queue is empty
+QUANTUM 48
+Não há processos na fila
+Processo escalonado: -1
+Não existe nenhum processo PRONTO para executar ERR_CPU_PARADA
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+4 
+QUANTUM 47
+Processo escalonado: 4
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: chamada de sistema 2
+Queue is empty
+QUANTUM 50
+Não há processos na fila
+Processo escalonado: -1
+Não existe nenhum processo PRONTO para executar ERR_CPU_PARADA
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+Queue is empty
+QUANTUM 49
+Não há processos na fila
+Processo escalonado: -1
+Não existe nenhum processo PRONTO para executar ERR_CPU_PARADA
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+Queue is empty
+QUANTUM 48
+Não há processos na fila
+Processo escalonado: -1
+Não existe nenhum processo PRONTO para executar ERR_CPU_PARADA
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+4 
+QUANTUM 47
+Processo escalonado: 4
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+Queue is empty
+QUANTUM 49
+Processo escalonado: 4
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: chamada de sistema 2
+Queue is empty
+QUANTUM 49
+Não há processos na fila
+Processo escalonado: -1
+Não existe nenhum processo PRONTO para executar ERR_CPU_PARADA
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+Queue is empty
+QUANTUM 48
+Não há processos na fila
+Processo escalonado: -1
+Não existe nenhum processo PRONTO para executar ERR_CPU_PARADA
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+4 
+QUANTUM 47
+Processo escalonado: 4
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: chamada de sistema 2
+Queue is empty
+QUANTUM 50
+Não há processos na fila
+Processo escalonado: -1
+Não existe nenhum processo PRONTO para executar ERR_CPU_PARADA
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+Queue is empty
+QUANTUM 49
+Não há processos na fila
+Processo escalonado: -1
+Não existe nenhum processo PRONTO para executar ERR_CPU_PARADA
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+Queue is empty
+QUANTUM 48
+Não há processos na fila
+Processo escalonado: -1
+Não existe nenhum processo PRONTO para executar ERR_CPU_PARADA
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+4 
+QUANTUM 47
+Processo escalonado: 4
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: chamada de sistema 2
+Queue is empty
+QUANTUM 50
+Não há processos na fila
+Processo escalonado: -1
+Não existe nenhum processo PRONTO para executar ERR_CPU_PARADA
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+Queue is empty
+QUANTUM 49
+Não há processos na fila
+Processo escalonado: -1
+Não existe nenhum processo PRONTO para executar ERR_CPU_PARADA
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+Queue is empty
+QUANTUM 48
+Não há processos na fila
+Processo escalonado: -1
+Não existe nenhum processo PRONTO para executar ERR_CPU_PARADA
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+4 
+QUANTUM 47
+Processo escalonado: 4
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+Queue is empty
+QUANTUM 49
+Processo escalonado: 4
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: chamada de sistema 2
+Queue is empty
+QUANTUM 49
+Não há processos na fila
+Processo escalonado: -1
+Não existe nenhum processo PRONTO para executar ERR_CPU_PARADA
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+Queue is empty
+QUANTUM 48
+Não há processos na fila
+Processo escalonado: -1
+Não existe nenhum processo PRONTO para executar ERR_CPU_PARADA
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+4 
+QUANTUM 47
+Processo escalonado: 4
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: chamada de sistema 2
+Queue is empty
+QUANTUM 50
+Não há processos na fila
+Processo escalonado: -1
+Não existe nenhum processo PRONTO para executar ERR_CPU_PARADA
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+Queue is empty
+QUANTUM 49
+Não há processos na fila
+Processo escalonado: -1
+Não existe nenhum processo PRONTO para executar ERR_CPU_PARADA
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+Queue is empty
+QUANTUM 48
+Não há processos na fila
+Processo escalonado: -1
+Não existe nenhum processo PRONTO para executar ERR_CPU_PARADA
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+4 
+QUANTUM 47
+Processo escalonado: 4
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: chamada de sistema 2
+Queue is empty
+QUANTUM 50
+Não há processos na fila
+Processo escalonado: -1
+Não existe nenhum processo PRONTO para executar ERR_CPU_PARADA
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+Queue is empty
+QUANTUM 49
+Não há processos na fila
+Processo escalonado: -1
+Não existe nenhum processo PRONTO para executar ERR_CPU_PARADA
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+Queue is empty
+QUANTUM 48
+Não há processos na fila
+Processo escalonado: -1
+Não existe nenhum processo PRONTO para executar ERR_CPU_PARADA
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+4 
+QUANTUM 47
+Processo escalonado: 4
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+Queue is empty
+QUANTUM 49
+Processo escalonado: 4
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: chamada de sistema 2
+Queue is empty
+QUANTUM 49
+Não há processos na fila
+Processo escalonado: -1
+Não existe nenhum processo PRONTO para executar ERR_CPU_PARADA
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+Queue is empty
+QUANTUM 48
+Não há processos na fila
+Processo escalonado: -1
+Não existe nenhum processo PRONTO para executar ERR_CPU_PARADA
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+4 
+QUANTUM 47
+Processo escalonado: 4
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: chamada de sistema 2
+Queue is empty
+QUANTUM 50
+Não há processos na fila
+Processo escalonado: -1
+Não existe nenhum processo PRONTO para executar ERR_CPU_PARADA
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+Queue is empty
+QUANTUM 49
+Não há processos na fila
+Processo escalonado: -1
+Não existe nenhum processo PRONTO para executar ERR_CPU_PARADA
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+Queue is empty
+QUANTUM 48
+Não há processos na fila
+Processo escalonado: -1
+Não existe nenhum processo PRONTO para executar ERR_CPU_PARADA
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+4 
+QUANTUM 47
+Processo escalonado: 4
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: chamada de sistema 2
+Queue is empty
+QUANTUM 50
+Não há processos na fila
+Processo escalonado: -1
+Não existe nenhum processo PRONTO para executar ERR_CPU_PARADA
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+Queue is empty
+QUANTUM 49
+Não há processos na fila
+Processo escalonado: -1
+Não existe nenhum processo PRONTO para executar ERR_CPU_PARADA
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+Queue is empty
+QUANTUM 48
+Não há processos na fila
+Processo escalonado: -1
+Não existe nenhum processo PRONTO para executar ERR_CPU_PARADA
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+4 
+QUANTUM 47
+Processo escalonado: 4
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+Queue is empty
+QUANTUM 49
+Processo escalonado: 4
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: chamada de sistema 2
+Queue is empty
+QUANTUM 49
+Não há processos na fila
+Processo escalonado: -1
+Não existe nenhum processo PRONTO para executar ERR_CPU_PARADA
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+Queue is empty
+QUANTUM 48
+Não há processos na fila
+Processo escalonado: -1
+Não existe nenhum processo PRONTO para executar ERR_CPU_PARADA
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+4 
+QUANTUM 47
+Processo escalonado: 4
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: chamada de sistema 2
+Queue is empty
+QUANTUM 50
+Não há processos na fila
+Processo escalonado: -1
+Não existe nenhum processo PRONTO para executar ERR_CPU_PARADA
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+Queue is empty
+QUANTUM 49
+Não há processos na fila
+Processo escalonado: -1
+Não existe nenhum processo PRONTO para executar ERR_CPU_PARADA
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+Queue is empty
+QUANTUM 48
+Não há processos na fila
+Processo escalonado: -1
+Não existe nenhum processo PRONTO para executar ERR_CPU_PARADA
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+4 
+QUANTUM 47
+Processo escalonado: 4
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: chamada de sistema 2
+Queue is empty
+QUANTUM 50
+Não há processos na fila
+Processo escalonado: -1
+Não existe nenhum processo PRONTO para executar ERR_CPU_PARADA
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+Queue is empty
+QUANTUM 49
+Não há processos na fila
+Processo escalonado: -1
+Não existe nenhum processo PRONTO para executar ERR_CPU_PARADA
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+Queue is empty
+QUANTUM 48
+Não há processos na fila
+Processo escalonado: -1
+Não existe nenhum processo PRONTO para executar ERR_CPU_PARADA
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+4 
+QUANTUM 47
+Processo escalonado: 4
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+Queue is empty
+QUANTUM 49
+Processo escalonado: 4
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: chamada de sistema 2
+Queue is empty
+QUANTUM 49
+Não há processos na fila
+Processo escalonado: -1
+Não existe nenhum processo PRONTO para executar ERR_CPU_PARADA
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+Queue is empty
+QUANTUM 48
+Não há processos na fila
+Processo escalonado: -1
+Não existe nenhum processo PRONTO para executar ERR_CPU_PARADA
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+4 
+QUANTUM 47
+Processo escalonado: 4
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: chamada de sistema 2
+Queue is empty
+QUANTUM 50
+Não há processos na fila
+Processo escalonado: -1
+Não existe nenhum processo PRONTO para executar ERR_CPU_PARADA
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+Queue is empty
+QUANTUM 49
+Não há processos na fila
+Processo escalonado: -1
+Não existe nenhum processo PRONTO para executar ERR_CPU_PARADA
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+Queue is empty
+QUANTUM 48
+Não há processos na fila
+Processo escalonado: -1
+Não existe nenhum processo PRONTO para executar ERR_CPU_PARADA
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+4 
+QUANTUM 47
+Processo escalonado: 4
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: chamada de sistema 2
+Queue is empty
+QUANTUM 50
+Não há processos na fila
+Processo escalonado: -1
+Não existe nenhum processo PRONTO para executar ERR_CPU_PARADA
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+Queue is empty
+QUANTUM 49
+Não há processos na fila
+Processo escalonado: -1
+Não existe nenhum processo PRONTO para executar ERR_CPU_PARADA
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+Queue is empty
+QUANTUM 48
+Não há processos na fila
+Processo escalonado: -1
+Não existe nenhum processo PRONTO para executar ERR_CPU_PARADA
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+4 
+QUANTUM 47
+Processo escalonado: 4
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+Queue is empty
+QUANTUM 49
+Processo escalonado: 4
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: chamada de sistema 2
+Queue is empty
+QUANTUM 49
+Não há processos na fila
+Processo escalonado: -1
+Não existe nenhum processo PRONTO para executar ERR_CPU_PARADA
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+Queue is empty
+QUANTUM 48
+Não há processos na fila
+Processo escalonado: -1
+Não existe nenhum processo PRONTO para executar ERR_CPU_PARADA
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+4 
+QUANTUM 47
+Processo escalonado: 4
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: chamada de sistema 2
+Queue is empty
+QUANTUM 50
+Não há processos na fila
+Processo escalonado: -1
+Não existe nenhum processo PRONTO para executar ERR_CPU_PARADA
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+Queue is empty
+QUANTUM 49
+Não há processos na fila
+Processo escalonado: -1
+Não existe nenhum processo PRONTO para executar ERR_CPU_PARADA
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+Queue is empty
+QUANTUM 48
+Não há processos na fila
+Processo escalonado: -1
+Não existe nenhum processo PRONTO para executar ERR_CPU_PARADA
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+4 
+QUANTUM 47
+Processo escalonado: 4
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: chamada de sistema 2
+Queue is empty
+QUANTUM 50
+Não há processos na fila
+Processo escalonado: -1
+Não existe nenhum processo PRONTO para executar ERR_CPU_PARADA
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+Queue is empty
+QUANTUM 49
+Não há processos na fila
+Processo escalonado: -1
+Não existe nenhum processo PRONTO para executar ERR_CPU_PARADA
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+Queue is empty
+QUANTUM 48
+Não há processos na fila
+Processo escalonado: -1
+Não existe nenhum processo PRONTO para executar ERR_CPU_PARADA
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+4 
+QUANTUM 47
+Processo escalonado: 4
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+Queue is empty
+QUANTUM 49
+Processo escalonado: 4
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: chamada de sistema 2
+Queue is empty
+QUANTUM 49
+Não há processos na fila
+Processo escalonado: -1
+Não existe nenhum processo PRONTO para executar ERR_CPU_PARADA
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+Queue is empty
+QUANTUM 48
+Não há processos na fila
+Processo escalonado: -1
+Não existe nenhum processo PRONTO para executar ERR_CPU_PARADA
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+4 
+QUANTUM 47
+Processo escalonado: 4
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: chamada de sistema 2
+Queue is empty
+QUANTUM 50
+Não há processos na fila
+Processo escalonado: -1
+Não existe nenhum processo PRONTO para executar ERR_CPU_PARADA
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+Queue is empty
+QUANTUM 49
+Não há processos na fila
+Processo escalonado: -1
+Não existe nenhum processo PRONTO para executar ERR_CPU_PARADA
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+Queue is empty
+QUANTUM 48
+Não há processos na fila
+Processo escalonado: -1
+Não existe nenhum processo PRONTO para executar ERR_CPU_PARADA
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+4 
+QUANTUM 47
+Processo escalonado: 4
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: chamada de sistema 2
+Queue is empty
+QUANTUM 50
+Não há processos na fila
+Processo escalonado: -1
+Não existe nenhum processo PRONTO para executar ERR_CPU_PARADA
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+Queue is empty
+QUANTUM 49
+Não há processos na fila
+Processo escalonado: -1
+Não existe nenhum processo PRONTO para executar ERR_CPU_PARADA
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+Queue is empty
+QUANTUM 48
+Não há processos na fila
+Processo escalonado: -1
+Não existe nenhum processo PRONTO para executar ERR_CPU_PARADA
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+4 
+QUANTUM 47
+Processo escalonado: 4
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+Queue is empty
+QUANTUM 49
+Processo escalonado: 4
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: chamada de sistema 2
+Queue is empty
+QUANTUM 49
+Não há processos na fila
+Processo escalonado: -1
+Não existe nenhum processo PRONTO para executar ERR_CPU_PARADA
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+Queue is empty
+QUANTUM 48
+Não há processos na fila
+Processo escalonado: -1
+Não existe nenhum processo PRONTO para executar ERR_CPU_PARADA
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+4 
+QUANTUM 47
+Processo escalonado: 4
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: chamada de sistema 2
+Queue is empty
+QUANTUM 50
+Não há processos na fila
+Processo escalonado: -1
+Não existe nenhum processo PRONTO para executar ERR_CPU_PARADA
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+Queue is empty
+QUANTUM 49
+Não há processos na fila
+Processo escalonado: -1
+Não existe nenhum processo PRONTO para executar ERR_CPU_PARADA
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+Queue is empty
+QUANTUM 48
+Não há processos na fila
+Processo escalonado: -1
+Não existe nenhum processo PRONTO para executar ERR_CPU_PARADA
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+4 
+QUANTUM 47
+Processo escalonado: 4
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: chamada de sistema 2
+Queue is empty
+QUANTUM 50
+Não há processos na fila
+Processo escalonado: -1
+Não existe nenhum processo PRONTO para executar ERR_CPU_PARADA
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+Queue is empty
+QUANTUM 49
+Não há processos na fila
+Processo escalonado: -1
+Não existe nenhum processo PRONTO para executar ERR_CPU_PARADA
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+Queue is empty
+QUANTUM 48
+Não há processos na fila
+Processo escalonado: -1
+Não existe nenhum processo PRONTO para executar ERR_CPU_PARADA
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+4 
+QUANTUM 47
+Processo escalonado: 4
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+Queue is empty
+QUANTUM 49
+Processo escalonado: 4
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: chamada de sistema 2
+Queue is empty
+QUANTUM 49
+Não há processos na fila
+Processo escalonado: -1
+Não existe nenhum processo PRONTO para executar ERR_CPU_PARADA
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+Queue is empty
+QUANTUM 48
+Não há processos na fila
+Processo escalonado: -1
+Não existe nenhum processo PRONTO para executar ERR_CPU_PARADA
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+4 
+QUANTUM 47
+Processo escalonado: 4
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: chamada de sistema 2
+Queue is empty
+QUANTUM 50
+Não há processos na fila
+Processo escalonado: -1
+Não existe nenhum processo PRONTO para executar ERR_CPU_PARADA
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+Queue is empty
+QUANTUM 49
+Não há processos na fila
+Processo escalonado: -1
+Não existe nenhum processo PRONTO para executar ERR_CPU_PARADA
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+Queue is empty
+QUANTUM 48
+Não há processos na fila
+Processo escalonado: -1
+Não existe nenhum processo PRONTO para executar ERR_CPU_PARADA
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+4 
+QUANTUM 47
+Processo escalonado: 4
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: chamada de sistema 2
+Queue is empty
+QUANTUM 50
+Não há processos na fila
+Processo escalonado: -1
+Não existe nenhum processo PRONTO para executar ERR_CPU_PARADA
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+Queue is empty
+QUANTUM 49
+Não há processos na fila
+Processo escalonado: -1
+Não existe nenhum processo PRONTO para executar ERR_CPU_PARADA
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+Queue is empty
+QUANTUM 48
+Não há processos na fila
+Processo escalonado: -1
+Não existe nenhum processo PRONTO para executar ERR_CPU_PARADA
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+4 
+QUANTUM 47
+Processo escalonado: 4
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+Queue is empty
+QUANTUM 49
+Processo escalonado: 4
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: chamada de sistema 2
+Queue is empty
+QUANTUM 49
+Não há processos na fila
+Processo escalonado: -1
+Não existe nenhum processo PRONTO para executar ERR_CPU_PARADA
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+Queue is empty
+QUANTUM 48
+Não há processos na fila
+Processo escalonado: -1
+Não existe nenhum processo PRONTO para executar ERR_CPU_PARADA
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+4 
+QUANTUM 47
+Processo escalonado: 4
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: chamada de sistema 2
+Queue is empty
+QUANTUM 50
+Não há processos na fila
+Processo escalonado: -1
+Não existe nenhum processo PRONTO para executar ERR_CPU_PARADA
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+Queue is empty
+QUANTUM 49
+Não há processos na fila
+Processo escalonado: -1
+Não existe nenhum processo PRONTO para executar ERR_CPU_PARADA
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+Queue is empty
+QUANTUM 48
+Não há processos na fila
+Processo escalonado: -1
+Não existe nenhum processo PRONTO para executar ERR_CPU_PARADA
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+4 
+QUANTUM 47
+Processo escalonado: 4
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: chamada de sistema 2
+Queue is empty
+QUANTUM 50
+Não há processos na fila
+Processo escalonado: -1
+Não existe nenhum processo PRONTO para executar ERR_CPU_PARADA
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+Queue is empty
+QUANTUM 49
+Não há processos na fila
+Processo escalonado: -1
+Não existe nenhum processo PRONTO para executar ERR_CPU_PARADA
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+Queue is empty
+QUANTUM 48
+Não há processos na fila
+Processo escalonado: -1
+Não existe nenhum processo PRONTO para executar ERR_CPU_PARADA
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+4 
+QUANTUM 47
+Processo escalonado: 4
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+Queue is empty
+QUANTUM 49
+Processo escalonado: 4
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: chamada de sistema 2
+Queue is empty
+QUANTUM 49
+Não há processos na fila
+Processo escalonado: -1
+Não existe nenhum processo PRONTO para executar ERR_CPU_PARADA
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+Queue is empty
+QUANTUM 48
+Não há processos na fila
+Processo escalonado: -1
+Não existe nenhum processo PRONTO para executar ERR_CPU_PARADA
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+4 
+QUANTUM 47
+Processo escalonado: 4
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: chamada de sistema 2
+Queue is empty
+QUANTUM 50
+Não há processos na fila
+Processo escalonado: -1
+Não existe nenhum processo PRONTO para executar ERR_CPU_PARADA
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+Queue is empty
+QUANTUM 49
+Não há processos na fila
+Processo escalonado: -1
+Não existe nenhum processo PRONTO para executar ERR_CPU_PARADA
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+Queue is empty
+QUANTUM 48
+Não há processos na fila
+Processo escalonado: -1
+Não existe nenhum processo PRONTO para executar ERR_CPU_PARADA
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+4 
+QUANTUM 47
+Processo escalonado: 4
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: chamada de sistema 2
+Queue is empty
+QUANTUM 50
+Não há processos na fila
+Processo escalonado: -1
+Não existe nenhum processo PRONTO para executar ERR_CPU_PARADA
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+Queue is empty
+QUANTUM 49
+Não há processos na fila
+Processo escalonado: -1
+Não existe nenhum processo PRONTO para executar ERR_CPU_PARADA
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+Queue is empty
+QUANTUM 48
+Não há processos na fila
+Processo escalonado: -1
+Não existe nenhum processo PRONTO para executar ERR_CPU_PARADA
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+4 
+QUANTUM 47
+Processo escalonado: 4
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+Queue is empty
+QUANTUM 49
+Processo escalonado: 4
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: chamada de sistema 2
+Queue is empty
+QUANTUM 49
+Não há processos na fila
+Processo escalonado: -1
+Não existe nenhum processo PRONTO para executar ERR_CPU_PARADA
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+Queue is empty
+QUANTUM 48
+Não há processos na fila
+Processo escalonado: -1
+Não existe nenhum processo PRONTO para executar ERR_CPU_PARADA
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+4 
+QUANTUM 47
+Processo escalonado: 4
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: chamada de sistema 2
+Queue is empty
+QUANTUM 50
+Não há processos na fila
+Processo escalonado: -1
+Não existe nenhum processo PRONTO para executar ERR_CPU_PARADA
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+Queue is empty
+QUANTUM 49
+Não há processos na fila
+Processo escalonado: -1
+Não existe nenhum processo PRONTO para executar ERR_CPU_PARADA
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+Queue is empty
+QUANTUM 48
+Não há processos na fila
+Processo escalonado: -1
+Não existe nenhum processo PRONTO para executar ERR_CPU_PARADA
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+4 
+QUANTUM 47
+Processo escalonado: 4
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: chamada de sistema 2
+Queue is empty
+QUANTUM 50
+Não há processos na fila
+Processo escalonado: -1
+Não existe nenhum processo PRONTO para executar ERR_CPU_PARADA
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+Queue is empty
+QUANTUM 49
+Não há processos na fila
+Processo escalonado: -1
+Não existe nenhum processo PRONTO para executar ERR_CPU_PARADA
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+Queue is empty
+QUANTUM 48
+Não há processos na fila
+Processo escalonado: -1
+Não existe nenhum processo PRONTO para executar ERR_CPU_PARADA
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+4 
+QUANTUM 47
+Processo escalonado: 4
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+Queue is empty
+QUANTUM 49
+Processo escalonado: 4
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: chamada de sistema 2
+Queue is empty
+QUANTUM 49
+Não há processos na fila
+Processo escalonado: -1
+Não existe nenhum processo PRONTO para executar ERR_CPU_PARADA
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+Queue is empty
+QUANTUM 48
+Não há processos na fila
+Processo escalonado: -1
+Não existe nenhum processo PRONTO para executar ERR_CPU_PARADA
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+4 
+QUANTUM 47
+Processo escalonado: 4
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: chamada de sistema 2
+Queue is empty
+QUANTUM 50
+Não há processos na fila
+Processo escalonado: -1
+Não existe nenhum processo PRONTO para executar ERR_CPU_PARADA
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+Queue is empty
+QUANTUM 49
+Não há processos na fila
+Processo escalonado: -1
+Não existe nenhum processo PRONTO para executar ERR_CPU_PARADA
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+Queue is empty
+QUANTUM 48
+Não há processos na fila
+Processo escalonado: -1
+Não existe nenhum processo PRONTO para executar ERR_CPU_PARADA
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+4 
+QUANTUM 47
+Processo escalonado: 4
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: chamada de sistema 2
+Queue is empty
+QUANTUM 50
+Não há processos na fila
+Processo escalonado: -1
+Não existe nenhum processo PRONTO para executar ERR_CPU_PARADA
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+Queue is empty
+QUANTUM 49
+Não há processos na fila
+Processo escalonado: -1
+Não existe nenhum processo PRONTO para executar ERR_CPU_PARADA
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+Queue is empty
+QUANTUM 48
+Não há processos na fila
+Processo escalonado: -1
+Não existe nenhum processo PRONTO para executar ERR_CPU_PARADA
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+4 
+QUANTUM 47
+Processo escalonado: 4
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+Queue is empty
+QUANTUM 49
+Processo escalonado: 4
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: chamada de sistema 2
+Queue is empty
+QUANTUM 49
+Não há processos na fila
+Processo escalonado: -1
+Não existe nenhum processo PRONTO para executar ERR_CPU_PARADA
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+Queue is empty
+QUANTUM 48
+Não há processos na fila
+Processo escalonado: -1
+Não existe nenhum processo PRONTO para executar ERR_CPU_PARADA
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+4 
+QUANTUM 47
+Processo escalonado: 4
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: chamada de sistema 2
+Queue is empty
+QUANTUM 50
+Não há processos na fila
+Processo escalonado: -1
+Não existe nenhum processo PRONTO para executar ERR_CPU_PARADA
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+Queue is empty
+QUANTUM 49
+Não há processos na fila
+Processo escalonado: -1
+Não existe nenhum processo PRONTO para executar ERR_CPU_PARADA
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+Queue is empty
+QUANTUM 48
+Não há processos na fila
+Processo escalonado: -1
+Não existe nenhum processo PRONTO para executar ERR_CPU_PARADA
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+4 
+QUANTUM 47
+Processo escalonado: 4
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: chamada de sistema 2
+Queue is empty
+QUANTUM 50
+Não há processos na fila
+Processo escalonado: -1
+Não existe nenhum processo PRONTO para executar ERR_CPU_PARADA
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+Queue is empty
+QUANTUM 49
+Não há processos na fila
+Processo escalonado: -1
+Não existe nenhum processo PRONTO para executar ERR_CPU_PARADA
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+Queue is empty
+QUANTUM 48
+Não há processos na fila
+Processo escalonado: -1
+Não existe nenhum processo PRONTO para executar ERR_CPU_PARADA
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+4 
+QUANTUM 47
+Processo escalonado: 4
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+Queue is empty
+QUANTUM 49
+Processo escalonado: 4
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: chamada de sistema 2
+Queue is empty
+QUANTUM 49
+Não há processos na fila
+Processo escalonado: -1
+Não existe nenhum processo PRONTO para executar ERR_CPU_PARADA
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+Queue is empty
+QUANTUM 48
+Não há processos na fila
+Processo escalonado: -1
+Não existe nenhum processo PRONTO para executar ERR_CPU_PARADA
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+4 
+QUANTUM 47
+Processo escalonado: 4
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: chamada de sistema 2
+Queue is empty
+QUANTUM 50
+Não há processos na fila
+Processo escalonado: -1
+Não existe nenhum processo PRONTO para executar ERR_CPU_PARADA
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+Queue is empty
+QUANTUM 49
+Não há processos na fila
+Processo escalonado: -1
+Não existe nenhum processo PRONTO para executar ERR_CPU_PARADA
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+Queue is empty
+QUANTUM 48
+Não há processos na fila
+Processo escalonado: -1
+Não existe nenhum processo PRONTO para executar ERR_CPU_PARADA
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+4 
+QUANTUM 47
+Processo escalonado: 4
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: chamada de sistema 2
+Queue is empty
+QUANTUM 50
+Não há processos na fila
+Processo escalonado: -1
+Não existe nenhum processo PRONTO para executar ERR_CPU_PARADA
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+Queue is empty
+QUANTUM 49
+Não há processos na fila
+Processo escalonado: -1
+Não existe nenhum processo PRONTO para executar ERR_CPU_PARADA
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+Queue is empty
+QUANTUM 48
+Não há processos na fila
+Processo escalonado: -1
+Não existe nenhum processo PRONTO para executar ERR_CPU_PARADA
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+4 
+QUANTUM 47
+Processo escalonado: 4
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+Queue is empty
+QUANTUM 49
+Processo escalonado: 4
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: chamada de sistema 2
+Queue is empty
+QUANTUM 49
+Não há processos na fila
+Processo escalonado: -1
+Não existe nenhum processo PRONTO para executar ERR_CPU_PARADA
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+Queue is empty
+QUANTUM 48
+Não há processos na fila
+Processo escalonado: -1
+Não existe nenhum processo PRONTO para executar ERR_CPU_PARADA
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+4 
+QUANTUM 47
+Processo escalonado: 4
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: chamada de sistema 2
+Queue is empty
+QUANTUM 50
+Não há processos na fila
+Processo escalonado: -1
+Não existe nenhum processo PRONTO para executar ERR_CPU_PARADA
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+Queue is empty
+QUANTUM 49
+Não há processos na fila
+Processo escalonado: -1
+Não existe nenhum processo PRONTO para executar ERR_CPU_PARADA
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+Queue is empty
+QUANTUM 48
+Não há processos na fila
+Processo escalonado: -1
+Não existe nenhum processo PRONTO para executar ERR_CPU_PARADA
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+4 
+QUANTUM 47
+Processo escalonado: 4
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: chamada de sistema 2
+Queue is empty
+QUANTUM 50
+Não há processos na fila
+Processo escalonado: -1
+Não existe nenhum processo PRONTO para executar ERR_CPU_PARADA
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+Queue is empty
+QUANTUM 49
+Não há processos na fila
+Processo escalonado: -1
+Não existe nenhum processo PRONTO para executar ERR_CPU_PARADA
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+Queue is empty
+QUANTUM 48
+Não há processos na fila
+Processo escalonado: -1
+Não existe nenhum processo PRONTO para executar ERR_CPU_PARADA
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+4 
+QUANTUM 47
+Processo escalonado: 4
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+Queue is empty
+QUANTUM 49
+Processo escalonado: 4
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: chamada de sistema 2
+Queue is empty
+QUANTUM 49
+Não há processos na fila
+Processo escalonado: -1
+Não existe nenhum processo PRONTO para executar ERR_CPU_PARADA
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+Queue is empty
+QUANTUM 48
+Não há processos na fila
+Processo escalonado: -1
+Não existe nenhum processo PRONTO para executar ERR_CPU_PARADA
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+4 
+QUANTUM 47
+Processo escalonado: 4
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: chamada de sistema 2
+Queue is empty
+QUANTUM 50
+Não há processos na fila
+Processo escalonado: -1
+Não existe nenhum processo PRONTO para executar ERR_CPU_PARADA
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+Queue is empty
+QUANTUM 49
+Não há processos na fila
+Processo escalonado: -1
+Não existe nenhum processo PRONTO para executar ERR_CPU_PARADA
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+Queue is empty
+QUANTUM 48
+Não há processos na fila
+Processo escalonado: -1
+Não existe nenhum processo PRONTO para executar ERR_CPU_PARADA
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+4 
+QUANTUM 47
+Processo escalonado: 4
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: chamada de sistema 2
+Queue is empty
+QUANTUM 50
+Não há processos na fila
+Processo escalonado: -1
+Não existe nenhum processo PRONTO para executar ERR_CPU_PARADA
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+Queue is empty
+QUANTUM 49
+Não há processos na fila
+Processo escalonado: -1
+Não existe nenhum processo PRONTO para executar ERR_CPU_PARADA
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+Queue is empty
+QUANTUM 48
+Não há processos na fila
+Processo escalonado: -1
+Não existe nenhum processo PRONTO para executar ERR_CPU_PARADA
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+4 
+QUANTUM 47
+Processo escalonado: 4
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+Queue is empty
+QUANTUM 49
+Processo escalonado: 4
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: chamada de sistema 2
+Queue is empty
+QUANTUM 49
+Não há processos na fila
+Processo escalonado: -1
+Não existe nenhum processo PRONTO para executar ERR_CPU_PARADA
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+Queue is empty
+QUANTUM 48
+Não há processos na fila
+Processo escalonado: -1
+Não existe nenhum processo PRONTO para executar ERR_CPU_PARADA
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+4 
+QUANTUM 47
+Processo escalonado: 4
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: chamada de sistema 2
+Queue is empty
+QUANTUM 50
+Não há processos na fila
+Processo escalonado: -1
+Não existe nenhum processo PRONTO para executar ERR_CPU_PARADA
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+Queue is empty
+QUANTUM 49
+Não há processos na fila
+Processo escalonado: -1
+Não existe nenhum processo PRONTO para executar ERR_CPU_PARADA
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+Queue is empty
+QUANTUM 48
+Não há processos na fila
+Processo escalonado: -1
+Não existe nenhum processo PRONTO para executar ERR_CPU_PARADA
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+4 
+QUANTUM 47
+Processo escalonado: 4
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: chamada de sistema 2
+Queue is empty
+QUANTUM 50
+Não há processos na fila
+Processo escalonado: -1
+Não existe nenhum processo PRONTO para executar ERR_CPU_PARADA
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+Queue is empty
+QUANTUM 49
+Não há processos na fila
+Processo escalonado: -1
+Não existe nenhum processo PRONTO para executar ERR_CPU_PARADA
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+Queue is empty
+QUANTUM 48
+Não há processos na fila
+Processo escalonado: -1
+Não existe nenhum processo PRONTO para executar ERR_CPU_PARADA
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+4 
+QUANTUM 47
+Processo escalonado: 4
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+Queue is empty
+QUANTUM 49
+Processo escalonado: 4
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: chamada de sistema 2
+Queue is empty
+QUANTUM 49
+Não há processos na fila
+Processo escalonado: -1
+Não existe nenhum processo PRONTO para executar ERR_CPU_PARADA
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+Queue is empty
+QUANTUM 48
+Não há processos na fila
+Processo escalonado: -1
+Não existe nenhum processo PRONTO para executar ERR_CPU_PARADA
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+4 
+QUANTUM 47
+Processo escalonado: 4
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: chamada de sistema 2
+Queue is empty
+QUANTUM 50
+Não há processos na fila
+Processo escalonado: -1
+Não existe nenhum processo PRONTO para executar ERR_CPU_PARADA
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+Queue is empty
+QUANTUM 49
+Não há processos na fila
+Processo escalonado: -1
+Não existe nenhum processo PRONTO para executar ERR_CPU_PARADA
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+Queue is empty
+QUANTUM 48
+Não há processos na fila
+Processo escalonado: -1
+Não existe nenhum processo PRONTO para executar ERR_CPU_PARADA
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+4 
+QUANTUM 47
+Processo escalonado: 4
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: chamada de sistema 2
+Queue is empty
+QUANTUM 50
+Não há processos na fila
+Processo escalonado: -1
+Não existe nenhum processo PRONTO para executar ERR_CPU_PARADA
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+Queue is empty
+QUANTUM 49
+Não há processos na fila
+Processo escalonado: -1
+Não existe nenhum processo PRONTO para executar ERR_CPU_PARADA
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+Queue is empty
+QUANTUM 48
+Não há processos na fila
+Processo escalonado: -1
+Não existe nenhum processo PRONTO para executar ERR_CPU_PARADA
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+4 
+QUANTUM 47
+Processo escalonado: 4
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+Queue is empty
+QUANTUM 49
+Processo escalonado: 4
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: chamada de sistema 2
+Queue is empty
+QUANTUM 49
+Não há processos na fila
+Processo escalonado: -1
+Não existe nenhum processo PRONTO para executar ERR_CPU_PARADA
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+Queue is empty
+QUANTUM 48
+Não há processos na fila
+Processo escalonado: -1
+Não existe nenhum processo PRONTO para executar ERR_CPU_PARADA
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+4 
+QUANTUM 47
+Processo escalonado: 4
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: chamada de sistema 2
+Queue is empty
+QUANTUM 50
+Não há processos na fila
+Processo escalonado: -1
+Não existe nenhum processo PRONTO para executar ERR_CPU_PARADA
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+Queue is empty
+QUANTUM 49
+Não há processos na fila
+Processo escalonado: -1
+Não existe nenhum processo PRONTO para executar ERR_CPU_PARADA
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+Queue is empty
+QUANTUM 48
+Não há processos na fila
+Processo escalonado: -1
+Não existe nenhum processo PRONTO para executar ERR_CPU_PARADA
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+4 
+QUANTUM 47
+Processo escalonado: 4
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: chamada de sistema 2
+Queue is empty
+QUANTUM 50
+Não há processos na fila
+Processo escalonado: -1
+Não existe nenhum processo PRONTO para executar ERR_CPU_PARADA
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+Queue is empty
+QUANTUM 49
+Não há processos na fila
+Processo escalonado: -1
+Não existe nenhum processo PRONTO para executar ERR_CPU_PARADA
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+Queue is empty
+QUANTUM 48
+Não há processos na fila
+Processo escalonado: -1
+Não existe nenhum processo PRONTO para executar ERR_CPU_PARADA
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+4 
+QUANTUM 47
+Processo escalonado: 4
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+Queue is empty
+QUANTUM 49
+Processo escalonado: 4
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: chamada de sistema 2
+Queue is empty
+QUANTUM 49
+Não há processos na fila
+Processo escalonado: -1
+Não existe nenhum processo PRONTO para executar ERR_CPU_PARADA
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+Queue is empty
+QUANTUM 48
+Não há processos na fila
+Processo escalonado: -1
+Não existe nenhum processo PRONTO para executar ERR_CPU_PARADA
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+4 
+QUANTUM 47
+Processo escalonado: 4
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: chamada de sistema 2
+Queue is empty
+QUANTUM 50
+Não há processos na fila
+Processo escalonado: -1
+Não existe nenhum processo PRONTO para executar ERR_CPU_PARADA
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+Queue is empty
+QUANTUM 49
+Não há processos na fila
+Processo escalonado: -1
+Não existe nenhum processo PRONTO para executar ERR_CPU_PARADA
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+Queue is empty
+QUANTUM 48
+Não há processos na fila
+Processo escalonado: -1
+Não existe nenhum processo PRONTO para executar ERR_CPU_PARADA
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+4 
+QUANTUM 47
+Processo escalonado: 4
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: chamada de sistema 2
+Queue is empty
+QUANTUM 50
+Não há processos na fila
+Processo escalonado: -1
+Não existe nenhum processo PRONTO para executar ERR_CPU_PARADA
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+Queue is empty
+QUANTUM 49
+Não há processos na fila
+Processo escalonado: -1
+Não existe nenhum processo PRONTO para executar ERR_CPU_PARADA
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+Queue is empty
+QUANTUM 48
+Não há processos na fila
+Processo escalonado: -1
+Não existe nenhum processo PRONTO para executar ERR_CPU_PARADA
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+4 
+QUANTUM 47
+Processo escalonado: 4
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: chamada de sistema 2
+Queue is empty
+QUANTUM 50
+Não há processos na fila
+Processo escalonado: -1
+Não existe nenhum processo PRONTO para executar ERR_CPU_PARADA
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+Queue is empty
+QUANTUM 49
+Não há processos na fila
+Processo escalonado: -1
+Não existe nenhum processo PRONTO para executar ERR_CPU_PARADA
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+Queue is empty
+QUANTUM 48
+Não há processos na fila
+Processo escalonado: -1
+Não existe nenhum processo PRONTO para executar ERR_CPU_PARADA
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+4 
+QUANTUM 47
+Processo escalonado: 4
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: chamada de sistema 8
+1 
+QUANTUM 0
+Processo escalonado: 1
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: chamada de sistema 2
+Queue is empty
+QUANTUM 50
+Processo escalonado: 1
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: chamada de sistema 2
+Queue is empty
+QUANTUM 50
+Processo escalonado: 1
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+Queue is empty
+QUANTUM 49
+Processo escalonado: 1
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: chamada de sistema 2
+Queue is empty
+QUANTUM 49
+Processo escalonado: 1
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: chamada de sistema 2
+Queue is empty
+QUANTUM 49
+Processo escalonado: 1
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: chamada de sistema 2
+Queue is empty
+QUANTUM 49
+Processo escalonado: 1
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+Queue is empty
+QUANTUM 48
+Processo escalonado: 1
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: chamada de sistema 2
+Queue is empty
+QUANTUM 48
+Processo escalonado: 1
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: chamada de sistema 2
+Queue is empty
+QUANTUM 48
+Processo escalonado: 1
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: chamada de sistema 2
+Queue is empty
+QUANTUM 48
+Processo escalonado: 1
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: chamada de sistema 2
+Queue is empty
+QUANTUM 48
+Processo escalonado: 1
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+Queue is empty
+QUANTUM 47
+Processo escalonado: 1
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: chamada de sistema 2
+Queue is empty
+QUANTUM 47
+Processo escalonado: 1
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: chamada de sistema 2
+Queue is empty
+QUANTUM 47
+Processo escalonado: 1
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: chamada de sistema 2
+Queue is empty
+QUANTUM 47
+Processo escalonado: 1
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+Queue is empty
+QUANTUM 46
+Processo escalonado: 1
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: chamada de sistema 2
+Queue is empty
+QUANTUM 46
+Processo escalonado: 1
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: chamada de sistema 2
+Queue is empty
+QUANTUM 46
+Processo escalonado: 1
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: chamada de sistema 2
+Queue is empty
+QUANTUM 46
+Processo escalonado: 1
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+Queue is empty
+QUANTUM 45
+Processo escalonado: 1
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: chamada de sistema 2
+Queue is empty
+QUANTUM 45
+Processo escalonado: 1
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: chamada de sistema 2
+Queue is empty
+QUANTUM 45
+Processo escalonado: 1
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: chamada de sistema 2
+Queue is empty
+QUANTUM 45
+Processo escalonado: 1
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+Queue is empty
+QUANTUM 44
+Processo escalonado: 1
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: chamada de sistema 8
+
+
+*--------------------------------------- RELATÓRIO DE SISTEMA ---------------------------------------*
+
+         - Quantidade de processos criados: 4
+         - Quantidade de preempções totais: 114
+         - Tempo ocioso: 614
+         - Quantidade de preempções por processo:
+             - PID 1: 3 preempções
+             - PID 2: 4 preempções
+             - PID 3: 2 preempções
+             - PID 4: 105 preempções
+         - Tempo de retorno de cada processo:
+             - PID 1: 30025 por interrupção
+             - PID 2: 363 por interrupção
+             - PID 3: 370 por interrupção
+             - PID 4: 26363 por interrupção
+         - Tempo total de cada processo em cada estado:
+             - PID 1: PRONTO: 30025; EXECUCAO: 30013, BLOQUEADO: 14924
+             - PID 2: PRONTO: 363; EXECUCAO: 6313, BLOQUEADO: 0
+             - PID 3: PRONTO: 370; EXECUCAO: 7632, BLOQUEADO: 0
+             - PID 4: PRONTO: 26363; EXECUCAO: 26363, BLOQUEADO: 26231
+         - Quantidade de estados por processo:
+             - PID 1: PRONTO: 3; EXECUCAO: 61, BLOQUEADO: 2
+             - PID 2: PRONTO: 1; EXECUCAO: 268, BLOQUEADO: 0
+             - PID 3: PRONTO: 1; EXECUCAO: 180, BLOQUEADO: 0
+             - PID 4: PRONTO: 105; EXECUCAO: 298, BLOQUEADO: 104
+         - Quantidade de interrupcões: 
+             - IRQ_RESET: 1
+             - IRQ_ERR_CPU: 0
+             - IRQ_SISTEMA: 462
+             - IRQ_RELOGIO: 614
+             - IRQ_TECLADO: 0
+             - IRQ_TELA: 0
+
+*---------------------------------------------------------------------------------------------------*
+
+
+Queue is empty
+QUANTUM 0
+Não há processos na fila
+Processo escalonado: -1
+Não existe nenhum processo PRONTO para executar ERR_CPU_PARADA
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+Queue is empty
+QUANTUM -1
+Não há processos na fila
+Processo escalonado: -1
+Não existe nenhum processo PRONTO para executar ERR_CPU_PARADA
+f
+Fim da execução.
+relógio: 179326
