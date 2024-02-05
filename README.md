@@ -20,7 +20,7 @@ O e-mail pode ser usado para o envio de perguntas, exercícios, reclamações, s
 
 Esta página concentrará os assuntos vistos em aula, a descrição de exercícios e trabalhos, avaliações, etc. Ela estará sendo aumentada/atualizada durante todo o semestre. Ela é o canal mais oficial de informações sobre a disciplina, e deve ser consultada frequentemente pelo aluno (sugiro habilitar notificações).
 
-A disciplina vai seguir de forma bastante próxima o assunto como ele é visto no livro
+A disciplina vai seguir de forma bastante próxima o assunto como ele é visto no livro:
 ```
    Sistemas Operacionais Modernos
    Andrew S Tanenbaum
